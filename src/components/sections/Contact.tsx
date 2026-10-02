@@ -27,7 +27,7 @@ function displayUrl(href: string): string {
 }
 
 const cardClass =
-  "group flex h-full flex-col justify-between gap-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-[border-color] duration-500 ease-out dark:border-slate-700/60 dark:bg-slate-800";
+  "group flex h-full items-center gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-[border-color] duration-500 ease-out dark:border-slate-700/60 dark:bg-slate-800";
 
 export async function Contact() {
   const t = await getT();
@@ -70,10 +70,10 @@ export async function Contact() {
         </p>
       </Reveal>
 
-      <Stagger as="ul" className="mt-12 grid gap-4 sm:grid-cols-3">
+      <Stagger as="ul" className="mt-12 grid gap-4 *:min-w-0 sm:grid-cols-3">
         <StaggerItem
           as="li"
-          className="relative overflow-hidden rounded-3xl border border-teal-200/70 bg-linear-to-br from-teal-50 via-white to-sky-50 p-6 sm:col-span-3 sm:p-8 dark:border-teal-400/20 dark:from-teal-400/10 dark:via-slate-800 dark:to-sky-400/10"
+          className="relative overflow-hidden rounded-3xl border border-teal-200/70 bg-linear-to-br from-teal-50 via-white to-sky-50 p-5 sm:col-span-3 sm:p-6 sm:p-8 dark:border-teal-400/20 dark:from-teal-400/10 dark:via-slate-800 dark:to-sky-400/10"
         >
           <div className="flex items-center gap-3">
             <span
@@ -87,11 +87,11 @@ export async function Contact() {
           </div>
           <a
             href={`mailto:${profile.email}`}
-            className="mt-5 block text-2xl font-semibold tracking-tight break-all text-slate-900 underline decoration-teal-300 decoration-2 underline-offset-8 transition-colors duration-300 hover:decoration-teal-600 sm:text-4xl dark:text-slate-50 dark:decoration-teal-400/40 dark:hover:decoration-teal-300"
+            className="mt-5 block text-xl font-semibold tracking-tight break-all text-slate-900 underline decoration-teal-300 decoration-2 underline-offset-8 transition-colors duration-300 hover:decoration-teal-600 min-[400px]:text-2xl sm:text-4xl dark:text-slate-50 dark:decoration-teal-400/40 dark:hover:decoration-teal-300"
           >
             {profile.email}
           </a>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 grid gap-2.5 min-[360px]:grid-cols-2 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
             <ButtonLink href={`mailto:${profile.email}`} arrow="right">
               {t("contact.send")}
             </ButtonLink>
@@ -114,17 +114,12 @@ export async function Contact() {
                   rel="noopener noreferrer"
                   className={`${cardClass} ${tone.card}`}
                 >
-                  <div className="flex items-center justify-between">
-                    <span
-                      className={`inline-flex size-10 items-center justify-center rounded-xl ${tone.iconBox}`}
-                    >
-                      <SocialIcon label={social.label} />
-                    </span>
-                    <span className={tone.text}>
-                      <Nudge direction="up-right">↗</Nudge>
-                    </span>
-                  </div>
-                  <div>
+                  <span
+                    className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${tone.iconBox}`}
+                  >
+                    <SocialIcon label={social.label} />
+                  </span>
+                  <div className="min-w-0 flex-1">
                     <p className="font-semibold text-slate-900 dark:text-slate-50">
                       {social.label}
                     </p>
@@ -132,6 +127,9 @@ export async function Contact() {
                       {displayUrl(social.href)}
                     </p>
                   </div>
+                  <span className={`shrink-0 ${tone.text}`}>
+                    <Nudge direction="up-right">↗</Nudge>
+                  </span>
                 </a>
               </Pressable>
             </StaggerItem>
@@ -145,29 +143,24 @@ export async function Contact() {
               download
               className={`${cardClass} ${tones.amber.card}`}
             >
-              <div className="flex items-center justify-between">
-                <span
-                  className={`inline-flex size-10 items-center justify-center rounded-xl ${tones.amber.iconBox}`}
+              <span
+                className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${tones.amber.iconBox}`}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="size-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    className="size-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
-                    <path d="M14 2v6h6M12 12v6M9 15l3 3 3-3" />
-                  </svg>
-                </span>
-                <span className={tones.amber.text}>
-                  <Nudge direction="down">↓</Nudge>
-                </span>
-              </div>
-              <div>
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                  <path d="M14 2v6h6M12 12v6M9 15l3 3 3-3" />
+                </svg>
+              </span>
+              <div className="min-w-0 flex-1">
                 <p className="font-semibold text-slate-900 dark:text-slate-50">
                   {t("contact.cv")}
                 </p>
@@ -175,6 +168,9 @@ export async function Contact() {
                   {t("contact.cvAction")}
                 </p>
               </div>
+              <span className={`shrink-0 ${tones.amber.text}`}>
+                <Nudge direction="down">↓</Nudge>
+              </span>
             </a>
           </Pressable>
         </StaggerItem>

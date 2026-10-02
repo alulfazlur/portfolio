@@ -32,7 +32,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={headingId}
-      className="relative isolate overflow-x-clip py-20 sm:py-28"
+      className="relative isolate overflow-x-clip py-14 sm:py-20"
     >
       <div
         aria-hidden="true"

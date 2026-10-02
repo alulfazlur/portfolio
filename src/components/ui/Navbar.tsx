@@ -3,6 +3,7 @@ import { profile } from "@/content/profile";
 import { getLocale, getT } from "@/lib/i18n";
 import { Container } from "./Container";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { Logo } from "./Logo";
 import type { NavId } from "./NavIcon";
 import { CommandBar } from "./CommandBar";
 import { ThemeToggle } from "./ThemeToggle";
@@ -28,10 +29,10 @@ export async function Navbar() {
         <Container className="flex h-16 items-center justify-between gap-4">
           <Link
             href={homeHref}
-            className="font-mono text-sm font-medium text-slate-900 dark:text-slate-50"
+            aria-label={profile.name}
+            className="inline-flex size-10 overflow-hidden rounded-[0.8rem] shadow-md shadow-teal-900/20"
           >
-            {profile.nickname.toLowerCase()}
-            <span className="text-accent-2 dark:text-accent-2-soft">.</span>
+            <Logo className="size-full" gradientId="logo-gradient-topbar" />
           </Link>
           <div className="flex items-center gap-2">
             <LanguageSwitcher

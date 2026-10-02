@@ -51,7 +51,7 @@ export function CodeCard({
           {fileName}
         </span>
       </div>
-      <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-7 sm:p-6 sm:text-sm">
+      <pre className="p-5 font-mono text-[13px] leading-7 break-words whitespace-pre-wrap sm:p-6 sm:text-sm">
         <code>
           <Stagger as="span" className="block">
             <Line>

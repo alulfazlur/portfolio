@@ -39,7 +39,7 @@ export function CommandBar({
           aria-label={logoLabel}
           className="hidden size-11 shrink-0 overflow-hidden rounded-[0.9rem] shadow-md shadow-teal-900/20 transition-transform duration-300 ease-out hover:scale-105 hover:-rotate-6 md:inline-flex"
         >
-          <Logo className="size-full" />
+          <Logo className="size-full" gradientId="logo-gradient-bar" />
         </Link>
         <span
           aria-hidden="true"

@@ -1,14 +1,21 @@
 /** Logo `<a/>`, sama dengan favicon (src/app/icon.svg). */
-export function Logo({ className }: { className?: string }) {
+export function Logo({
+  className,
+  gradientId,
+}: {
+  className?: string;
+  /** Harus unik per instance di satu halaman (SVG gradient dirujuk lewat id). */
+  gradientId: string;
+}) {
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true" className={className}>
       <defs>
-        <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#0f766e" />
           <stop offset="1" stopColor="#0369a1" />
         </linearGradient>
       </defs>
-      <rect width="64" height="64" rx="15" fill="url(#logo-gradient)" />
+      <rect width="64" height="64" rx="15" fill={`url(#${gradientId})`} />
       <g
         fill="none"
         strokeLinecap="round"
