@@ -37,7 +37,7 @@ export const id: Messages = {
         label: "Sekarang",
         value: "Associate Software Engineer di ICUBE",
       },
-      education: { label: "Pendidikan", value: "S1 Statistika, ITS" },
+      education: { label: "Pendidikan", value: "S1 Statistika (S.Stat.), ITS" },
     },
     contactBlurb:
       "Aku terbuka untuk posisi frontend engineer maupun proyek freelance. Cara paling cepat untuk menghubungiku lewat email, ya.",

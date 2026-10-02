@@ -37,7 +37,7 @@ export const en: Messages = {
         label: "Currently",
         value: "Associate Software Engineer at ICUBE",
       },
-      education: { label: "Education", value: "B.Sc. Statistics, ITS" },
+      education: { label: "Education", value: "S.Stat. (Statistics), ITS" },
     },
     contactBlurb:
       "I'm open to frontend engineering roles and freelance projects. Email is the fastest way to reach me.",
