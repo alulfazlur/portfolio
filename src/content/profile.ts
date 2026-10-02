@@ -1,3 +1,4 @@
+import profilePhoto from "../../public/images/profile.jpeg";
 import type { Profile } from "./types";
 
 export const profile: Profile = {
@@ -7,5 +8,5 @@ export const profile: Profile = {
   stack: ["Next.js", "React", "JavaScript", "TypeScript", "GraphQL"],
   email: "alulfazlur@gmail.com",
   cvHref: "/doc/Fazlur Rahman Resume.pdf",
-  photo: "/images/profile.jpg",
+  photo: profilePhoto,
 };

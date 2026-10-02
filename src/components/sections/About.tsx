@@ -39,10 +39,9 @@ export async function About() {
               src={profile.photo}
               alt={t("about.photoAlt", { name: profile.name })}
               loading="eager"
-              width={500}
-              height={500}
+              placeholder="blur"
               sizes="(min-width: 768px) 400px, 100vw"
-              className="aspect-square w-full rounded-3xl object-cover ring-4 ring-slate-50 transition-transform duration-500 ease-out group-hover:-rotate-1 dark:ring-slate-900"
+              className="aspect-square w-full rounded-3xl object-cover object-[center_40%] ring-4 ring-slate-50 transition-transform duration-500 ease-out group-hover:-rotate-1 dark:ring-slate-900"
             />
           </div>
         </Reveal>

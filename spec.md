@@ -46,7 +46,7 @@ Locale-less paths (e.g. `/projects/swiftoms`) are redirected by `src/proxy.ts`. 
 - One highlight badge: **5+ years of experience**. No commit counts or other vanity numbers.
 
 ### 4.2 About
-- Profile photo (`/public/images/profile.jpg`) in a gradient frame.
+- Profile photo (`/public/images/profile.jpeg`) in a gradient frame.
 - Two short paragraphs.
 - Fact cards: location (Jember, East Java, Indonesia), experience (5+ years), current role, education.
 

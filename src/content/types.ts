@@ -14,7 +14,7 @@ export type Profile = {
   stack: string[];
   email: string;
   cvHref: string;
-  photo: string;
+  photo: StaticImageData;
 };
 
 export type FactId = "location" | "experience" | "current" | "education";
