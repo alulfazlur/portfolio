@@ -22,7 +22,7 @@ The site gives a quick look at who I am, the products I've helped build, and how
 
 ## Live site
 
-TODO: add the link once the domain is ready.
+https://alul.vercel.app/
 
 ## Get in touch
 
