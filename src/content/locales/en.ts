@@ -133,7 +133,7 @@ export const en: Messages = {
           "Built store operations: orders with in-store pickup, promotions, loyalty, income journal, and seller withdrawals.",
           "Engineered a drag-and-drop Page Builder on GrapesJS, with custom commerce plugins (product showcases, banner carousels, video), reusable sections, and custom templates with thumbnail previews.",
           "Built a Menu Builder for headers and footers, so merchants control their storefront navigation without a developer.",
-          "Added Algolia-powered search and a marketing suite with survey forms and appointment booking.",
+          "Added a marketing suite with survey forms and appointment booking.",
         ],
         result:
           "Belanjaku went from first architecture sketch to a live production platform at belanjaku.id. The dashboard has since been white-labeled by several customers for their own brands.",
@@ -149,7 +149,7 @@ export const en: Messages = {
           "Built multi-tenant routing that serves each merchant's store by vendor code or custom domain, with server-side caching for fast loads.",
           "Built the shopping flow: product showcases, product detail pages with stock validation and multi-image galleries, cart, and abandoned-cart recovery in the mini cart.",
           "Rendered builder widgets and templates on the storefront, including banner carousels, custom headers and footers from the Menu Builder, custom fonts, favicon, and head scripts.",
-          "Added appointment booking on product and landing pages, Algolia search, maintenance mode, and a password gate for stores still in development.",
+          "Added appointment booking on product and landing pages, maintenance mode, and a password gate for stores still in development.",
         ],
         result:
           "Whatever a merchant designs in the builder is published as a working storefront, including on their own domain.",

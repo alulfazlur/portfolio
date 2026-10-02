@@ -146,7 +146,7 @@ export type ExperienceData = {
 ## 7. Design
 
 - **Mood:** calm, clean, generous whitespace, strong typography, with a few distinctive touches.
-- **Theme:** light and dark. Defaults to the OS setting; a toggle lets visitors override it (remembered in `localStorage`).
+- **Theme:** light and dark. Light is the default for every visitor; a toggle switches to dark (remembered in `localStorage`).
 - **Colors:** calm teal (primary) + sky (secondary) on slate neutrals, defined as `@theme` tokens in `globals.css`. Dark mode uses slate navy, never near-black.
 - **Project colors:** Belanjaku orange, SWIFT purple, WAVES-SSI brand gradient (`#2f6875` → `#083a4f`), KlikDiabetes emerald.
 - **Background:** generated topographic contour lines (`/public/images/bg/contours.svg`), tinted per theme, plus a soft colored glow per section.

@@ -133,7 +133,7 @@ export const id: Messages = {
           "Membangun operasional toko: pesanan dengan ambil di toko, promosi, loyalty, jurnal pendapatan, dan penarikan saldo seller.",
           "Membangun Page Builder drag-and-drop di atas GrapesJS, dengan plugin commerce khusus (etalase produk, banner carousel, video), section yang bisa dipakai ulang, dan template custom lengkap dengan preview thumbnail.",
           "Membangun Menu Builder untuk header dan footer, jadi merchant bisa mengatur navigasi tokonya tanpa perlu developer.",
-          "Menambahkan pencarian berbasis Algolia dan marketing suite berupa form survei dan booking janji temu.",
+          "Menambahkan marketing suite berupa form survei dan booking janji temu.",
         ],
         result:
           "Belanjaku tumbuh dari sketsa arsitektur pertama jadi platform yang live di belanjaku.id. Dashboard ini juga sudah di-white-label oleh beberapa customer untuk brand mereka.",
@@ -149,7 +149,7 @@ export const id: Messages = {
           "Membangun routing multi-tenant yang menyajikan toko tiap merchant berdasarkan vendor code atau custom domain, dengan caching di sisi server supaya cepat dimuat.",
           "Membangun alur belanja: etalase produk, halaman detail produk dengan validasi stok dan galeri multi-gambar, keranjang, sampai pemulihan abandoned cart di mini cart.",
           "Merender widget dan template dari builder di storefront, termasuk banner carousel, header dan footer custom dari Menu Builder, font custom, favicon, dan script di head.",
-          "Menambahkan booking janji temu di halaman produk dan landing page, pencarian Algolia, mode maintenance, dan password gate untuk toko yang masih dalam pengembangan.",
+          "Menambahkan booking janji temu di halaman produk dan landing page, mode maintenance, dan password gate untuk toko yang masih dalam pengembangan.",
         ],
         result:
           "Apa pun yang didesain merchant di builder langsung terbit jadi toko yang berfungsi, termasuk di domain mereka sendiri.",

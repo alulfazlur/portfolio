@@ -87,7 +87,7 @@ brand/                  # exported logo (SVG + PNG), not served by the site
 - Colors come from `@theme` tokens (e.g. `bg-accent`, `bg-waves`) or the Tailwind palette, never hex in `className`.
 - Per-color class sets (chip, frame, glow, ...) live in `components/ui/tones.ts`. Write class names in full; Tailwind cannot detect concatenated names.
 - Palette: calm teal (primary) + sky (secondary) on slate neutrals. Project frames: Belanjaku orange, SWIFT purple, WAVES-SSI `waves`, KlikDiabetes emerald.
-- Dark mode uses the `dark:` variant, driven by the `.dark` class on `<html>` (`ThemeScript` + `ThemeToggle`, defaults to the OS setting). Dark backgrounds are slate, never near-black.
+- Dark mode uses the `dark:` variant, driven by the `.dark` class on `<html>` (`ThemeScript` + `ThemeToggle`). Light is the default; dark only applies when the visitor picks it. Dark backgrounds are slate, never near-black.
 - Mobile-first. Check layouts at 375px and 1280px, in light and dark mode, in both languages.
 
 ### Animation

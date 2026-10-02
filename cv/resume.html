@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fazlur Rahman — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 12mm 15mm 12mm 15mm; }
+  :root {
+    --ink: #0f172a;
+    --body: #334155;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --accent: #0f766e;
+    --accent-2: #0369a1;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: "Geist", "Ubuntu Sans", "DejaVu Sans", sans-serif;
+    font-size: 9.3pt;
+    line-height: 1.45;
+    color: var(--body);
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+    padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+  h1 { margin: 0; font-size: 22pt; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); font-weight: 700; }
+  h1 .nick { color: var(--accent); font-weight: 600; }
+  .role { margin-top: 4px; font-size: 11.5pt; font-weight: 600; color: var(--accent-2); }
+  .contact { text-align: right; font-size: 8.6pt; line-height: 1.6; color: var(--body); }
+  .contact a { color: var(--body); }
+  .contact .sep { color: #cbd5e1; margin: 0 5px; }
+
+  section { margin-top: 12px; }
+  h2 { margin: 0 0 7px; font-size: 9.5pt; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 10px; break-after: avoid; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  p { margin: 0; }
+  .summary { color: var(--body); }
+  .summary b { color: var(--ink); font-weight: 600; }
+
+  .skills { display: grid; grid-template-columns: 9.5em 1fr; row-gap: 3px; column-gap: 12px; }
+  .skills dt { font-weight: 600; color: var(--ink); }
+  .skills dd { margin: 0; }
+
+  .item { margin-bottom: 8px; break-inside: avoid; }
+  .item:last-child { margin-bottom: 0; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .item-title { font-weight: 600; color: var(--ink); font-size: 10.2pt; }
+  .item-title .org { color: var(--accent); }
+  .item-meta { font-family: "Geist Mono", "Ubuntu Mono", monospace; font-size: 8.2pt; color: var(--muted); white-space: nowrap; }
+  .item-sub { font-size: 8.6pt; color: var(--muted); margin-top: 1px; }
+  .item-sub a { color: var(--accent-2); }
+  ul { margin: 4px 0 0; padding-left: 15px; }
+  li { margin: 1px 0; }
+  li::marker { color: var(--accent); }
+  li b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Fazlur Rahman <span class="nick">(Alul)</span></h1>
+      <div class="role">Frontend Engineer</div>
+    </div>
+    <div class="contact">
+      Jember, Indonesia (UTC+7)<span class="sep">|</span><a href="tel:+6281334473592">+62 813-3447-3592</a><br />
+      <a href="mailto:alulfazlur@gmail.com">alulfazlur@gmail.com</a><span class="sep">|</span><a href="https://alul.vercel.app/">alul.vercel.app</a><br />
+      <a href="https://www.linkedin.com/in/fazlur-alul-rahman/">linkedin.com/in/fazlur-alul-rahman</a><span class="sep">|</span><a href="https://github.com/alulfazlur">github.com/alulfazlur</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">
+      Result-oriented Frontend Engineer with 5+ years of experience building scalable web applications and SaaS
+      products from the ground up (0 to 1). Expert in <b>Next.js</b> and <b>GraphQL</b>, with a proven track record of
+      architecting complex systems such as <b>omnichannel dashboards</b>, <b>low-code page builders</b>, and
+      <b>multi-tenant e-commerce platforms</b>. Passionate about clean code, feature-based architecture, and
+      high-performance user experiences in fast-paced environments.
+    </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>JavaScript (ES6+), TypeScript, HTML5, CSS3 / SASS, Python</dd>
+      <dt>Frameworks</dt><dd>Next.js, React, React Native, Redux, Apollo Client</dd>
+      <dt>UI &amp; Styling</dt><dd>Tailwind CSS, Material-UI, GrapesJS</dd>
+      <dt>Data &amp; Forms</dt><dd>GraphQL, REST APIs, Webhooks, react-hook-form, Formik, Yup, i18next</dd>
+      <dt>Tools &amp; Other</dt><dd>Git / GitHub, Data Analysis</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">Associate Software Engineer · <span class="org">ICUBE</span></div>
+        <div class="item-meta">Jul 2025 – Present</div>
+      </div>
+      <ul>
+        <li>Led the <b>0-to-1 development of Belanjaku</b>, a proprietary e-commerce ecosystem, from initial architectural design to full production launch.</li>
+        <li><b>Engineered a low-code drag-and-drop Page Builder</b> on GrapesJS and an integrated Menu Builder, enabling merchants to customize storefronts without developers.</li>
+        <li><b>Built the multi-tenant storefront engine</b> that serves each merchant's store by vendor code or custom domain, with server-side caching.</li>
+        <li><b>Shipped config-driven white-label support</b>, used by several customers to run Belanjaku products under their own brand.</li>
+        <li><b>Developed a full-scale Affiliate Management System</b> from scratch, with automated tracking and commission performance monitoring.</li>
+        <li><b>Implemented a modular feature-based architecture</b> to keep the platform scalable and maintainable.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">Associate Software Engineer · <span class="org">ICUBE by SIRCLO</span></div>
+        <div class="item-meta">May 2021 – Jul 2025</div>
+      </div>
+      <ul>
+        <li><b>Largest frontend contributor to SwiftOMS</b>, an omnichannel order management system, since 2021.</li>
+        <li><b>Developed an omnichannel sales aggregator</b> to synchronize inventory and orders across Shopee, Lazada, TikTok, and Tokopedia.</li>
+        <li><b>Architected a centralized management dashboard</b> automating the e-commerce lifecycle, including order processing, returns, and pick-and-pack with barcode scanning.</li>
+        <li><b>Led the MVP of SWIFT Hub</b>, a multi-tenant seller hub built on the SwiftOMS codebase for small businesses.</li>
+        <li><b>Optimized large-scale data fetching</b> using Apollo Client (GraphQL), improving the handling of complex product catalogs and real-time updates.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">Junior Frontend Engineer · <span class="org">BIT - Barito Technologies Group</span></div>
+        <div class="item-meta">Sep 2020 – Mar 2021</div>
+      </div>
+      <ul>
+        <li>Developed and launched <b>KlikDiabetes</b> (Play Store / App Store), a React Native mobile app for comprehensive health tracking.</li>
+        <li><b>Integrated Google Fit SDK and GPS services</b> to monitor real-time user activity and health metrics (steps, blood glucose, etc.).</li>
+        <li><b>Transformed Figma designs into high-fidelity mobile interfaces</b> for iOS and Android with a focus on seamless user experience.</li>
+        <li><b>Managed complex application states</b> using Redux and integrated RESTful APIs for reliable data synchronization.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Key Projects</h2>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">Belanjaku Ecosystem</div>
+        <div class="item-meta">Next.js · GraphQL · GrapesJS</div>
+      </div>
+      <div class="item-sub"><a href="https://seller.belanjaku.id/">seller.belanjaku.id</a> · <a href="https://belanjaku.id/">belanjaku.id</a> · <a href="https://affiliate.belanjaku.id/">affiliate.belanjaku.id</a></div>
+      <ul>
+        <li><b>Seller Dashboard:</b> multi-tenant dashboard with KYC onboarding, orders with in-store pickup, promotions, loyalty, and income journal.</li>
+        <li><b>Storefront:</b> turns pages built in the Page Builder into live, shoppable stores, with appointment booking.</li>
+        <li><b>Creator</b> (in progress): a platform where outside creators build storefront plugins and templates, visually or in code.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">SwiftOMS — Omnichannel Order Management</div>
+        <div class="item-meta">Next.js · GraphQL · Apollo Client</div>
+      </div>
+      <ul>
+        <li><b>Inventory Synchronization:</b> engineered a real-time virtual stock system to prevent overselling across multiple online and offline sales channels.</li>
+        <li><b>Automated Fulfillment:</b> developed an intelligent routing system to determine the closest warehouse for order shipping, reducing logistics costs and delivery time.</li>
+        <li><b>Data Analytics:</b> created a unified dashboard to visualize customer buying patterns collected from integrated POS systems.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">SWIFT Hub</div>
+        <div class="item-meta">Next.js · GraphQL · REST API</div>
+      </div>
+      <div class="item-sub"><a href="https://seller.swifthub.id/">seller.swifthub.id</a></div>
+      <ul>
+        <li><b>Multi-tenant MVP:</b> turned the SwiftOMS codebase into a clean, mobile-friendly seller hub for small businesses, white-labeled by several customers.</li>
+        <li><b>Process Automation:</b> simplified seller workflows by aggregating multi-platform notifications and order tracking into a single view.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">WAVES-SSI Learning Platform <span class="org">(Freelance)</span></div>
+        <div class="item-meta">Next.js · Supabase · i18next</div>
+      </div>
+      <div class="item-sub"><a href="https://waejuc.buroidah.education/">waejuc.buroidah.education</a></div>
+      <ul>
+        <li><b>Sole developer</b> of a bilingual learning platform for the Western Australia–East Java Universities Consortium, from landing page to a guided six-stage investigation flow.</li>
+        <li><b>Interactive learning tools:</b> rich-text answers, a diagram editor, PDF export of student work, and group progress storage.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">KlikDiabetes</div>
+        <div class="item-meta">React Native · Redux · Google Fit SDK</div>
+      </div>
+      <ul>
+        <li><b>Health Activity Tracking:</b> integrated Google Fit SDK and GPS to monitor daily steps and physical activities with high accuracy.</li>
+        <li><b>Patient Adherence Tools:</b> developed a specialized alert and reminder system for medication, blood glucose logging, and blood pressure monitoring.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education &amp; Certifications</h2>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">Fullstack Software Engineering Bootcamp · <span class="org">Alterra Academy</span></div>
+        <div class="item-meta">2020</div>
+      </div>
+      <ul>
+        <li>Intensive program covering end-to-end web development.</li>
+        <li><b>Frontend:</b> React (Redux), HTML5, CSS3, LESS. <b>Backend &amp; DB:</b> Python (Flask, Django), MySQL, MongoDB.</li>
+        <li><b>DevOps &amp; Testing:</b> Docker, AWS, Kubernetes, Travis CI, Flask Unit Testing.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title">Bachelor of Statistics · <span class="org">Sepuluh Nopember Institute of Technology</span></div>
+        <div class="item-meta">2014 – 2019</div>
+      </div>
+      <ul>
+        <li>GPA: 3.25</li>
+        <li>Thesis: Emotions Classification for Indonesian Text on Twitter Users about President Joko Widodo</li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

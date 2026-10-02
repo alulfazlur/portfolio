@@ -14,7 +14,6 @@ export const experience: ExperienceData[] = [
       "Apollo Client",
       "GrapesJS",
       "Material-UI",
-      "Algolia",
     ],
   },
   {
