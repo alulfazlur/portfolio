@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fazlur Rahman — Cover Letter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 12mm 15mm 12mm 15mm; }
+  :root {
+    --ink: #0f172a;
+    --body: #334155;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --accent: #0f766e;
+    --accent-2: #0369a1;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: "Geist", "Ubuntu Sans", "DejaVu Sans", sans-serif;
+    font-size: 10.2pt;
+    line-height: 1.6;
+    color: var(--body);
+    /* Spasi sedikit lebih lebar: ekor huruf "f" di Geist memakan celah spasi,
+       sehingga parser PDF/ATS menggabungkan kata ("of the" -> "ofthe"). */
+    word-spacing: 0.06em;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* Header: identical to the resume */
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+    padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+  h1 { margin: 0; font-size: 22pt; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); font-weight: 700; }
+  h1 .nick { color: var(--accent); font-weight: 600; }
+  .role { margin-top: 4px; font-size: 11.5pt; font-weight: 600; color: var(--accent-2); }
+  .contact { text-align: right; font-size: 8.6pt; line-height: 1.6; color: var(--body); }
+  .contact .sep { color: #cbd5e1; margin: 0 5px; }
+
+  h2 { margin: 18px 0 14px; font-size: 9.5pt; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .letter p { margin: 0 0 10px; }
+  .letter b { color: var(--ink); font-weight: 600; }
+  .letter a { color: var(--accent-2); font-weight: 500; }
+  .salutation { color: var(--ink); font-weight: 500; }
+  ul { margin: -2px 0 10px; padding-left: 16px; }
+  li { margin: 3px 0; }
+  li::marker { color: var(--accent); }
+
+  .signoff { margin-top: 16px; }
+  .signoff .name { margin-top: 2px; font-weight: 700; color: var(--ink); font-size: 11pt; }
+  .signoff .title { color: var(--accent-2); font-weight: 600; font-size: 9.6pt; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Fazlur Rahman <span class="nick">(Alul)</span></h1>
+      <div class="role">Frontend Engineer</div>
+    </div>
+    <div class="contact">
+      Jember, Indonesia (UTC+7)<span class="sep">|</span><a href="tel:+6281334473592">+62 813-3447-3592</a><br />
+      <a href="mailto:alulfazlur@gmail.com">alulfazlur@gmail.com</a><span class="sep">|</span><a href="https://alul.vercel.app/">alul.vercel.app</a><br />
+      <a href="https://www.linkedin.com/in/fazlur-alul-rahman/">linkedin.com/in/fazlur-alul-rahman</a><span class="sep">|</span><a href="https://github.com/alulfazlur">github.com/alulfazlur</a>
+    </div>
+  </header>
+
+  <h2>Cover Letter</h2>
+
+  <div class="letter">
+    <p class="salutation">Dear Hiring Manager,</p>
+
+    <p>
+      I'm a Frontend Engineer with 5+ years of experience building web products from the ground up with
+      <b>Next.js</b> and <b>GraphQL</b>. I enjoy the part of the job where complex business logic meets everyday
+      users, and I would love to bring that experience to your team.
+    </p>
+
+    <p>
+      At <b>ICUBE</b>, I led the 0-to-1 frontend of <b>Belanjaku</b>, the company's own e-commerce ecosystem, from
+      the first architecture sketch to a production launch. Along the way, I:
+    </p>
+    <ul>
+      <li>Built a <b>low-code drag-and-drop Page Builder</b> on GrapesJS, plus the <b>multi-tenant storefront engine</b> that publishes merchants' pages on their own custom domains.</li>
+      <li>Shipped <b>configuration-driven white-labeling</b>, which several customers now use to run Belanjaku products under their own brand.</li>
+      <li>Built an <b>Affiliate Management System</b> from scratch, with automated tracking and commission monitoring.</li>
+    </ul>
+
+    <p>
+      Before that, I spent four years at <b>ICUBE by SIRCLO</b> as the <b>largest frontend contributor to SwiftOMS</b>,
+      an omnichannel order management system that keeps stock and orders in sync across Shopee, Lazada, TikTok, and
+      Tokopedia. I later led the MVP of <b>SWIFT Hub</b>, a multi-tenant seller hub built on the same codebase for
+      small businesses.
+    </p>
+
+    <p>
+      I care about code that stays easy to change. I organize projects with a feature-based architecture and keep
+      data fetching efficient with Apollo Client, so products stay fast as catalogs and teams grow. My background in
+      Statistics at ITS also helps me reason about data-heavy screens and the people who use them. Outside my day job,
+      I built <b>WAVES-SSI</b> end to end as a freelance project: a bilingual learning platform for a university
+      research consortium.
+    </p>
+
+    <p>
+      You can find case studies of this work at <a href="https://alul.vercel.app/">alul.vercel.app</a>, and my CV is
+      attached. I would welcome the chance to talk about how I can help your team ship reliable, fast products.
+    </p>
+  </div>
+
+  <div class="signoff">
+    <div>Best regards,</div>
+    <div class="name">Fazlur Rahman (Alul)</div>
+    <div class="title">Frontend Engineer</div>
+  </div>
+</body>
+</html>
