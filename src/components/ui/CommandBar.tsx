@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
@@ -61,7 +61,7 @@ export function CommandBar({
                   }`}
                 >
                   {current && (
-                    <motion.span
+                    <m.span
                       layoutId="bar-active"
                       transition={spring}
                       className="absolute inset-0 rounded-full bg-linear-to-br from-accent to-accent-2"

@@ -1,43 +1,56 @@
-import type { ReactNode } from "react";
-import { Stagger } from "@/components/motion/Stagger";
-import { StaggerItem } from "@/components/motion/StaggerItem";
+import {
+  TypedCode,
+  type CodeLine,
+  type CodeToken,
+} from "@/components/motion/TypedCode";
 
 type CodeCardProps = {
   fileName: string;
-  name: string;
-  role: string;
+  nickname: string;
   location: string;
   stack: string[];
 };
 
-const k = (text: string) => <span className="text-sky-300">{text}</span>;
-const str = (text: string) => (
-  <span className="text-emerald-300">&quot;{text}&quot;</span>
-);
-const p = (text: string) => <span className="text-slate-400">{text}</span>;
+const kw = (text: string): CodeToken => ({
+  text,
+  className: "text-indigo-300",
+});
+const k = (text: string): CodeToken => ({ text, className: "text-sky-300" });
+const str = (text: string): CodeToken => ({
+  text: `"${text}"`,
+  className: "text-emerald-300",
+});
+const p = (text: string): CodeToken => ({ text, className: "text-slate-400" });
 
-function Line({
-  children,
-  indent = false,
-}: {
-  children: ReactNode;
-  indent?: boolean;
-}) {
-  return (
-    <StaggerItem as="span" className={`block ${indent ? "pl-5" : ""}`}>
-      {children}
-    </StaggerItem>
-  );
-}
+/** Baris `key: "value",` di dalam objek. */
+const field = (key: string, value: string): CodeLine => ({
+  indent: 1,
+  tokens: [k(key), p(": "), str(value), p(",")],
+});
 
 /** Profil singkat dalam gaya file TypeScript. Dekoratif: info yang sama ada di teks hero. */
 export function CodeCard({
   fileName,
-  name,
-  role,
+  nickname,
   location,
   stack,
 }: CodeCardProps) {
+  const lines: CodeLine[] = [
+    {
+      indent: 0,
+      tokens: [kw("export const"), p(" "), k("engineer"), p(" = {")],
+    },
+    field("nickname", nickname),
+    { ...field("location", location) },
+    { indent: 1, tokens: [k("stack"), p(": [")] },
+    ...stack.map((item): CodeLine => ({
+      indent: 2,
+      tokens: [str(item), p(",")],
+    })),
+    { indent: 1, tokens: [p("],")] },
+    { indent: 0, tokens: [p("};")] },
+  ];
+
   return (
     <div
       aria-hidden="true"
@@ -52,46 +65,7 @@ export function CodeCard({
         </span>
       </div>
       <pre className="p-5 font-mono text-[13px] leading-7 break-words whitespace-pre-wrap sm:p-6 sm:text-sm">
-        <code>
-          <Stagger as="span" className="block">
-            <Line>
-              <span className="text-indigo-300">export const</span>{" "}
-              {k("engineer")} {p("= {")}
-            </Line>
-            <Line indent>
-              {k("name")}
-              {p(": ")}
-              {str(name)}
-              {p(",")}
-            </Line>
-            <Line indent>
-              {k("role")}
-              {p(": ")}
-              {str(role)}
-              {p(",")}
-            </Line>
-            <Line indent>
-              {k("location")}
-              {p(": ")}
-              {str(location)}
-              {p(",")}
-            </Line>
-            <Line indent>
-              {k("stack")}
-              {p(": [")}
-            </Line>
-            {stack.map((item) => (
-              <Line key={item} indent>
-                <span className="pl-5">
-                  {str(item)}
-                  {p(",")}
-                </span>
-              </Line>
-            ))}
-            <Line indent>{p("],")}</Line>
-            <Line>{p("};")}</Line>
-          </Stagger>
-        </code>
+        <TypedCode lines={lines} />
       </pre>
     </div>
   );

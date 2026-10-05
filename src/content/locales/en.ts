@@ -95,6 +95,7 @@ export const en: Messages = {
   },
   projects: {
     comingSoon: "Coming soon",
+    viewCaseStudy: "View case study",
     groups: {
       belanjaku: {
         name: "Belanjaku",
@@ -253,6 +254,7 @@ export const en: Messages = {
   },
   caseStudy: {
     back: "All projects",
+    close: "Close",
     role: "Role",
     stack: "Stack",
     workplace: "Workplace",

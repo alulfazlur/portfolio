@@ -38,23 +38,24 @@ Locale-less paths (e.g. `/projects/swiftoms`) are redirected by `src/proxy.ts`. 
 ## 4. Home Sections (`/[lang]`)
 
 ### 4.1 Hero
-- Name: **Fazlur Rahman (Alul)**, role: **Frontend Engineer**, location.
+At least one viewport tall (minus the mobile top bar), content centered vertically.
+- Name: **Fazlur Rahman (Alul)**, role: **Frontend Engineer**, location (role/location tag hidden on mobile).
 - One-sentence tagline.
 - CTAs: `View Projects` (scrolls to `#projects`) and `Download CV` (`/public/doc/Fazlur Rahman Resume.pdf`).
 - Social icons (from `socials.ts`).
-- Decorative code card showing the profile as a TypeScript object (name, role, location, stack).
+- Decorative code card showing the profile as a TypeScript object (name, role, location, stack), typed out once. The location line is hidden on mobile and skipped while typing.
 - One highlight badge: **5+ years of experience**. No commit counts or other vanity numbers.
 
 ### 4.2 About
 - Profile photo (`/public/images/profile.jpeg`) in a gradient frame.
 - Two short paragraphs.
-- Fact cards: location (Jember, East Java, Indonesia), experience (5+ years), current role, education.
+- Fact cards, each with an icon: location (Jember, East Java, Indonesia), experience (5+ years), current role, education.
 
 ### 4.3 Skills
-Grouped cards with chips — no progress bars or percentages. Only skills Alul is confident in.
+Grouped cards with chips — no progress bars or percentages. Only skills Alul is confident in. Each chip has a monochrome icon (brand logo from Simple Icons, or a Lucide icon for generic skills).
 - **Core:** JavaScript (ES6+), TypeScript, React, Next.js, React Native, Git
 - **Styling & UI:** Tailwind CSS, Material-UI, CSS3 / SASS, HTML5
-- **Data & State:** Apollo GraphQL, Redux, react-hook-form, Formik, Yup, i18next, REST APIs, Webhooks
+- **Data & State:** Apollo GraphQL, Redux, react-hook-form, Yup, i18next, REST APIs, Webhooks
 - **Also:** Python, Data Analysis
 
 ### 4.4 Experience
@@ -65,12 +66,12 @@ Vertical timeline, newest first. Per item: company, role, period, 2–4 achievem
 
 ### 4.5 Projects
 - Grouped by product family. Each group has a name, a one-line description, and a project count.
-  - **Belanjaku:** Seller Dashboard (featured, includes the Page & Menu Builder), Belanjaku Creator (coming soon), Belanjaku Affiliate, Belanjaku Storefront
+  - **Belanjaku:** Seller Dashboard (featured, includes the Page & Menu Builder), Belanjaku Storefront, Belanjaku Affiliate, Belanjaku Creator (coming soon)
   - **SWIFT:** SwiftOMS, SWIFT Hub
   - **Other work:** WAVES-SSI (freelance), KlikDiabetes
 - Order inside a group follows the array order in `content/projects.ts`; `featured` projects come first and span the full row.
 - Card: framed screenshot, type chip (Work/Freelance), workplace, period (`<year> — Present` for ongoing projects), title, one-sentence summary, up to 4 tech tags, optional `Live site` link.
-- The whole card links to `/[lang]/projects/[slug]`.
+- The whole card links to `/[lang]/projects/[slug]`. On touch devices (no hover) a small "View case study →" cue shows it is tappable. On click the card itself grows and turns into the case study modal (intercepting route in the `@modal` slot); the URL changes, Back / Escape / backdrop / close button zoom it back and close it.
 - White-label customers are mentioned generically ("white-labeled by several customers"), never by name.
 
 ### 4.6 Contact
@@ -80,15 +81,17 @@ Vertical timeline, newest first. Per item: company, role, period, 2–4 achievem
 - **No** contact form in v1.
 
 ### 4.7 Footer
-© current year + name, social links, "Built with Next.js".
+© current year + name, "Built with Next.js". No social links (they are in the hero and Contact).
 
 ## 5. Case Study Page (`/[lang]/projects/[slug]`)
+
+Opening the URL directly (or refreshing) shows the full page; clicking a project card shows the same content in a modal (items 2–9, with a close button instead of the back link and project navigation).
 
 Fixed structure:
 1. Back link, type chip, period, `Coming soon` badge when relevant
 2. Title and summary
 3. Meta: workplace (hidden for freelance), role, tech stack
-4. Links: Live site / Source code (hidden when missing)
+4. Links: Live site / Source code (hidden when missing), next to the summary; Live site uses the project color
 5. Framed screenshot
 6. **Problem** — context and the problem
 7. **What I did** — my specific contribution
@@ -159,8 +162,14 @@ export type ExperienceData = {
 The goal is smooth, not busy.
 - Sections and cards: fade + 16–24px slide-up when entering the viewport, once (`once: true`).
 - Lists: 50–80ms stagger.
-- Hero: entrance on load, under 1s total; code card lines appear one by one.
+- Opening (every page load, skipped for reduced motion): dark slate overlay, the `<a/>` logo fills up in teal, the nickname letters rise one by one, then the overlay splits into horizontal strips that slide out right, bottom first (~1.4s). Pure CSS so it runs from the first paint.
+- Hero: the name rises letter by letter as the strips clear ("(Alul)" rises as one word to keep its gradient), then the badge, tagline, CTAs and code card fade up. All hero entrance animations are CSS so they never wait for hydration (slow on phones). The code card is typed out character by character once, right after the opening even when off screen (caret disappears at the end).
+- Case study modal content has no `Reveal`; the morph is its entrance. On the full case study page the back link, header and cover fade up with CSS (no wait for hydration, fast LCP); the sections below keep `Reveal`.
+- On mobile the hero tagline has no fade: it is painted from the first frame behind the opening, so it is a fast LCP element.
+- Motion components are `m.*` inside `LazyMotion strict`; features (`domMax`, needed for the command bar `layoutId`) load async.
 - Buttons, cards, and icons: spring-based hover lift and tap press (`Pressable`), arrows nudge on hover.
+- 3D tilt (`Tilt`): project cards and the hero code card tilt up to 5° toward the mouse pointer (perspective, spring). Mouse only; off for touch and reduced motion.
+- Case study modal: the clicked card grows into the modal panel (card snapshot crossfades with the modal content), and shrinks back into the card on close.
 - Copy button: label crossfade. Theme toggle: icon rotate + fade. Section accent line grows in.
 - **Must** respect `prefers-reduced-motion` (`<MotionConfig reducedMotion="user">`).
 - Forbidden: heavy parallax, looping animations, scroll-jacking.

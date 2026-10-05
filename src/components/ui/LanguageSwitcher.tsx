@@ -31,7 +31,8 @@ export function LanguageSwitcher({
               href={rest ? `/${locale}/${rest}` : `/${locale}`}
               hrefLang={locale}
               lang={locale}
-              aria-label={name}
+              // Teks yang terlihat ("ID") harus ikut jadi bagian nama aksesibel (WCAG 2.5.3).
+              aria-label={`${locale.toUpperCase()}, ${name}`}
               aria-current={active ? "true" : undefined}
               className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full px-2.5 font-mono text-xs uppercase transition-colors ${
                 active

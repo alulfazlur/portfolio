@@ -82,6 +82,7 @@ export async function Projects() {
                       stackLabel={t("projects.stack")}
                       comingSoonLabel={t("projects.comingSoon")}
                       liveLabel={t("caseStudy.live")}
+                      caseStudyLabel={t("projects.viewCaseStudy")}
                     />
                   </StaggerItem>
                 ))}

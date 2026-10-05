@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { m, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 import { easeOut } from "./ease";
 
@@ -10,10 +10,10 @@ const item: Variants = {
 };
 
 const components = {
-  span: motion.span,
-  div: motion.div,
-  li: motion.li,
-  p: motion.p,
+  span: m.span,
+  div: m.div,
+  li: m.li,
+  p: m.p,
 };
 
 type StaggerItemProps = {

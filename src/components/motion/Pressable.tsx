@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { m, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 import { softSpring, spring } from "./spring";
 
@@ -39,7 +39,10 @@ export function Pressable({
 }: PressableProps) {
   const shadow = hasShadowLayer(preset);
   return (
-    <motion.div
+    <m.div
+      // Tanpa tabIndex, Motion memberi tabindex="0" pada pembungkus whileTap, sehingga
+      // tiap tombol/link punya tab stop kosong tambahan. Yang difokus cukup elemen di dalamnya.
+      tabIndex={-1}
       className={`${shadow ? "group/press relative will-change-transform" : ""} ${className ?? ""}`}
       variants={presets[preset]}
       initial="rest"
@@ -55,6 +58,6 @@ export function Pressable({
         />
       )}
       {children}
-    </motion.div>
+    </m.div>
   );
 }

@@ -20,11 +20,73 @@
   --color-waves-secondary: #2f6875;
 
   --container-content: 68.75rem;
+
+  /* Opening + nama hero. CSS (bukan Motion) agar jalan sejak paint pertama, sebelum hydration. */
+  --animate-rise: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fill-up: fill-up 0.5s cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-fill-down: fill-down 0.5s cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-exit-up: exit-up 0.35s cubic-bezier(0.55, 0, 1, 0.45) both;
+  --animate-wipe: wipe 0.45s cubic-bezier(0.76, 0, 0.24, 1) both;
+  --animate-vanish: vanish 0s both;
+
+  @keyframes rise {
+    from {
+      transform: translateY(110%);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+  @keyframes fill-up {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes fill-down {
+    from {
+      transform: translateY(-100%);
+    }
+  }
+  @keyframes exit-up {
+    to {
+      opacity: 0;
+      transform: translateY(-24px);
+    }
+  }
+  @keyframes wipe {
+    to {
+      transform: translateX(101%);
+    }
+  }
+  @keyframes vanish {
+    to {
+      visibility: hidden;
+    }
+  }
+}
+
+/* Isi hero (CSS, tidak menunggu hydration) mulai masuk saat strip opening bergeser keluar. Setelah opening selesai
+   (Opening memberi `data-opened`), hero yang dipasang ulang langsung beranimasi. */
+:root {
+  --opening-delay: 1.05s;
+}
+
+:root[data-opened] {
+  --opening-delay: 0s;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+}
+
+/* Halaman di belakang modal case study tidak ikut ter-scroll. */
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

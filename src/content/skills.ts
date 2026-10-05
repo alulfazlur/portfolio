@@ -22,7 +22,6 @@ export const skills: SkillGroup[] = [
       "Apollo GraphQL",
       "Redux",
       "react-hook-form",
-      "Formik",
       "Yup",
       "i18next",
       "REST APIs",

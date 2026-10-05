@@ -1,12 +1,13 @@
-import { Reveal } from "@/components/motion/Reveal";
-import { Stagger } from "@/components/motion/Stagger";
-import { StaggerItem } from "@/components/motion/StaggerItem";
+import { afterOpening } from "@/components/motion/afterOpening";
+import { Tilt } from "@/components/motion/Tilt";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CodeCard } from "@/components/ui/CodeCard";
 import { Container } from "@/components/ui/Container";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { profile } from "@/content/profile";
 import { getT } from "@/lib/i18n";
+
+const nameWords = profile.name.split(" ");
 
 export async function Hero() {
   const t = await getT();
@@ -16,7 +17,7 @@ export async function Hero() {
     <section
       id="top"
       aria-label={t("hero.label")}
-      className="relative isolate overflow-x-clip"
+      className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col justify-center overflow-x-clip md:min-h-svh"
     >
       <div
         aria-hidden="true"
@@ -27,65 +28,84 @@ export async function Hero() {
         <div className="absolute -bottom-40 -left-24 size-[28rem] rounded-full bg-emerald-100/60 blur-3xl dark:bg-emerald-500/5" />
       </div>
 
-      <Container className="grid gap-16 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
-        <Stagger className="min-w-0">
-          <StaggerItem
-            as="p"
-            className="mb-7 inline-flex max-w-full items-center gap-2.5 rounded-2xl border border-slate-200 bg-white/70 px-3.5 py-2.5 font-mono text-xs text-slate-700 backdrop-blur sm:gap-2 sm:rounded-full sm:py-1.5 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-300"
+      <Container className="grid gap-8 pt-8 pb-20 sm:gap-10 sm:pt-20 sm:pb-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
+        <div className="min-w-0">
+          <h1 className="text-5xl leading-[0.95] font-semibold tracking-tighter text-balance text-slate-900 sm:text-7xl dark:text-slate-50">
+            <span className="sr-only">
+              {profile.name} ({profile.nickname})
+            </span>
+            <span aria-hidden="true">
+              {nameWords.map((word, wordIndex) => (
+                <span key={word}>
+                  <span className="inline-block overflow-hidden pb-[0.1em] align-bottom">
+                    {[...word].map((letter, letterIndex) => (
+                      <span
+                        key={letterIndex}
+                        className="inline-block animate-rise motion-reduce:animate-none"
+                        style={afterOpening(
+                          (nameWords.slice(0, wordIndex).join("").length +
+                            letterIndex) *
+                            35,
+                        )}
+                      >
+                        {letter}
+                      </span>
+                    ))}
+                  </span>{" "}
+                </span>
+              ))}
+            </span>
+          </h1>
+          <p
+            style={afterOpening(400)}
+            className="mt-3 inline-flex max-w-full animate-fade-up items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3.5 py-1.5 font-mono text-sm text-slate-700 backdrop-blur motion-reduce:animate-none dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-300"
           >
             <span
               aria-hidden="true"
               className="size-2 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-3"
             />
-            <span className="flex min-w-0 flex-col gap-1 sm:flex-row sm:gap-1.5">
-              <span>{profile.role}</span>
-              <span aria-hidden="true" className="hidden sm:inline">
-                ·
-              </span>
-              <span>{t("profile.location")}</span>
-            </span>
-          </StaggerItem>
-          <StaggerItem>
-            <h1 className="text-5xl font-semibold tracking-tighter text-balance text-slate-900 sm:text-6xl xl:text-7xl dark:text-slate-50">
-              {profile.name}{" "}
-              <span className="bg-linear-to-r from-accent to-accent-2 bg-clip-text text-transparent dark:from-accent-soft dark:to-accent-2-soft">
-                ({profile.nickname})
-              </span>
-            </h1>
-          </StaggerItem>
-          <StaggerItem
-            as="p"
-            className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-slate-600 sm:text-xl dark:text-slate-300"
+            {profile.role}
+          </p>
+          {/* Di mobile tanpa fade: tagline sudah ter-render sejak paint pertama (di balik opening),
+              jadi elemen LCP yang cepat. Mulai sm tetap fade-up. */}
+          <p
+            style={afterOpening(450)}
+            className="mt-4 max-w-xl text-lg leading-relaxed text-pretty text-slate-600 motion-reduce:animate-none sm:mt-6 sm:animate-fade-up sm:text-xl dark:text-slate-300"
           >
             {t("profile.tagline")}
-          </StaggerItem>
-          <StaggerItem className="mt-10 flex flex-wrap items-center gap-3">
-            <ButtonLink href="#projects" arrow="right">
-              {t("hero.viewProjects")}
-            </ButtonLink>
+          </p>
+          <div
+            className="mt-6 flex animate-fade-up flex-wrap items-center gap-3 motion-reduce:animate-none sm:mt-10"
+            style={afterOpening(550)}
+          >
+            <ButtonLink href="#projects">{t("hero.viewProjects")}</ButtonLink>
             <ButtonLink href={profile.cvHref} variant="secondary" download>
               {t("hero.downloadCv")}
             </ButtonLink>
             <div className="-ml-2.5 sm:ml-0">
               <SocialLinks />
             </div>
-          </StaggerItem>
-        </Stagger>
+          </div>
+        </div>
 
-        <Reveal delay={0.2} className="relative min-w-0 lg:pl-6">
+        <div
+          className="relative min-w-0 animate-fade-up motion-reduce:animate-none lg:pl-6"
+          style={afterOpening(250)}
+        >
           <div className="transition-transform duration-500 ease-out hover:-translate-y-1 lg:rotate-1 lg:hover:rotate-0">
-            <CodeCard
-              fileName={`${profile.nickname.toLowerCase()}.ts`}
-              name={profile.name}
-              role={profile.role}
-              location={t("profile.location")}
-              stack={profile.stack}
-            />
+            <Tilt>
+              <CodeCard
+                fileName="intro.ts"
+                nickname={profile.nickname}
+                location={t("profile.location")}
+                stack={profile.stack}
+              />
+            </Tilt>
           </div>
           {stats.map((stat) => (
             <p
               key={stat.label}
-              className="absolute right-3 -bottom-8 inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 shadow-slate-900/10 ring-slate-200 sm:px-5 sm:py-4 lg:right-4 dark:bg-slate-800 dark:shadow-slate-950/40 dark:ring-slate-700/60"
+              className="absolute -top-10 right-3 inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 shadow-slate-900/10 ring-slate-200 sm:top-auto sm:-bottom-8 sm:px-5 sm:py-4 lg:right-4 dark:bg-slate-800 dark:shadow-slate-950/40 dark:ring-slate-700/60"
             >
               <span className="bg-linear-to-r from-accent to-accent-2 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl dark:from-accent-soft dark:to-accent-2-soft">
                 {stat.value}
@@ -95,7 +115,7 @@ export async function Hero() {
               </span>
             </p>
           ))}
-        </Reveal>
+        </div>
       </Container>
     </section>
   );

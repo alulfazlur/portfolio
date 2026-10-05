@@ -95,6 +95,7 @@ export const id: Messages = {
   },
   projects: {
     comingSoon: "Segera hadir",
+    viewCaseStudy: "Lihat studi kasus",
     groups: {
       belanjaku: {
         name: "Belanjaku",
@@ -253,6 +254,7 @@ export const id: Messages = {
   },
   caseStudy: {
     back: "Semua proyek",
+    close: "Tutup",
     role: "Peran",
     stack: "Teknologi",
     workplace: "Tempat kerja",

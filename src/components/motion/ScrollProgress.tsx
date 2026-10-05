@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "motion/react";
+import { m, useScroll, useSpring } from "motion/react";
 
 /** Bar tipis yang menunjukkan posisi scroll halaman. */
 export function ScrollProgress() {
@@ -11,7 +11,7 @@ export function ScrollProgress() {
     mass: 0.4,
   });
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       style={{ scaleX }}
       className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-linear-to-r from-accent to-accent-2 dark:from-accent-soft dark:to-accent-2-soft"

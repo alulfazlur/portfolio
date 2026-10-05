@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
+import { FactIcon } from "@/components/ui/FactIcon";
 import { Section } from "@/components/ui/Section";
 import { tones } from "@/components/ui/tones";
 import { profile } from "@/content/profile";
@@ -58,8 +59,9 @@ export async function About() {
                 className={`rounded-2xl p-4 ${tones[factTones[id]].soft}`}
               >
                 <dt
-                  className={`font-mono text-xs tracking-wide uppercase ${tones[factTones[id]].text}`}
+                  className={`flex items-center gap-2 font-mono text-xs tracking-wide uppercase ${tones[factTones[id]].text}`}
                 >
+                  <FactIcon id={id} />
                   {facts[id].label}
                 </dt>
                 <dd className="mt-1 font-medium text-slate-900 dark:text-slate-100">

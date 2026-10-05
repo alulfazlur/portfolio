@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import type { ReactNode } from "react";
 import { spring } from "./spring";
 
@@ -19,7 +19,7 @@ export function Nudge({
   direction?: keyof typeof offsets;
 }) {
   return (
-    <motion.span
+    <m.span
       aria-hidden="true"
       className="inline-block"
       variants={{
@@ -30,6 +30,6 @@ export function Nudge({
       transition={spring}
     >
       {children}
-    </motion.span>
+    </m.span>
   );
 }

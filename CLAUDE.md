@@ -8,7 +8,7 @@ This Next.js version has breaking changes compared to older training data. Follo
 
 - Next.js 16 (App Router, Turbopack), React 19, TypeScript `strict`
 - Tailwind CSS v4 — CSS-first config via `@theme` in `src/app/globals.css`. There is **no** `tailwind.config.js`.
-- Motion (`motion` package, formerly framer-motion) — import from `motion/react`, not `framer-motion`.
+- Motion (`motion` package, formerly framer-motion) — import from `motion/react`, not `framer-motion`. Use `m.*` components, not `motion.*`: `MotionProvider` wraps the app in `LazyMotion strict` with features loaded async.
 - i18next for English/Indonesian copy (server-side, no `react-i18next`).
 - Package manager: **yarn**. Do not use npm/pnpm and do not create `package-lock.json`.
 
@@ -31,6 +31,7 @@ src/
       layout.tsx        # root layout: fonts, theme script, metadata, nav, footer
       page.tsx          # home: Hero → About → Skills → Experience → Projects → Contact
       projects/[slug]/  # case study pages + per-project OG image
+      @modal/           # intercepting route: project card click opens the case study as a modal
     global-not-found.tsx  # bilingual 404 for unmatched URLs
     icon.svg            # favicon (the `<a/>` logo)
     robots.ts

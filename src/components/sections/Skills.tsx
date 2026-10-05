@@ -3,6 +3,7 @@ import { StaggerItem } from "@/components/motion/StaggerItem";
 import { Pressable } from "@/components/motion/Pressable";
 import { Section } from "@/components/ui/Section";
 import { SkillIcon } from "@/components/ui/SkillIcon";
+import { TechIcon } from "@/components/ui/TechIcon";
 import { tones } from "@/components/ui/tones";
 import { skills } from "@/content/skills";
 import type { AccentColor, SkillGroupId } from "@/content/types";
@@ -47,8 +48,9 @@ export async function Skills() {
                     {group.items.map((skill) => (
                       <li
                         key={skill}
-                        className={`rounded-full px-3 py-1.5 text-sm transition-transform duration-200 ease-out hover:-translate-y-0.5 ${tones[tone].chip}`}
+                        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-transform duration-200 ease-out hover:-translate-y-0.5 ${tones[tone].chip}`}
                       >
+                        <TechIcon skill={skill} />
                         {skill}
                       </li>
                     ))}

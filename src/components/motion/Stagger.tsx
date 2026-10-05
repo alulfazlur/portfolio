@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { m, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
 const container: Variants = {
@@ -9,10 +9,10 @@ const container: Variants = {
 };
 
 const components = {
-  span: motion.span,
-  div: motion.div,
-  ul: motion.ul,
-  ol: motion.ol,
+  span: m.span,
+  div: m.div,
+  ul: m.ul,
+  ol: m.ol,
 };
 
 type StaggerProps = {

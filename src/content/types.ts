@@ -21,9 +21,30 @@ export type FactId = "location" | "experience" | "current" | "education";
 
 export type SkillGroupId = "core" | "styling" | "data" | "also";
 
+export type Skill =
+  | "JavaScript (ES6+)"
+  | "TypeScript"
+  | "React"
+  | "Next.js"
+  | "React Native"
+  | "Git"
+  | "Tailwind CSS"
+  | "Material-UI"
+  | "CSS3 / SASS"
+  | "HTML5"
+  | "Apollo GraphQL"
+  | "Redux"
+  | "react-hook-form"
+  | "Yup"
+  | "i18next"
+  | "REST APIs"
+  | "Webhooks"
+  | "Python"
+  | "Data Analysis";
+
 export type SkillGroup = {
   id: SkillGroupId;
-  items: string[];
+  items: Skill[];
 };
 
 export type ExperienceId = "icube" | "icube-sirclo" | "bit";
@@ -143,6 +164,7 @@ export type Messages = {
   };
   projects: {
     comingSoon: string;
+    viewCaseStudy: string;
     groups: Record<ProjectGroup, { name: string; description: string }>;
     types: Record<ProjectType, string>;
     coverAlt: string;
@@ -151,6 +173,7 @@ export type Messages = {
   };
   caseStudy: {
     back: string;
+    close: string;
     role: string;
     stack: string;
     workplace: string;

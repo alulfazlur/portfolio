@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { Opening } from "@/components/motion/Opening";
 import { Footer } from "@/components/sections/Footer";
 import { Navbar } from "@/components/ui/Navbar";
+import { profile } from "@/content/profile";
 import { getLocale, getT } from "@/lib/i18n";
 import { locales } from "@/lib/locales";
 import { ThemeScript } from "@/components/ui/ThemeScript";
@@ -44,7 +46,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
+export default async function RootLayout({
+  children,
+  modal,
+}: LayoutProps<"/[lang]">) {
   const locale = await getLocale();
   return (
     <html
@@ -60,10 +65,12 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 -z-20 bg-teal-700/[0.13] [mask-image:url(/images/bg/contours.svg)] [mask-size:cover] [mask-position:center] dark:bg-teal-300/[0.08]"
         />
+        <Opening name={profile.nickname} />
         <MotionProvider>
           <Navbar />
           {children}
           <Footer />
+          {modal}
         </MotionProvider>
       </body>
     </html>

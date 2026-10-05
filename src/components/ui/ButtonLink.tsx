@@ -1,11 +1,15 @@
 import type { ReactNode } from "react";
 import { Nudge } from "@/components/motion/Nudge";
 import { Pressable } from "@/components/motion/Pressable";
+import type { AccentColor } from "@/content/types";
+import { tones } from "./tones";
 
 type ButtonLinkProps = {
   href: string;
   children: ReactNode;
   variant?: "primary" | "secondary";
+  /** Warna aksen untuk varian primary (mis. warna project), menggantikan gradien teal. */
+  tone?: AccentColor;
   arrow?: "right" | "up-right";
   download?: boolean;
   external?: boolean;
@@ -24,6 +28,7 @@ export function ButtonLink({
   href,
   children,
   variant = "primary",
+  tone,
   arrow,
   download = false,
   external = false,
@@ -35,7 +40,7 @@ export function ButtonLink({
         download={download || undefined}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className={`inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-[box-shadow,border-color,color] duration-300 ease-out sm:px-6 ${variants[variant]}`}
+        className={`inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-[box-shadow,border-color,color] duration-300 ease-out sm:px-6 ${tone ? tones[tone].button : variants[variant]}`}
       >
         {children}
         {arrow && <Nudge direction={arrow}>{arrows[arrow]}</Nudge>}

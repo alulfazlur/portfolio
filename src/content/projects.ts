@@ -1,7 +1,7 @@
 import sellerDashboardCover from "../../public/images/projects/belanjaku-seller-dashboard.png";
-import creatorCover from "../../public/images/projects/belanjaku-creator.png";
-import affiliateCover from "../../public/images/projects/belanjaku-affiliate.webp";
 import storefrontCover from "../../public/images/projects/belanjaku-storefront.png";
+import affiliateCover from "../../public/images/projects/belanjaku-affiliate.webp";
+import creatorCover from "../../public/images/projects/belanjaku-creator.png";
 import swiftomsCover from "../../public/images/projects/swiftoms.png";
 import swiftHubCover from "../../public/images/projects/swifthub.png";
 import wavesCover from "../../public/images/projects/waves-ssi.png";
@@ -37,6 +37,36 @@ export const projects: ProjectData[] = [
     links: { live: "https://seller.belanjaku.id/" },
   },
   {
+    slug: "belanjaku-storefront",
+    group: "belanjaku",
+    type: "work",
+    workplace: "ICUBE",
+    color: "orange",
+    year: 2025,
+    ongoing: true,
+    stack: ["Next.js", "React", "GraphQL", "Apollo Client"],
+    featured: false,
+    comingSoon: false,
+    cover: storefrontCover,
+    gallery: [],
+    links: { live: "https://belanjaku.id/" },
+  },
+  {
+    slug: "belanjaku-affiliate",
+    group: "belanjaku",
+    type: "work",
+    workplace: "ICUBE",
+    color: "orange",
+    year: 2026,
+    ongoing: true,
+    stack: ["Next.js", "React", "GraphQL", "Apollo Client", "Material-UI"],
+    featured: false,
+    comingSoon: false,
+    cover: affiliateCover,
+    gallery: [],
+    links: { live: "https://affiliate.belanjaku.id/" },
+  },
+  {
     slug: "belanjaku-creator",
     group: "belanjaku",
     type: "work",
@@ -58,36 +88,6 @@ export const projects: ProjectData[] = [
     cover: creatorCover,
     gallery: [],
     links: {},
-  },
-  {
-    slug: "belanjaku-affiliate",
-    group: "belanjaku",
-    type: "work",
-    workplace: "ICUBE",
-    color: "orange",
-    year: 2026,
-    ongoing: true,
-    stack: ["Next.js", "React", "GraphQL", "Apollo Client", "Material-UI"],
-    featured: false,
-    comingSoon: false,
-    cover: affiliateCover,
-    gallery: [],
-    links: { live: "https://affiliate.belanjaku.id/" },
-  },
-  {
-    slug: "belanjaku-storefront",
-    group: "belanjaku",
-    type: "work",
-    workplace: "ICUBE",
-    color: "orange",
-    year: 2025,
-    ongoing: true,
-    stack: ["Next.js", "React", "GraphQL", "Apollo Client"],
-    featured: false,
-    comingSoon: false,
-    cover: storefrontCover,
-    gallery: [],
-    links: { live: "https://belanjaku.id/" },
   },
   {
     slug: "swiftoms",
