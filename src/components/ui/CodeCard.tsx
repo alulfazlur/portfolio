@@ -41,7 +41,7 @@ export function CodeCard({
       tokens: [kw("export const"), p(" "), k("engineer"), p(" = {")],
     },
     field("nickname", nickname),
-    { ...field("location", location) },
+    field("location", location),
     { indent: 1, tokens: [k("stack"), p(": [")] },
     ...stack.map((item): CodeLine => ({
       indent: 2,

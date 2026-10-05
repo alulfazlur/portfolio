@@ -39,11 +39,11 @@ Locale-less paths (e.g. `/projects/swiftoms`) are redirected by `src/proxy.ts`. 
 
 ### 4.1 Hero
 At least one viewport tall (minus the mobile top bar), content centered vertically.
-- Name: **Fazlur Rahman (Alul)**, role: **Frontend Engineer**, location (role/location tag hidden on mobile).
+- Name: **Fazlur Rahman**, with **Frontend Engineer** as a tag below it.
 - One-sentence tagline.
 - CTAs: `View Projects` (scrolls to `#projects`) and `Download CV` (`/public/doc/Fazlur Rahman Resume.pdf`).
 - Social icons (from `socials.ts`).
-- Decorative code card showing the profile as a TypeScript object (name, role, location, stack), typed out once. The location line is hidden on mobile and skipped while typing.
+- Decorative code card showing the profile as a TypeScript object (nickname, location, stack), typed out once.
 - One highlight badge: **5+ years of experience**. No commit counts or other vanity numbers.
 
 ### 4.2 About
@@ -163,7 +163,7 @@ The goal is smooth, not busy.
 - Sections and cards: fade + 16–24px slide-up when entering the viewport, once (`once: true`).
 - Lists: 50–80ms stagger.
 - Opening (every page load, skipped for reduced motion): dark slate overlay, the `<a/>` logo fills up in teal, the nickname letters rise one by one, then the overlay splits into horizontal strips that slide out right, bottom first (~1.4s). Pure CSS so it runs from the first paint.
-- Hero: the name rises letter by letter as the strips clear ("(Alul)" rises as one word to keep its gradient), then the badge, tagline, CTAs and code card fade up. All hero entrance animations are CSS so they never wait for hydration (slow on phones). The code card is typed out character by character once, right after the opening even when off screen (caret disappears at the end).
+- Hero: the name rises letter by letter as the strips clear, then the role tag, tagline, CTAs and code card fade up. All hero entrance animations are CSS so they never wait for hydration (slow on phones). The code card is typed out character by character once, right after the opening even when off screen (caret disappears at the end).
 - Case study modal content has no `Reveal`; the morph is its entrance. On the full case study page the back link, header and cover fade up with CSS (no wait for hydration, fast LCP); the sections below keep `Reveal`.
 - On mobile the hero tagline has no fade: it is painted from the first frame behind the opening, so it is a fast LCP element.
 - Motion components are `m.*` inside `LazyMotion strict`; features (`domMax`, needed for the command bar `layoutId`) load async.

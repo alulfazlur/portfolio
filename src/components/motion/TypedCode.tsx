@@ -1,40 +1,23 @@
 "use client";
 
 import { animate, useReducedMotionConfig } from "motion/react";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 
 export type CodeToken = { text: string; className: string };
-export type CodeLine = {
-  indent: 0 | 1 | 2;
-  tokens: CodeToken[];
-  /** Disembunyikan di bawah breakpoint `sm` (dan dilewati saat mengetik). */
-  hideOnMobile?: boolean;
-};
+export type CodeLine = { indent: 0 | 1 | 2; tokens: CodeToken[] };
 
 /** Kecepatan ketik per karakter. */
 const CHAR_MS = 10;
 /** Detik sejak load saat strip opening sudah membuka area code card (lihat Opening). */
 const OPENING_END = 1.4;
-/** Sama dengan breakpoint `sm` Tailwind. */
-const SM = "(min-width: 40rem)";
 
 const indents = { 0: "", 1: "pl-5", 2: "pl-10" } as const;
 
-function subscribeWide(onChange: () => void) {
-  const query = window.matchMedia(SM);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-}
-
-/**
- * Posisi awal tiap token dalam urutan ketik, plus jumlah total karakter.
- * Baris yang tersembunyi tidak ikut diketik (dianggap sudah selesai).
- */
-function offsets(lines: CodeLine[], wide: boolean) {
+/** Posisi awal tiap token dalam urutan ketik, plus jumlah total karakter. */
+function offsets(lines: CodeLine[]) {
   let position = 0;
   const starts = lines.map((line) =>
     line.tokens.map((token) => {
-      if (line.hideOnMobile && !wide) return -Infinity;
       const start = position;
       position += token.text.length;
       return start;
@@ -49,19 +32,12 @@ function offsets(lines: CodeLine[], wide: boolean) {
  */
 export function TypedCode({ lines }: { lines: CodeLine[] }) {
   const reduceMotion = useReducedMotionConfig();
-  const wide = useSyncExternalStore(
-    subscribeWide,
-    () => window.matchMedia(SM).matches,
-    () => true,
-  );
-  const { starts, total } = offsets(lines, wide);
+  const { starts, total } = offsets(lines);
   const [typed, setTyped] = useState(0);
-  // Setelah selesai, ganti ukuran layar tidak membuat kode diketik ulang.
-  const [finished, setFinished] = useState(false);
-  const shown = reduceMotion || finished ? total : typed;
+  const shown = reduceMotion ? total : typed;
 
   useEffect(() => {
-    if (reduceMotion || finished) return;
+    if (reduceMotion) return;
     const opened = document.documentElement.hasAttribute("data-opened");
     const delay = opened
       ? 0.2
@@ -71,18 +47,14 @@ export function TypedCode({ lines }: { lines: CodeLine[] }) {
       delay,
       ease: "linear",
       onUpdate: (value) => setTyped(Math.round(value)),
-      onComplete: () => setFinished(true),
     });
     return () => controls.stop();
-  }, [reduceMotion, finished, total]);
+  }, [reduceMotion, total]);
 
   return (
     <code>
       {lines.map((line, lineIndex) => (
-        <span
-          key={lineIndex}
-          className={`${line.hideOnMobile ? "hidden sm:block" : "block"} ${indents[line.indent]}`}
-        >
+        <span key={lineIndex} className={`block ${indents[line.indent]}`}>
           {line.tokens.map((token, tokenIndex) => {
             const start = starts[lineIndex][tokenIndex];
             const visible = Math.min(
