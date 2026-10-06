@@ -154,7 +154,7 @@ export type ExperienceData = {
 - **Project colors:** Belanjaku orange, SWIFT purple, WAVES-SSI brand gradient (`#2f6875` → `#083a4f`), KlikDiabetes emerald.
 - **Background:** generated topographic contour lines (`/public/images/bg/contours.svg`), tinted per theme, plus a soft colored glow per section.
 - **Layout:** content max-width ~1100px, mobile-first, default Tailwind breakpoints. About, Skills, Experience, and Contact use a sticky side heading on desktop.
-- **Fonts:** `Geist` for text and `Geist Mono` for labels and tags, via `next/font`.
+- **Fonts:** `Montserrat` for headings, `Google Sans` for text, and `Google Sans Code` for labels and tags, via `next/font`.
 - **Logo:** `<a/>` mark (anchor tag + initial). Source in `src/app/icon.svg`; exports in `/brand`.
 
 ## 8. Animation (Motion)

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Google_Sans, Google_Sans_Code, Montserrat } from "next/font/google";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { getFixedT } from "@/lib/i18n";
@@ -7,9 +7,16 @@ import { locales } from "@/lib/locales";
 import { ThemeScript } from "@/components/ui/ThemeScript";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const googleSans = Google_Sans({
+  variable: "--font-google-sans",
+  subsets: ["latin"],
+});
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+const googleSansCode = Google_Sans_Code({
+  variable: "--font-google-sans-code",
   subsets: ["latin"],
 });
 
@@ -22,7 +29,7 @@ export default function GlobalNotFound() {
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${googleSans.variable} ${montserrat.variable} ${googleSansCode.variable} antialiased`}
     >
       <head>
         <ThemeScript />
