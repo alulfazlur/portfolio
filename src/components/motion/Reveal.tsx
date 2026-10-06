@@ -8,17 +8,9 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  /** false = tampil langsung tanpa animasi (mis. di modal yang sudah punya animasi sendiri). */
-  enabled?: boolean;
 };
 
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-  enabled = true,
-}: RevealProps) {
-  if (!enabled) return <div className={className}>{children}</div>;
+export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <m.div
       className={className}

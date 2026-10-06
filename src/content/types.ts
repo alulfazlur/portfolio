@@ -172,7 +172,6 @@ export type Messages = {
     items: Record<ProjectSlug, ProjectCopy>;
   };
   caseStudy: {
-    back: string;
     close: string;
     role: string;
     stack: string;
@@ -184,9 +183,6 @@ export type Messages = {
     result: string;
     gallery: string;
     screenshotAlt: string;
-    moreProjects: string;
-    previous: string;
-    next: string;
   };
   contact: {
     heading: string;

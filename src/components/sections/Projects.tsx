@@ -56,17 +56,12 @@ export async function Projects() {
                   {String(group.projects.length).padStart(2, "0")}
                 </span>
               </Reveal>
-              <Stagger
-                as="ul"
-                className={`grid gap-5 sm:grid-cols-2 ${group.projects.length > 2 ? "lg:grid-cols-3" : ""}`}
-              >
+              <Stagger as="ul" className="grid gap-5 sm:grid-cols-2">
                 {group.projects.map((project) => (
                   <StaggerItem
                     as="li"
                     key={project.slug}
-                    className={
-                      project.featured ? "sm:col-span-2 lg:col-span-3" : ""
-                    }
+                    className={project.featured ? "sm:col-span-2" : ""}
                   >
                     <ProjectCard
                       project={project}

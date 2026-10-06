@@ -253,7 +253,6 @@ export const id: Messages = {
     },
   },
   caseStudy: {
-    back: "Semua proyek",
     close: "Tutup",
     role: "Peran",
     stack: "Teknologi",
@@ -265,9 +264,6 @@ export const id: Messages = {
     result: "Hasilnya",
     gallery: "Galeri",
     screenshotAlt: "Screenshot {{title}} {{number}}",
-    moreProjects: "Proyek lainnya",
-    previous: "Sebelumnya",
-    next: "Berikutnya",
   },
   contact: {
     heading: "Yuk, bangun sesuatu",

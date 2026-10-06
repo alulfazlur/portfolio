@@ -65,12 +65,12 @@ export function ProjectCard({
               sizes={
                 wide
                   ? "(min-width: 1024px) 640px, 100vw"
-                  : "(min-width: 1024px) 350px, (min-width: 640px) 50vw, 100vw"
+                  : "(min-width: 1024px) 520px, (min-width: 640px) 50vw, 100vw"
               }
               className="aspect-[16/10] w-full origin-bottom rounded-t-xl object-cover object-left-top shadow-xl ring-1 shadow-slate-900/15 ring-slate-900/5 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1.5 group-hover:scale-[1.02] dark:shadow-slate-950/50 dark:ring-white/10"
             />
           </div>
-          <div className="flex flex-1 flex-col gap-3 p-6">
+          <div data-zoom-body className="flex flex-1 flex-col gap-3 p-6">
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs">
               <span className={`rounded-full px-2.5 py-1 ${tone.chip}`}>
                 {typeLabel}

@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { afterOpening } from "@/components/motion/afterOpening";
-import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Tag } from "@/components/ui/Tag";
 import { tones } from "@/components/ui/tones";
@@ -10,26 +8,12 @@ import { getT } from "@/lib/i18n";
 
 type CaseStudyProps = {
   project: Project;
-  /** 1 di halaman case study (judul = h1), 2 di dalam modal di atas halaman utama. */
-  level: 1 | 2;
 };
 
-/** Isi case study: dipakai halaman /projects/[slug] dan modal-nya. */
-export async function CaseStudy({ project, level }: CaseStudyProps) {
+/** Isi case study di dalam modal, di atas halaman utama (judul h2). */
+export async function CaseStudy({ project }: CaseStudyProps) {
   const t = await getT();
   const tone = tones[project.color];
-  const Title = level === 1 ? "h1" : "h2";
-  const Heading = level === 1 ? "h2" : "h3";
-  // Di modal, animasi morph-nya sudah jadi animasi masuk; animasi lain hanya di halaman penuh.
-  const reveal = level === 1;
-  // Bagian atas (judul, cover) pakai animasi CSS agar tidak menunggu hydration (LCP di HP).
-  const enter = (ms: number) =>
-    reveal
-      ? {
-          className: "animate-fade-up motion-reduce:animate-none",
-          style: afterOpening(ms),
-        }
-      : {};
   const meta = [
     ...(project.workplace
       ? [{ label: t("caseStudy.workplace"), value: project.workplace }]
@@ -39,7 +23,7 @@ export async function CaseStudy({ project, level }: CaseStudyProps) {
 
   return (
     <>
-      <div {...enter(0)}>
+      <div>
         <p className="flex items-center gap-2 font-mono text-xs">
           <span className={`rounded-full px-2.5 py-1 ${tone.chip}`}>
             {t(`projects.types.${project.type}`)}
@@ -53,12 +37,12 @@ export async function CaseStudy({ project, level }: CaseStudyProps) {
             </span>
           )}
         </p>
-        <Title
+        <h2
           id={`${project.slug}-title`}
           className="mt-4 max-w-3xl text-4xl font-semibold tracking-tighter text-balance text-slate-900 sm:text-6xl dark:text-slate-50"
         >
           {project.title}
-        </Title>
+        </h2>
         <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <p className="max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl dark:text-slate-400">
             {project.summary}
@@ -117,38 +101,19 @@ export async function CaseStudy({ project, level }: CaseStudyProps) {
         </dl>
       </div>
 
-      <div className="mt-12">
-        <div {...enter(100)}>
-          <div
-            className={`flex items-end overflow-hidden rounded-3xl border border-slate-200 px-4 pt-4 sm:px-12 sm:pt-12 dark:border-slate-700/60 ${tone.frame}`}
-          >
-            <Image
-              src={project.cover}
-              alt={t("projects.coverAlt", { title: project.title })}
-              placeholder="blur"
-              quality={90}
-              loading="eager"
-              fetchPriority="high"
-              sizes="(min-width: 1100px) 1052px, 100vw"
-              className="max-h-[70vh] w-full rounded-t-xl object-cover object-top shadow-2xl ring-1 shadow-slate-900/15 ring-slate-900/5 dark:shadow-slate-950/50 dark:ring-white/10"
-            />
-          </div>
-        </div>
-      </div>
-
       <div className="mx-auto mt-16 max-w-2xl space-y-14">
-        <Reveal enabled={reveal}>
-          <Heading className={`font-mono text-sm ${tone.text}`}>
+        <div>
+          <h3 className={`font-mono text-sm ${tone.text}`}>
             {t("caseStudy.problem")}
-          </Heading>
+          </h3>
           <p className="mt-4 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
             {project.problem}
           </p>
-        </Reveal>
-        <Reveal enabled={reveal}>
-          <Heading className={`font-mono text-sm ${tone.text}`}>
+        </div>
+        <div>
+          <h3 className={`font-mono text-sm ${tone.text}`}>
             {t("caseStudy.whatIDid")}
-          </Heading>
+          </h3>
           <ul className="mt-5 space-y-4">
             {project.whatIDid.map((item) => (
               <li
@@ -163,27 +128,27 @@ export async function CaseStudy({ project, level }: CaseStudyProps) {
               </li>
             ))}
           </ul>
-        </Reveal>
-        <Reveal enabled={reveal}>
+        </div>
+        <div>
           <div className={`rounded-3xl p-6 sm:p-8 ${tone.soft}`}>
-            <Heading className={`font-mono text-sm ${tone.text}`}>
+            <h3 className={`font-mono text-sm ${tone.text}`}>
               {t("caseStudy.result")}
-            </Heading>
+            </h3>
             <p className="mt-3 text-xl leading-relaxed font-medium text-slate-900 dark:text-slate-50">
               {project.result}
             </p>
           </div>
-        </Reveal>
+        </div>
       </div>
 
       {project.gallery.length > 0 && (
         <section aria-labelledby={`${project.slug}-gallery`} className="mt-20">
-          <Heading
+          <h3
             id={`${project.slug}-gallery`}
             className="font-mono text-sm text-accent dark:text-accent-soft"
           >
             {t("caseStudy.gallery")}
-          </Heading>
+          </h3>
           <ul className="mt-6 grid gap-5 sm:grid-cols-2">
             {project.gallery.map((src, index) => (
               <li key={src}>

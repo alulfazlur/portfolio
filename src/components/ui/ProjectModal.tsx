@@ -142,8 +142,12 @@ function placeSurface(surface: HTMLElement, box: Box) {
 
 type ProjectModalProps = {
   children: ReactNode;
+  /** Screenshot penuh di bagian atas panel, seperti di kartu. */
+  media: ReactNode;
   labelledBy: string;
   closeLabel: string;
+  /** Diisi bila tidak ada riwayat untuk kembali (modal dibuka langsung dari URL). */
+  closeHref?: string;
 };
 
 /**
@@ -157,8 +161,10 @@ type ProjectModalProps = {
  */
 export function ProjectModal({
   children,
+  media,
   labelledBy,
   closeLabel,
+  closeHref,
 }: ProjectModalProps) {
   const router = useRouter();
   const reduceMotion = useReducedMotionConfig();
@@ -168,6 +174,7 @@ export function ProjectModal({
   const backdropRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
   const ghostLayerRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const closing = useRef(false);
@@ -178,7 +185,8 @@ export function ProjectModal({
     const surface = surfaceRef.current;
     const panel = panelRef.current;
     const layer = ghostLayerRef.current;
-    if (!dialog || !backdrop || !surface || !panel || !layer) return;
+    const body = bodyRef.current;
+    if (!dialog || !backdrop || !surface || !panel || !layer || !body) return;
     if (origin.current === undefined) origin.current = takeZoomOrigin();
     const card = reduceMotion ? null : origin.current;
     if (!dialog.open) dialog.showModal();
@@ -204,25 +212,42 @@ export function ProjectModal({
         },
         { ...MORPH, opacity: { ...MORPH, times: [0, 0.2, 1] } },
       );
-      grow.then(() => (surface.style.visibility = "hidden"));
       animations.push(
         grow,
         animate(
           ghost,
-          {
-            transform: [posed(pose), cover(pose, target)],
-            // Kartu tetap utuh selama zoom, lalu crossfade dengan isi modal.
-            opacity: [1, 1, 0],
-          },
-          { ...MORPH, opacity: { ...MORPH, times: [0, 0.6, 1] } },
-        ),
-        animate(
-          panel,
-          { opacity: [0, 1] },
-          // Baru muncul saat permukaan hampir penuh, agar isi tidak tampak di luar bidangnya.
-          { duration: 0.3, delay: 0.3, ease: easeOut },
+          { transform: [posed(pose), cover(pose, target)] },
+          MORPH,
         ),
       );
+      // Teks kartu ikut membesar dan tidak cocok dengan teks modal, jadi dihilangkan di awal;
+      // yang terlihat bergerak hanya bingkai screenshot dan permukaan putih.
+      const ghostText = ghost.querySelector<HTMLElement>("[data-zoom-body]");
+      if (ghostText) {
+        animations.push(
+          animate(
+            ghostText,
+            { opacity: [1, 0] },
+            { duration: 0.2, ease: easeOut },
+          ),
+        );
+      }
+      // Panel langsung tampil di atas salinan kartu: screenshot-nya berimpit, jadi tetap diam
+      // dan sudutnya langsung menutup sudut salinan (yang ikut membesar). Hanya teks yang fade.
+      grow.then(() => {
+        body.style.opacity = "0";
+        panel.style.opacity = "1";
+        const reveal = animate(
+          body,
+          { opacity: [0, 1] },
+          { duration: 0.25, ease: easeOut },
+        );
+        animations.push(reveal);
+        reveal.then(() => {
+          surface.style.visibility = "hidden";
+          ghost?.remove();
+        });
+      });
     } else {
       animations.push(
         animate(
@@ -297,7 +322,7 @@ export function ProjectModal({
         ),
       ]);
     }
-    // close() memicu event "close" (onClose → router.back()) dan mengembalikan fokus ke kartu.
+    // close() memicu event "close" (onClose → kembali ke URL sebelumnya) dan mengembalikan fokus ke kartu.
     dialog.close();
   }
 
@@ -315,7 +340,9 @@ export function ProjectModal({
       ref={dialogRef}
       aria-labelledby={labelledBy}
       onCancel={handleCancel}
-      onClose={() => router.back()}
+      onClose={() =>
+        closeHref ? router.replace(closeHref, { scroll: false }) : router.back()
+      }
       className="m-0 size-full max-h-none max-w-none overflow-y-auto overscroll-contain border-0 bg-transparent p-0 text-slate-900 backdrop:bg-transparent dark:text-slate-100"
     >
       <div
@@ -326,7 +353,13 @@ export function ProjectModal({
       <div
         ref={surfaceRef}
         aria-hidden="true"
-        className="invisible fixed origin-top-left rounded-3xl bg-white ring-1 ring-slate-900/5 will-change-transform dark:bg-slate-800 dark:ring-slate-700/60"
+        className="invisible fixed origin-top-left rounded-3xl bg-white ring-1 ring-slate-900/5 will-change-transform sm:rounded-[3rem] dark:bg-slate-800 dark:ring-slate-700/60"
+      />
+      {/* Di bawah panel, agar panel bisa muncul di atas salinan kartu. */}
+      <div
+        ref={ghostLayerRef}
+        aria-hidden="true"
+        className="pointer-events-none"
       />
       <div
         onClick={handleBackdropClick}
@@ -334,9 +367,9 @@ export function ProjectModal({
       >
         <div
           ref={panelRef}
-          className="relative w-full max-w-5xl rounded-3xl bg-white p-5 opacity-0 shadow-2xl ring-1 shadow-slate-900/20 ring-slate-900/5 sm:p-10 lg:p-12 dark:bg-slate-800 dark:shadow-slate-950/60 dark:ring-slate-700/60"
+          className="relative w-full max-w-5xl rounded-3xl bg-white opacity-0 shadow-2xl ring-1 shadow-slate-900/20 ring-slate-900/5 sm:rounded-[3rem] dark:bg-slate-800 dark:shadow-slate-950/60 dark:ring-slate-700/60"
         >
-          <div className="sticky top-3 z-10 -mb-11 flex justify-end">
+          <div className="sticky top-0 z-10 -mb-14 flex justify-end px-3 pt-3">
             <Pressable preset="icon">
               <button
                 ref={closeRef}
@@ -360,14 +393,12 @@ export function ProjectModal({
               </button>
             </Pressable>
           </div>
-          {children}
+          {media}
+          <div ref={bodyRef} className="p-5 sm:p-10 lg:p-12">
+            {children}
+          </div>
         </div>
       </div>
-      <div
-        ref={ghostLayerRef}
-        aria-hidden="true"
-        className="pointer-events-none"
-      />
     </dialog>
   );
 }

@@ -253,7 +253,6 @@ export const en: Messages = {
     },
   },
   caseStudy: {
-    back: "All projects",
     close: "Close",
     role: "Role",
     stack: "Stack",
@@ -265,9 +264,6 @@ export const en: Messages = {
     result: "Result",
     gallery: "Gallery",
     screenshotAlt: "{{title}} screenshot {{number}}",
-    moreProjects: "More projects",
-    previous: "Previous",
-    next: "Next",
   },
   contact: {
     heading: "Let's build something",

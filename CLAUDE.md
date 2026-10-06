@@ -30,9 +30,9 @@ src/
     [lang]/             # all pages live under the locale segment (en, id)
       layout.tsx        # root layout: fonts, theme script, metadata, nav, footer
       page.tsx          # home: Hero → About → Skills → Experience → Projects → Contact
-      projects/[slug]/  # case study pages + per-project OG image
-      @modal/           # intercepting route: project card click opens the case study as a modal
-    global-not-found.tsx  # bilingual 404 for unmatched URLs
+      projects/[slug]/  # home page under the project URL + per-project OG image
+      @modal/           # case study modal: (.)projects = card click (intercepted), projects = direct load / refresh
+    global-not-found.tsx  # English 404 for unmatched URLs
     icon.svg            # favicon (the `<a/>` logo)
     robots.ts
   components/

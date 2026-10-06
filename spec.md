@@ -22,8 +22,8 @@ All pages live under a locale segment: `en` or `id`.
 | ------------------------ | ----------------------------------------------------------------------- |
 | `/`                      | Redirects to `/en` or `/id` based on the browser's `Accept-Language`   |
 | `/[lang]`                | Single page: Hero → About → Skills → Experience → Projects → Contact   |
-| `/[lang]/projects/[slug]` | Case study for one project (statically generated)                     |
-| Any unmatched URL        | Bilingual 404 page with links back to `/en` and `/id`                  |
+| `/[lang]/projects/[slug]` | Home page with the case study modal open (statically generated)        |
+| Any unmatched URL        | English 404 page with a link back to `/en`                             |
 
 Locale-less paths (e.g. `/projects/swiftoms`) are redirected by `src/proxy.ts`. Switching language keeps the current path.
 
@@ -66,10 +66,10 @@ Vertical timeline, newest first. Per item: company, role, period, 2–4 achievem
 
 ### 4.5 Projects
 - Grouped by product family. Each group has a name, a one-line description, and a project count.
-  - **Belanjaku:** Seller Dashboard (featured, includes the Page & Menu Builder), Belanjaku Storefront, Belanjaku Affiliate, Belanjaku Creator (coming soon)
+  - **Belanjaku:** Seller Dashboard (includes the Page & Menu Builder), Belanjaku Storefront, Belanjaku Affiliate, Belanjaku Creator (coming soon)
   - **SWIFT:** SwiftOMS, SWIFT Hub
   - **Other work:** WAVES-SSI (freelance), KlikDiabetes
-- Order inside a group follows the array order in `content/projects.ts`; `featured` projects come first and span the full row.
+- Order inside a group follows the array order in `content/projects.ts`; `featured` projects come first and span the full row. Cards sit two per row from `sm` up.
 - Card: framed screenshot, type chip (Work/Freelance), workplace, period (`<year> — Present` for ongoing projects), title, one-sentence summary, up to 4 tech tags, optional `Live site` link.
 - The whole card links to `/[lang]/projects/[slug]`. On touch devices (no hover) a small "View case study →" cue shows it is tappable. On click the card itself grows and turns into the case study modal (intercepting route in the `@modal` slot); the URL changes, Back / Escape / backdrop / close button zoom it back and close it.
 - White-label customers are mentioned generically ("white-labeled by several customers"), never by name.
@@ -83,21 +83,20 @@ Vertical timeline, newest first. Per item: company, role, period, 2–4 achievem
 ### 4.7 Footer
 © current year + name, "Built with Next.js". No social links (they are in the hero and Contact).
 
-## 5. Case Study Page (`/[lang]/projects/[slug]`)
+## 5. Case Study Modal (`/[lang]/projects/[slug]`)
 
-Opening the URL directly (or refreshing) shows the full page; clicking a project card shows the same content in a modal (items 2–9, with a close button instead of the back link and project navigation).
+There is no separate case study page. Clicking a project card opens the case study in a modal over the home page (intercepting route). Opening the URL directly (or refreshing) shows the home page with the same modal already open; closing it then goes to `/[lang]`.
 
 Fixed structure:
-1. Back link, type chip, period, `Coming soon` badge when relevant
-2. Title and summary
-3. Meta: workplace (hidden for freelance), role, tech stack
-4. Links: Live site / Source code (hidden when missing), next to the summary; Live site uses the project color
-5. Framed screenshot
+1. Framed screenshot, full-width at the top of the panel like on the card (so the card → modal morph stays continuous), and a close button
+2. Type chip, period, `Coming soon` badge when relevant
+3. Title and summary
+4. Meta: workplace (hidden for freelance), role, tech stack
+5. Links: Live site / Source code (hidden when missing), next to the summary; Live site uses the project color
 6. **Problem** — context and the problem
 7. **What I did** — my specific contribution
 8. **Result** — the impact (numbers only when real)
 9. Screenshot gallery (optional)
-10. Previous / next project navigation
 
 Case study copy is written as fields in the locale files (no MDX) in v1.
 
@@ -164,12 +163,12 @@ The goal is smooth, not busy.
 - Lists: 50–80ms stagger.
 - Opening (every page load, skipped for reduced motion): dark slate overlay, the `<a/>` logo fills up in teal, the nickname letters rise one by one, then the overlay splits into horizontal strips that slide out right, bottom first (~1.4s). Pure CSS so it runs from the first paint.
 - Hero: the name rises letter by letter as the strips clear, then the role tag, tagline, CTAs and code card fade up. All hero entrance animations are CSS so they never wait for hydration (slow on phones). The code card is typed out character by character once, right after the opening even when off screen (caret disappears at the end).
-- Case study modal content has no `Reveal`; the morph is its entrance. On the full case study page the back link, header and cover fade up with CSS (no wait for hydration, fast LCP); the sections below keep `Reveal`.
+- Case study modal content has no `Reveal`; the morph is its entrance. Opened directly from the URL (no card to morph from), the panel fades and slides up.
 - On mobile the hero tagline has no fade: it is painted from the first frame behind the opening, so it is a fast LCP element.
 - Motion components are `m.*` inside `LazyMotion strict`; features (`domMax`, needed for the command bar `layoutId`) load async.
 - Buttons, cards, and icons: spring-based hover lift and tap press (`Pressable`), arrows nudge on hover.
 - 3D tilt (`Tilt`): project cards and the hero code card tilt up to 5° toward the mouse pointer (perspective, spring). Mouse only; off for touch and reduced motion.
-- Case study modal: the clicked card grows into the modal panel (card snapshot crossfades with the modal content), and shrinks back into the card on close.
+- Case study modal: the clicked card grows into the modal panel (the card text fades out as it grows, the screenshot frame lines up with the modal cover, and the modal text fades in on top), and shrinks back into the card on close.
 - Copy button: label crossfade. Theme toggle: icon rotate + fade. Section accent line grows in.
 - **Must** respect `prefers-reduced-motion` (`<MotionConfig reducedMotion="user">`).
 - Forbidden: heavy parallax, looping animations, scroll-jacking.
@@ -202,7 +201,7 @@ Blog, CMS, contact form, analytics, testimonials, auth.
 3. ✅ Hero + About
 4. ✅ Skills + Experience
 5. ✅ Projects (grouped grid)
-6. ✅ Case study pages
+6. ✅ Case study modal
 7. ✅ Contact + Footer
 8. ✅ Motion across all sections
 9. ✅ SEO: metadata, OG images, robots (sitemap pending the domain)

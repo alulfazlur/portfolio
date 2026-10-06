@@ -48,12 +48,3 @@ export function getProjectGroups(t: TFunction): {
 export function getProject(t: TFunction, slug: string): Project | undefined {
   return getSortedProjects(t).find((project) => project.slug === slug);
 }
-
-export function getAdjacentProjects(
-  t: TFunction,
-  slug: ProjectSlug,
-): { previous: Project | undefined; next: Project | undefined } {
-  const sorted = getSortedProjects(t);
-  const index = sorted.findIndex((project) => project.slug === slug);
-  return { previous: sorted[index - 1], next: sorted[index + 1] };
-}

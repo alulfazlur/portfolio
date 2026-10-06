@@ -3,7 +3,7 @@ import { Google_Sans, Google_Sans_Code, Montserrat } from "next/font/google";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { getFixedT } from "@/lib/i18n";
-import { locales } from "@/lib/locales";
+import { defaultLocale } from "@/lib/locales";
 import { ThemeScript } from "@/components/ui/ThemeScript";
 import "./globals.css";
 
@@ -24,11 +24,14 @@ export const metadata: Metadata = {
   title: "404 — Alul",
 };
 
+// Di luar [lang], jadi bahasanya tidak diketahui; cukup bahasa default (Inggris).
+const t = getFixedT(defaultLocale);
+
 export default function GlobalNotFound() {
   return (
     <html
       suppressHydrationWarning
-      lang="en"
+      lang={defaultLocale}
       className={`${googleSans.variable} ${montserrat.variable} ${googleSansCode.variable} antialiased`}
     >
       <head>
@@ -40,23 +43,15 @@ export default function GlobalNotFound() {
             <p className="font-mono text-sm text-accent dark:text-accent-soft">
               404
             </p>
-            {locales.map((locale, index) => {
-              const t = getFixedT(locale);
-              const Heading = index === 0 ? "h1" : "p";
-              return (
-                <div key={locale} lang={locale} className="mt-6">
-                  <Heading className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
-                    {t("notFound.title")}
-                  </Heading>
-                  <Link
-                    href={`/${locale}`}
-                    className="mt-3 inline-block font-mono text-sm text-slate-600 underline underline-offset-4 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-50"
-                  >
-                    ← {t("notFound.back")}
-                  </Link>
-                </div>
-              );
-            })}
+            <h1 className="mt-6 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+              {t("notFound.title")}
+            </h1>
+            <Link
+              href={`/${defaultLocale}`}
+              className="mt-3 inline-block font-mono text-sm text-slate-600 underline underline-offset-4 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-50"
+            >
+              ← {t("notFound.back")}
+            </Link>
           </Container>
         </main>
       </body>

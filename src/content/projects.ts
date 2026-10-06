@@ -30,7 +30,7 @@ export const projects: ProjectData[] = [
       "GrapesJS",
       "Material-UI",
     ],
-    featured: true,
+    featured: false,
     comingSoon: false,
     cover: sellerDashboardCover,
     gallery: [],

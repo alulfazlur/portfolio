@@ -50,7 +50,7 @@ export function Opening({ name }: { name: string }) {
             </div>
           </div>
         </div>
-        <p className="flex overflow-hidden text-7xl leading-[1.1] font-semibold tracking-tighter text-slate-50 uppercase sm:text-9xl">
+        <p className="flex overflow-hidden font-mono text-7xl leading-[1.1] font-semibold tracking-tighter text-slate-50 uppercase sm:text-9xl">
           {[...name].map((letter, index) => (
             <span
               key={index}
