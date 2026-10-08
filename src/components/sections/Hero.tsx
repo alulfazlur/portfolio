@@ -23,9 +23,9 @@ export async function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
       >
-        <div className="absolute -top-48 left-1/4 size-[38rem] rounded-full bg-teal-200/50 blur-3xl dark:bg-teal-500/10" />
-        <div className="absolute top-10 -right-40 size-[32rem] rounded-full bg-sky-200/50 blur-3xl dark:bg-sky-500/10" />
-        <div className="absolute -bottom-40 -left-24 size-[28rem] rounded-full bg-emerald-100/60 blur-3xl dark:bg-emerald-500/5" />
+        <div className="absolute -top-48 left-1/4 size-[38rem] rounded-full bg-primary-200/50 blur-3xl dark:bg-primary-500/10" />
+        <div className="absolute top-10 -right-40 size-[32rem] rounded-full bg-secondary-200/50 blur-3xl dark:bg-secondary-500/10" />
+        <div className="absolute -bottom-40 -left-24 size-[28rem] rounded-full bg-accent-100/60 blur-3xl dark:bg-accent-500/5" />
       </div>
 
       <Container className="grid gap-8 pt-8 pb-20 sm:gap-10 sm:pt-20 sm:pb-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
@@ -62,7 +62,7 @@ export async function Hero() {
           >
             <span
               aria-hidden="true"
-              className="size-2 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-3"
+              className="size-2 shrink-0 rounded-full bg-linear-to-r from-primary-700 to-accent-400"
             />
             {profile.role}
           </p>
@@ -107,7 +107,7 @@ export async function Hero() {
               key={stat.label}
               className="absolute -top-10 right-3 inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 shadow-slate-900/10 ring-slate-200 sm:top-auto sm:-bottom-8 sm:px-5 sm:py-4 lg:right-4 dark:bg-slate-800 dark:shadow-slate-950/40 dark:ring-slate-700/60"
             >
-              <span className="bg-linear-to-r from-accent to-accent-2 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl dark:from-accent-soft dark:to-accent-2-soft">
+              <span className="bg-linear-to-r from-primary-700 to-secondary-700 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl dark:from-primary-300 dark:to-secondary-300">
                 {stat.value}
               </span>
               <span className="max-w-28 text-sm leading-snug text-slate-600 dark:text-slate-300">

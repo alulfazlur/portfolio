@@ -68,7 +68,7 @@ export function Section({
             {title}
           </h2>
           {side && (
-            <GrowLine className="h-1 w-12 rounded-full bg-linear-to-r from-accent to-accent-2" />
+            <GrowLine className="h-1 w-12 rounded-full bg-linear-to-r from-primary-700 to-secondary-700" />
           )}
         </Reveal>
         <div>{children}</div>

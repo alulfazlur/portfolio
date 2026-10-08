@@ -41,7 +41,7 @@ export function ProjectCard({
     <Tilt className="h-full">
       <Pressable preset="card" className="h-full">
         <article
-          className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-[border-color] duration-500 ease-out has-[h3_a:focus-visible]:outline-2 has-[h3_a:focus-visible]:outline-offset-4 has-[h3_a:focus-visible]:outline-accent dark:border-slate-700/60 dark:bg-slate-800 dark:has-[h3_a:focus-visible]:outline-accent-soft ${tone.card} ${
+          className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-[border-color] duration-500 ease-out has-[h3_a:focus-visible]:outline-2 has-[h3_a:focus-visible]:outline-offset-4 has-[h3_a:focus-visible]:outline-primary-700 dark:border-slate-700/60 dark:bg-slate-800 dark:has-[h3_a:focus-visible]:outline-primary-300 ${tone.card} ${
             wide ? "lg:flex-row" : ""
           }`}
         >

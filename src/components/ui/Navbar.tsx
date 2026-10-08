@@ -30,7 +30,7 @@ export async function Navbar() {
           <Link
             href={homeHref}
             aria-label={profile.name}
-            className="inline-flex size-10 overflow-hidden rounded-[0.8rem] shadow-md shadow-teal-900/20"
+            className="inline-flex size-10 overflow-hidden rounded-[0.8rem] shadow-md shadow-primary-900/20"
           >
             <Logo className="size-full" gradientId="logo-gradient-topbar" />
           </Link>

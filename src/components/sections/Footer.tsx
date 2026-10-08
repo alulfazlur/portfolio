@@ -8,7 +8,7 @@ export async function Footer() {
     <footer className="relative pt-8 pb-28">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-teal-400/60 to-transparent"
+        className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary-400/60 to-transparent"
       />
       <Container>
         <p className="flex flex-col items-center gap-1 text-center font-mono text-xs text-slate-500 sm:flex-row sm:justify-center sm:gap-1.5 dark:text-slate-400">

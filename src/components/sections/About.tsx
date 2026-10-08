@@ -34,7 +34,7 @@ export async function About() {
           <div className="group relative isolate mx-4 max-w-sm sm:mx-auto md:mx-0">
             <div
               aria-hidden="true"
-              className="absolute -inset-2 -z-10 rotate-2 rounded-[2rem] bg-linear-to-br from-accent via-accent-2 to-accent-3 opacity-90 transition-transform duration-500 ease-out group-hover:rotate-6 sm:-inset-3 sm:rotate-3 sm:group-hover:rotate-6"
+              className="absolute -inset-2 -z-10 rotate-2 rounded-[2rem] bg-linear-to-br from-primary-700 via-secondary-700 to-accent-400 opacity-90 transition-transform duration-500 ease-out group-hover:rotate-6 sm:-inset-3 sm:rotate-3 sm:group-hover:rotate-6"
             />
             <Image
               src={profile.photo}

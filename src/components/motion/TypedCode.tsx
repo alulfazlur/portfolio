@@ -67,7 +67,7 @@ export function TypedCode({ lines }: { lines: CodeLine[] }) {
                 {token.text.slice(0, visible)}
                 {caret && (
                   <span className="relative">
-                    <span className="absolute top-[0.15em] h-[1.2em] w-0.5 bg-teal-300" />
+                    <span className="absolute top-[0.15em] h-[1.2em] w-0.5 bg-primary-300" />
                   </span>
                 )}
                 <span className="opacity-0">{token.text.slice(visible)}</span>

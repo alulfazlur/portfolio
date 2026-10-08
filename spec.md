@@ -52,7 +52,7 @@ At least one viewport tall (minus the mobile top bar), content centered vertical
 - Fact cards, each with an icon: location (Jember, East Java, Indonesia), experience (5+ years), current role, education.
 
 ### 4.3 Skills
-Grouped cards with chips — no progress bars or percentages. Only skills Alul is confident in. Each chip has a monochrome icon (brand logo from Simple Icons, or a Lucide icon for generic skills).
+Grouped cards with chips — no progress bars or percentages. Only skills Alul is confident in. Each chip has a monochrome icon (brand logo from Simple Icons, or a Material Design Icon for generic skills).
 - **Core:** JavaScript (ES6+), TypeScript, React, Next.js, React Native, Git
 - **Styling & UI:** Tailwind CSS, Material-UI, CSS3 / SASS, HTML5
 - **Data & State:** Apollo GraphQL, Redux, react-hook-form, Yup, i18next, REST APIs, Webhooks
@@ -149,11 +149,12 @@ export type ExperienceData = {
 
 - **Mood:** calm, clean, generous whitespace, strong typography, with a few distinctive touches.
 - **Theme:** light and dark. Light is the default for every visitor; a toggle switches to dark (remembered in `localStorage`).
-- **Colors:** calm teal (primary) + sky (secondary) on slate neutrals, defined as `@theme` tokens in `globals.css`. Dark mode uses slate navy, never near-black.
+- **Colors:** three roles on slate neutrals, defined as `@theme` scales in `globals.css`: `primary` (calm teal), `secondary` (sky), `accent` (amber, used sparingly for small highlights). Dark mode uses slate navy, never near-black.
 - **Project colors:** Belanjaku orange, SWIFT purple, WAVES-SSI brand gradient (`#2f6875` → `#083a4f`), KlikDiabetes emerald.
 - **Background:** generated topographic contour lines (`/public/images/bg/contours.svg`), tinted per theme, plus a soft colored glow per section.
 - **Layout:** content max-width ~1100px, mobile-first, default Tailwind breakpoints. About, Skills, Experience, and Contact use a sticky side heading on desktop.
-- **Fonts:** `Montserrat` for headings, `Google Sans` for text, and `Google Sans Code` for labels and tags, via `next/font`.
+- **Fonts:** `Poppins` for headings, `Inter` for text, and `JetBrains Mono` for labels and tags, via `next/font`.
+- **Icons:** Material Design Icons (`@mdi/js`) through `components/ui/Icon.tsx`; brand logos from Simple Icons.
 - **Logo:** `<a/>` mark (anchor tag + initial). Source in `src/app/icon.svg`; exports in `/brand`.
 
 ## 8. Animation (Motion)

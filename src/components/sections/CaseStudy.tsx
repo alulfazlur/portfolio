@@ -145,7 +145,7 @@ export async function CaseStudy({ project }: CaseStudyProps) {
         <section aria-labelledby={`${project.slug}-gallery`} className="mt-20">
           <h3
             id={`${project.slug}-gallery`}
-            className="font-mono text-sm text-accent dark:text-accent-soft"
+            className="font-mono text-sm text-primary-700 dark:text-primary-300"
           >
             {t("caseStudy.gallery")}
           </h3>

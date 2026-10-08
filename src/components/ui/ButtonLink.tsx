@@ -17,9 +17,9 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "bg-linear-to-r from-accent to-accent-2 text-white shadow-md shadow-teal-900/15 hover:shadow-lg hover:shadow-teal-900/25 dark:shadow-slate-950/40",
+    "bg-linear-to-r from-primary-700 to-secondary-700 text-white shadow-md shadow-primary-900/15 hover:shadow-lg hover:shadow-primary-900/25 dark:shadow-slate-950/40",
   secondary:
-    "border border-slate-300 bg-white/70 text-slate-900 backdrop-blur hover:border-teal-400 hover:text-teal-700 dark:border-slate-600 dark:bg-slate-800/70 dark:text-slate-50 dark:hover:border-teal-400 dark:hover:text-teal-300",
+    "border border-slate-300 bg-white/70 text-slate-900 backdrop-blur hover:border-primary-400 hover:text-primary-700 dark:border-slate-600 dark:bg-slate-800/70 dark:text-slate-50 dark:hover:border-primary-400 dark:hover:text-primary-300",
 };
 
 const arrows = { right: "→", "up-right": "↗" };

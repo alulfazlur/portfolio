@@ -1,5 +1,6 @@
 "use client";
 
+import { mdiClose } from "@mdi/js";
 import {
   animate,
   useReducedMotionConfig,
@@ -16,6 +17,7 @@ import {
 import { easeOut } from "@/components/motion/ease";
 import { Pressable } from "@/components/motion/Pressable";
 import { setCardHidden, takeZoomOrigin } from "@/components/motion/zoomOrigin";
+import { Icon } from "@/components/ui/Icon";
 
 // Kurva standar (bukan ease-out tajam) agar kartu terlihat membesar, bukan langsung melompat.
 const MORPH = { duration: 0.55, ease: [0.4, 0, 0.2, 1] } as const;
@@ -377,19 +379,9 @@ export function ProjectModal({
                 onClick={dismiss}
                 aria-label={closeLabel}
                 title={closeLabel}
-                className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-600 shadow-sm backdrop-blur transition-colors hover:border-teal-300 hover:text-teal-700 dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-300 dark:hover:border-teal-400/40 dark:hover:text-teal-300"
+                className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-600 shadow-sm backdrop-blur transition-colors hover:border-primary-300 hover:text-primary-700 dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-300 dark:hover:border-primary-400/40 dark:hover:text-primary-300"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="size-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                >
-                  <path d="M6 6l12 12M18 6 6 18" />
-                </svg>
+                <Icon path={mdiClose} />
               </button>
             </Pressable>
           </div>

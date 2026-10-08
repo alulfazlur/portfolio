@@ -31,7 +31,7 @@ export async function Experience() {
       <div className="relative pl-7 sm:pl-12">
         <div
           aria-hidden="true"
-          className="absolute top-2 bottom-2 left-[5px] w-0.5 rounded-full bg-linear-to-b from-teal-500 via-sky-400 to-rose-400 sm:left-[6px]"
+          className="absolute top-2 bottom-2 left-[5px] w-0.5 rounded-full bg-linear-to-b from-primary-500 via-secondary-400 to-rose-400 sm:left-[6px]"
         />
         <Stagger as="ol" className="space-y-6">
           {getExperience(t).map((job) => {
@@ -47,7 +47,7 @@ export async function Experience() {
                   <article
                     className={`relative rounded-3xl border p-6 sm:p-8 ${
                       current
-                        ? "border-teal-200 bg-linear-to-br from-teal-50 to-sky-50 dark:border-teal-500/30 dark:from-teal-500/10 dark:to-sky-500/5"
+                        ? "border-primary-200 bg-linear-to-br from-primary-50 to-secondary-50 dark:border-primary-500/30 dark:from-primary-500/10 dark:to-secondary-500/5"
                         : "border-slate-200 bg-white dark:border-slate-700/60 dark:bg-slate-800"
                     }`}
                   >

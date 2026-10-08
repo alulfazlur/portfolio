@@ -73,6 +73,7 @@ brand/                  # exported logo (SVG + PNG), not served by the site
 - Default to **Server Components**. Use `"use client"` only for state, events, or Motion.
 - Wrap animation in small components under `components/motion/` so sections stay server components.
 - Always use `next/image` with meaningful `alt`. Fonts via `next/font`.
+- Icons: `<Icon path={mdiX} />` with paths from `@mdi/js`. Brand logos (Simple Icons) stay as inline paths.
 - Project covers are statically imported in `content/projects.ts` (real dimensions + blur placeholder).
 - `priority` is deprecated in Next 16. Use `loading="eager"` (and `fetchPriority="high"` for the LCP image).
 - Image quality must be listed in `images.qualities` in `next.config.ts`. Screenshots use `quality={90}`.
@@ -85,9 +86,9 @@ brand/                  # exported logo (SVG + PNG), not served by the site
 
 ### Styling
 - Tailwind utility classes only. No CSS modules, no inline styles except dynamic values.
-- Colors come from `@theme` tokens (e.g. `bg-accent`, `bg-waves`) or the Tailwind palette, never hex in `className`.
+- Colors come from `@theme` tokens (e.g. `bg-primary-700`, `bg-waves`) or the Tailwind palette, never hex in `className`.
 - Per-color class sets (chip, frame, glow, ...) live in `components/ui/tones.ts`. Write class names in full; Tailwind cannot detect concatenated names.
-- Palette: calm teal (primary) + sky (secondary) on slate neutrals. Project frames: Belanjaku orange, SWIFT purple, WAVES-SSI `waves`, KlikDiabetes emerald.
+- Palette: `primary-*` (teal), `secondary-*` (sky), `accent-*` (amber, small highlights only) on slate neutrals. Components use these role scales, not `teal-*` / `sky-*` directly (`tones.ts` excepted). Project frames: Belanjaku orange, SWIFT purple, WAVES-SSI `waves`, KlikDiabetes emerald.
 - Dark mode uses the `dark:` variant, driven by the `.dark` class on `<html>` (`ThemeScript` + `ThemeToggle`). Light is the default; dark only applies when the visitor picks it. Dark backgrounds are slate, never near-black.
 - Mobile-first. Check layouts at 375px and 1280px, in light and dark mode, in both languages.
 

@@ -1,3 +1,4 @@
+import { mdiFileDownloadOutline, mdiMapMarkerOutline } from "@mdi/js";
 import { Nudge } from "@/components/motion/Nudge";
 import { Pressable } from "@/components/motion/Pressable";
 import { Reveal } from "@/components/motion/Reveal";
@@ -5,6 +6,7 @@ import { Stagger } from "@/components/motion/Stagger";
 import { StaggerItem } from "@/components/motion/StaggerItem";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CopyEmailButton } from "@/components/ui/CopyEmailButton";
+import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 import { tones } from "@/components/ui/tones";
@@ -45,7 +47,7 @@ export async function Contact() {
       <Reveal>
         <p className="text-3xl font-semibold tracking-tight text-balance text-slate-900 sm:text-5xl dark:text-slate-50">
           {t("contact.heading")}{" "}
-          <span className="bg-linear-to-r from-accent to-accent-2 bg-clip-text text-transparent dark:from-accent-soft dark:to-accent-2-soft">
+          <span className="bg-linear-to-r from-primary-700 to-secondary-700 bg-clip-text text-transparent dark:from-primary-300 dark:to-secondary-300">
             {t("contact.headingAccent")}
           </span>
         </p>
@@ -53,19 +55,10 @@ export async function Contact() {
           {t("profile.contactBlurb")}
         </p>
         <p className="mt-4 inline-flex items-center gap-2 font-mono text-sm text-slate-500 dark:text-slate-400">
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="size-4 text-teal-600 dark:text-teal-300"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0Z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
+          <Icon
+            path={mdiMapMarkerOutline}
+            className="size-4 text-primary-600 dark:text-primary-300"
+          />
           {t("contact.location")}
         </p>
       </Reveal>
@@ -73,7 +66,7 @@ export async function Contact() {
       <Stagger as="ul" className="mt-12 grid gap-4 *:min-w-0 sm:grid-cols-3">
         <StaggerItem
           as="li"
-          className="relative overflow-hidden rounded-3xl border border-teal-200/70 bg-linear-to-br from-teal-50 via-white to-sky-50 p-5 sm:col-span-3 sm:p-6 sm:p-8 dark:border-teal-400/20 dark:from-teal-400/10 dark:via-slate-800 dark:to-sky-400/10"
+          className="relative overflow-hidden rounded-3xl border border-primary-200/70 bg-linear-to-br from-primary-50 via-white to-secondary-50 p-5 sm:col-span-3 sm:p-6 sm:p-8 dark:border-primary-400/20 dark:from-primary-400/10 dark:via-slate-800 dark:to-secondary-400/10"
         >
           <div className="flex items-center gap-3">
             <span
@@ -81,13 +74,13 @@ export async function Contact() {
             >
               <SocialIcon label="Email" />
             </span>
-            <span className="font-mono text-xs tracking-wide text-teal-700 uppercase dark:text-teal-300">
+            <span className="font-mono text-xs tracking-wide text-primary-700 uppercase dark:text-primary-300">
               {t("contact.email")}
             </span>
           </div>
           <a
             href={`mailto:${profile.email}`}
-            className="mt-5 block text-xl font-semibold tracking-tight break-all text-slate-900 underline decoration-teal-300 decoration-2 underline-offset-8 transition-colors duration-300 hover:decoration-teal-600 min-[400px]:text-2xl sm:text-4xl dark:text-slate-50 dark:decoration-teal-400/40 dark:hover:decoration-teal-300"
+            className="mt-5 block text-xl font-semibold tracking-tight break-all text-slate-900 underline decoration-primary-300 decoration-2 underline-offset-8 transition-colors duration-300 hover:decoration-primary-600 min-[400px]:text-2xl sm:text-4xl dark:text-slate-50 dark:decoration-primary-400/40 dark:hover:decoration-primary-300"
           >
             {profile.email}
           </a>
@@ -146,19 +139,7 @@ export async function Contact() {
               <span
                 className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${tones.amber.iconBox}`}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="size-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
-                  <path d="M14 2v6h6M12 12v6M9 15l3 3 3-3" />
-                </svg>
+                <Icon path={mdiFileDownloadOutline} />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-slate-900 dark:text-slate-50">

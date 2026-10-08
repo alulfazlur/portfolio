@@ -36,8 +36,8 @@ export function LanguageSwitcher({
               aria-current={active ? "true" : undefined}
               className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full px-2.5 font-mono text-xs uppercase transition-colors ${
                 active
-                  ? "bg-linear-to-r from-accent to-accent-2 text-white"
-                  : "text-slate-600 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-300"
+                  ? "bg-linear-to-r from-primary-700 to-secondary-700 text-white"
+                  : "text-slate-600 hover:text-primary-700 dark:text-slate-400 dark:hover:text-primary-300"
               }`}
             >
               {locale}

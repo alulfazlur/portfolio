@@ -37,7 +37,7 @@ export function CommandBar({
         <Link
           href={homeHref}
           aria-label={logoLabel}
-          className="hidden size-11 shrink-0 overflow-hidden rounded-[0.9rem] shadow-md shadow-teal-900/20 transition-transform duration-300 ease-out hover:scale-105 hover:-rotate-6 md:inline-flex"
+          className="hidden size-11 shrink-0 overflow-hidden rounded-[0.9rem] shadow-md shadow-primary-900/20 transition-transform duration-300 ease-out hover:scale-105 hover:-rotate-6 md:inline-flex"
         >
           <Logo className="size-full" gradientId="logo-gradient-bar" />
         </Link>
@@ -57,14 +57,14 @@ export function CommandBar({
                   className={`relative flex h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3 text-sm font-medium transition-colors duration-300 ${
                     current
                       ? "text-white"
-                      : "text-slate-600 hover:text-teal-700 dark:text-slate-300 dark:hover:text-teal-300"
+                      : "text-slate-600 hover:text-primary-700 dark:text-slate-300 dark:hover:text-primary-300"
                   }`}
                 >
                   {current && (
                     <m.span
                       layoutId="bar-active"
                       transition={spring}
-                      className="absolute inset-0 rounded-full bg-linear-to-br from-accent to-accent-2"
+                      className="absolute inset-0 rounded-full bg-linear-to-br from-primary-700 to-secondary-700"
                     />
                   )}
                   <span className="relative">

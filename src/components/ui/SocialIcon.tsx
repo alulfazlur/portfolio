@@ -1,3 +1,5 @@
+import { mdiEmailOutline, mdiInstagram } from "@mdi/js";
+import { Icon } from "@/components/ui/Icon";
 import type { Social } from "@/content/types";
 
 const paths: Record<Exclude<Social["label"], "Email" | "Instagram">, string> = {
@@ -10,37 +12,10 @@ const paths: Record<Exclude<Social["label"], "Email" | "Instagram">, string> = {
 
 export function SocialIcon({ label }: { label: Social["label"] }) {
   if (label === "Email") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="size-5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
-        <path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
-      </svg>
-    );
+    return <Icon path={mdiEmailOutline} />;
   }
   if (label === "Instagram") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="size-5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    );
+    return <Icon path={mdiInstagram} />;
   }
   return (
     <svg

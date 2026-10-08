@@ -1,86 +1,169 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<title>LinkedIn Banner — Alul</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  /* LinkedIn banner: 1584 x 396. The profile photo covers the bottom-left,
+  <head>
+    <meta charset="utf-8" />
+    <title>LinkedIn Banner — Alul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* LinkedIn banner: 1584 x 396. The profile photo covers the bottom-left,
      so all content sits in the right half. */
-  * { box-sizing: border-box; margin: 0; }
-  html, body { width: 1584px; height: 396px; }
-  body {
-    position: relative;
-    overflow: hidden;
-    background: #f8fafc;
-    font-family: "Geist", sans-serif;
-    color: #0f172a;
-  }
-  .glow { position: absolute; border-radius: 9999px; filter: blur(80px); }
-  .glow.teal { width: 620px; height: 620px; left: 520px; top: -360px; background: rgba(153, 246, 228, 0.65); }
-  .glow.sky { width: 560px; height: 560px; right: -160px; top: -60px; background: rgba(186, 230, 253, 0.7); }
-  .glow.mint { width: 480px; height: 480px; left: -140px; bottom: -320px; background: rgba(209, 250, 229, 0.8); }
-  .contours {
-    position: absolute; inset: 0;
-    background: rgba(15, 118, 110, 0.16);
-    -webkit-mask: url("../public/images/bg/contours.svg") center / cover no-repeat;
-    mask: url("../public/images/bg/contours.svg") center / cover no-repeat;
-  }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        width: 1584px;
+        height: 396px;
+      }
+      body {
+        position: relative;
+        overflow: hidden;
+        background: #f8fafc;
+        font-family: "Inter", sans-serif;
+        color: #0f172a;
+      }
+      .glow {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(80px);
+      }
+      .glow.teal {
+        width: 620px;
+        height: 620px;
+        left: 520px;
+        top: -360px;
+        background: rgba(153, 246, 228, 0.65);
+      }
+      .glow.sky {
+        width: 560px;
+        height: 560px;
+        right: -160px;
+        top: -60px;
+        background: rgba(186, 230, 253, 0.7);
+      }
+      .glow.amber {
+        width: 480px;
+        height: 480px;
+        left: -140px;
+        bottom: -320px;
+        background: rgba(254, 243, 199, 0.8);
+      }
+      .contours {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 118, 110, 0.16);
+        -webkit-mask: url("../public/images/bg/contours.svg") center / cover
+          no-repeat;
+        mask: url("../public/images/bg/contours.svg") center / cover no-repeat;
+      }
 
-  .content {
-    position: absolute; right: 88px; top: 50%; transform: translateY(-50%);
-    width: 860px;
-    display: flex; gap: 32px; align-items: center;
-  }
-  .logo { width: 132px; height: 132px; flex-shrink: 0; border-radius: 30px;
-    box-shadow: 0 18px 40px -12px rgba(19, 78, 74, 0.45); }
-  .logo svg { width: 100%; height: 100%; display: block; }
+      .content {
+        position: absolute;
+        right: 88px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 860px;
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .logo {
+        width: 132px;
+        height: 132px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        box-shadow: 0 18px 40px -12px rgba(19, 78, 74, 0.45);
+      }
+      .logo svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
 
-  .chip {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 6px 14px; border-radius: 9999px;
-    border: 1px solid #e2e8f0; background: rgba(255, 255, 255, 0.75);
-    font-family: "Geist Mono", monospace; font-size: 15px; color: #334155;
-  }
-  .chip .dot { width: 9px; height: 9px; border-radius: 9999px; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
-  h1 { margin-top: 14px; font-size: 54px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 700; }
-  h1 span { background: linear-gradient(90deg, #0f766e, #0369a1); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .tagline { margin-top: 12px; font-size: 20px; line-height: 1.4; color: #475569; white-space: nowrap; }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        border: 1px solid #e2e8f0;
+        background: rgba(255, 255, 255, 0.75);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #334155;
+      }
+      .chip .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #0f766e, #fbbf24);
+      }
+      h1 {
+        margin-top: 14px;
+        font-size: 54px;
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+      }
+      h1 span {
+        background: linear-gradient(90deg, #0f766e, #0369a1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .tagline {
+        margin-top: 12px;
+        font-size: 20px;
+        line-height: 1.4;
+        color: #475569;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow amber"></div>
+    <div class="glow teal"></div>
+    <div class="glow sky"></div>
+    <div class="contours"></div>
 
-</style>
-</head>
-<body>
-  <div class="glow mint"></div>
-  <div class="glow teal"></div>
-  <div class="glow sky"></div>
-  <div class="contours"></div>
-
-  <div class="content">
-    <div class="logo">
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <defs>
-          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#0f766e" />
-            <stop offset="1" stop-color="#0369a1" />
-          </linearGradient>
-        </defs>
-        <rect width="64" height="64" rx="15" fill="url(#bg)" />
-        <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5">
-          <path d="M15 23 7 32l8 9" stroke="#ccfbf1" stroke-opacity="0.75" />
-          <circle cx="28" cy="33.5" r="6.5" stroke="#ffffff" />
-          <path d="M34.5 26.5v14" stroke="#ffffff" />
-          <path d="M40 42 45 24" stroke="#99f6e4" />
-          <path d="m49 23 8 9-8 9" stroke="#ccfbf1" stroke-opacity="0.75" />
-        </g>
-      </svg>
+    <div class="content">
+      <div class="logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0f766e" />
+              <stop offset="1" stop-color="#0369a1" />
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="15" fill="url(#bg)" />
+          <g
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="4.5"
+          >
+            <path d="M15 23 7 32l8 9" stroke="#ccfbf1" stroke-opacity="0.75" />
+            <circle cx="28" cy="33.5" r="6.5" stroke="#ffffff" />
+            <path d="M34.5 26.5v14" stroke="#ffffff" />
+            <path d="M40 42 45 24" stroke="#99f6e4" />
+            <path d="m49 23 8 9-8 9" stroke="#ccfbf1" stroke-opacity="0.75" />
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div class="chip">
+          <span class="dot"></span>Frontend Engineer · Jember, Indonesia
+        </div>
+        <h1>Fazlur Rahman <span>(Alul)</span></h1>
+        <p class="tagline">I build scalable, high-performance web products.</p>
+      </div>
     </div>
-    <div>
-      <div class="chip"><span class="dot"></span>Frontend Engineer · Jember, Indonesia</div>
-      <h1>Fazlur Rahman <span>(Alul)</span></h1>
-      <p class="tagline">I build scalable, high-performance web products.</p>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
