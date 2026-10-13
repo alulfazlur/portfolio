@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Poppins } from "next/font/google";
 import { MotionProvider } from "@/components/motion/MotionProvider";
@@ -78,6 +79,7 @@ export default async function RootLayout({
           <Footer />
           {modal}
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );

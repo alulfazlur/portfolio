@@ -190,10 +190,11 @@ The goal is smooth, not busy.
 - Every page is static (SSG). No API routes in v1.
 - Screenshots must not expose personal data (blur names, emails, phone numbers of real people).
 - Deploy: Vercel.
+- Visitor analytics: Vercel Web Analytics (`<Analytics />` in the root layout, cookieless).
 
 ## 11. Out of Scope for v1
 
-Blog, CMS, contact form, analytics, testimonials, auth.
+Blog, CMS, contact form, testimonials, auth.
 
 ## 12. Milestones
 
