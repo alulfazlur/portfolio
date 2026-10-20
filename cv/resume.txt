@@ -4,7 +4,7 @@ Jember, Indonesia (UTC+7) | +62 813-3447-3592 | alulfazlur@gmail.com
 alul.vercel.app | linkedin.com/in/fazlur-alul-rahman | github.com/alulfazlur
 
 SUMMARY
-Result-oriented Frontend Engineer with 5+ years of experience building scalable web applications and SaaS products from the ground up (0 to 1). Expert in Next.js and GraphQL, with a proven track record of architecting complex systems such as omnichannel dashboards, low-code page builders, and multi-tenant e-commerce platforms. Passionate about clean code, feature-based architecture, and high-performance user experiences in fast-paced environments.
+Frontend Engineer with 5+ years of experience building multi-tenant e-commerce and SaaS products with Next.js, React, TypeScript, and GraphQL. Led the frontend of Belanjaku, an e-commerce platform serving 10+ merchants, and was the largest frontend contributor to SwiftOMS, an omnichannel order management system. Brings a statistics background to data-heavy dashboards.
 
 SKILLS
 Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3 / SASS, Python
@@ -17,70 +17,40 @@ WORK EXPERIENCE
 
 Associate Software Engineer · ICUBE
 Jul 2025 – Present
-- Led the 0-to-1 development of Belanjaku, a proprietary e-commerce ecosystem, from initial architectural design to full production launch.
-- Engineered a low-code drag-and-drop Page Builder on GrapesJS and an integrated Menu Builder, enabling merchants to customize storefronts without developers.
-- Built the multi-tenant storefront engine that serves each merchant's store by vendor code or custom domain, with server-side caching.
-- Shipped config-driven white-label support, used by several customers to run Belanjaku products under their own brand.
-- Developed a full-scale Affiliate Management System from scratch, with automated tracking and commission performance monitoring.
-- Implemented a modular feature-based architecture to keep the platform scalable and maintainable.
+seller.belanjaku.id · belanjaku.id · affiliate.belanjaku.id
+- Owned the Belanjaku frontend from architecture to production launch, shipping 3 products (Seller Dashboard, Storefront, Affiliate) now used by 10+ merchants.
+- Developed a drag-and-drop Page Builder (GrapesJS) and Menu Builder, so merchants publish their own storefront pages without a developer.
+- Engineered the multi-tenant storefront that serves 10+ merchant stores from one codebase, by vendor code or custom domain, with server-side caching.
+- Shipped config-driven white-label support for Belanjaku and SWIFT Hub, used by 5 customers to run the products under their own brand.
+- Created the Affiliate platform, with automated referral tracking and commission reports.
+
+Freelance Frontend Engineer · WAVES-SSI Learning Platform
+Feb 2026 – Oct 2026
+waejuc.buroidah.education
+- Delivered a bilingual learning platform as sole developer for the Western Australia–East Java Universities Consortium, using Next.js, Supabase, and i18next.
+- Designed a guided 6-stage investigation flow with rich-text answers, a diagram editor, PDF export, and saved group progress.
 
 Associate Software Engineer · ICUBE by SIRCLO
 May 2021 – Jul 2025
-- Largest frontend contributor to SwiftOMS, an omnichannel order management system, since 2021.
-- Developed an omnichannel sales aggregator to synchronize inventory and orders across Shopee, Lazada, TikTok, and Tokopedia.
-- Architected a centralized management dashboard automating the e-commerce lifecycle, including order processing, returns, and pick-and-pack with barcode scanning.
-- Led the MVP of SWIFT Hub, a multi-tenant seller hub built on the SwiftOMS codebase for small businesses.
-- Optimized large-scale data fetching using Apollo Client (GraphQL), improving the handling of complex product catalogs and real-time updates.
+omsdemo-pwa.getswift.asia (demo) · seller.swifthub.id
+- Authored 2,200+ commits (53% of the total) as the largest frontend contributor to SwiftOMS, an omnichannel order management system with 140 feature modules.
+- Synchronized inventory and orders across 4 marketplaces (Shopee, Lazada, TikTok, Tokopedia), with virtual stock that prevents overselling across online and offline channels.
+- Delivered the fulfillment flows: order processing, returns, pick-and-pack with barcode scanning, and routing each order to the closest warehouse.
+- Led the SWIFT Hub MVP, turning the SwiftOMS codebase into a mobile-friendly, multi-tenant seller hub for small businesses.
+- Optimized GraphQL data fetching with Apollo Client for large product catalogs and real-time updates.
 
 Junior Frontend Engineer · BIT - Barito Technologies Group
 Sep 2020 – Mar 2021
-- Developed and launched KlikDiabetes (Play Store / App Store), a React Native mobile app for comprehensive health tracking.
-- Integrated Google Fit SDK and GPS services to monitor real-time user activity and health metrics (steps, blood glucose, etc.).
-- Transformed Figma designs into high-fidelity mobile interfaces for iOS and Android with a focus on seamless user experience.
-- Managed complex application states using Redux and integrated RESTful APIs for reliable data synchronization.
+- Launched KlikDiabetes, a React Native health tracking app on iOS and Android, reaching 10K+ downloads on Google Play.
+- Integrated Google Fit SDK and GPS to track steps and activity, and built reminders for medication, blood glucose, and blood pressure logging.
+- Implemented Figma designs as iOS and Android screens, with Redux state management and REST API integration.
 
-KEY PROJECTS
-
-Belanjaku Ecosystem
-Next.js · GraphQL · GrapesJS
-seller.belanjaku.id · belanjaku.id · affiliate.belanjaku.id
-- Seller Dashboard: multi-tenant dashboard with KYC onboarding, orders with in-store pickup, promotions, loyalty, and income journal.
-- Storefront: turns pages built in the Page Builder into live, shoppable stores, with appointment booking.
-- Creator (in progress): a platform where outside creators build storefront plugins and templates, visually or in code.
-
-SwiftOMS — Omnichannel Order Management
-Next.js · GraphQL · Apollo Client
-omsdemo-pwa.getswift.asia (demo)
-- Inventory Synchronization: engineered a real-time virtual stock system to prevent overselling across multiple online and offline sales channels.
-- Automated Fulfillment: developed an intelligent routing system to determine the closest warehouse for order shipping, reducing logistics costs and delivery time.
-- Data Analytics: created a unified dashboard to visualize customer buying patterns collected from integrated POS systems.
-
-SWIFT Hub
-Next.js · GraphQL · REST API
-seller.swifthub.id
-- Multi-tenant MVP: turned the SwiftOMS codebase into a clean, mobile-friendly seller hub for small businesses, white-labeled by several customers.
-- Process Automation: simplified seller workflows by aggregating multi-platform notifications and order tracking into a single view.
-
-WAVES-SSI Learning Platform (Freelance)
-Next.js · Supabase · i18next
-waejuc.buroidah.education
-- Sole developer of a bilingual learning platform for the Western Australia–East Java Universities Consortium, from landing page to a guided six-stage investigation flow.
-- Interactive learning tools: rich-text answers, a diagram editor, PDF export of student work, and group progress storage.
-
-KlikDiabetes
-React Native · Redux · Google Fit SDK
-- Health Activity Tracking: integrated Google Fit SDK and GPS to monitor daily steps and physical activities with high accuracy.
-- Patient Adherence Tools: developed a specialized alert and reminder system for medication, blood glucose logging, and blood pressure monitoring.
-
-EDUCATION & CERTIFICATIONS
+EDUCATION
 
 Fullstack Software Engineering Bootcamp · Alterra Academy
-2020
-- Intensive program covering end-to-end web development.
-- Frontend: React (Redux), HTML5, CSS3, LESS. Backend & DB: Python (Flask, Django), MySQL, MongoDB.
-- DevOps & Testing: Docker, AWS, Kubernetes, Travis CI, Flask Unit Testing.
+Mar 2020 – Jul 2020
+Completed full-stack training in React, Redux, Python (Flask, Django), MySQL, MongoDB, Docker, AWS, and Kubernetes.
 
 Bachelor of Statistics (S.Stat.) · Sepuluh Nopember Institute of Technology
-2014 – 2019
-- GPA: 3.25
-- Thesis: Emotions Classification for Indonesian Text on Twitter Users about President Joko Widodo
+Sep 2014 – Mar 2019
+Graduated with a 3.25 / 4.00 GPA; thesis on emotion classification of Indonesian tweets about President Joko Widodo.
