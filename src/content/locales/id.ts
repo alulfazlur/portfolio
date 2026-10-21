@@ -70,25 +70,25 @@ export const id: Messages = {
     items: {
       icube: {
         highlights: [
-          "Memimpin pengembangan Belanjaku dari nol, ekosistem e-commerce milik ICUBE sendiri, mulai dari desain arsitektur sampai rilis penuh ke production.",
-          "Membangun Page Builder drag-and-drop low-code plus Menu Builder, jadi merchant bisa mengatur tampilan tokonya sendiri.",
-          "Membangun Affiliate Management System dari nol, lengkap dengan tracking otomatis dan pemantauan performa komisi.",
-          "Menerapkan arsitektur modular berbasis fitur supaya platform tetap scalable dan gampang dirawat.",
+          "Memegang frontend Belanjaku dari desain arsitektur sampai rilis ke production, dengan 3 produk (Seller Dashboard, Storefront, Affiliate) yang sekarang dipakai 10+ merchant.",
+          "Membangun Page Builder drag-and-drop (GrapesJS) dan Menu Builder, jadi merchant bisa membuat halaman tokonya sendiri tanpa developer.",
+          "Membangun storefront multi-tenant yang melayani 10+ toko merchant dari satu codebase, lewat kode vendor atau custom domain, dengan caching di sisi server.",
+          "Merilis dukungan white-label berbasis konfigurasi untuk Belanjaku dan SWIFT Hub, dipakai 5 customer untuk menjalankan produknya dengan brand mereka sendiri.",
         ],
       },
       "icube-sirclo": {
         highlights: [
-          "Mengembangkan omnichannel sales aggregator yang menyinkronkan stok dan pesanan di Shopee, Lazada, TikTok, dan Tokopedia.",
-          "Merancang dashboard manajemen terpusat untuk mengotomatiskan alur e-commerce, termasuk proses pesanan dan retur.",
-          "Mengoptimalkan pengambilan data skala besar dengan Apollo Client, jadi katalog produk yang kompleks dan update real-time terasa lebih lancar.",
+          "Kontributor frontend terbesar di SwiftOMS, sistem manajemen pesanan omnichannel dengan 140 modul fitur: menulis 2.200+ commit (53% dari total).",
+          "Menyinkronkan stok dan pesanan di 4 marketplace (Shopee, Lazada, TikTok, Tokopedia), dengan virtual stock yang mencegah overselling di channel online dan offline.",
+          "Membangun alur fulfillment: proses pesanan, retur, pick-and-pack dengan scan barcode, dan pengiriman dari gudang terdekat.",
+          "Memimpin MVP SWIFT Hub, mengubah codebase SwiftOMS jadi seller hub multi-tenant yang ramah mobile untuk bisnis kecil.",
         ],
       },
       bit: {
         highlights: [
-          "Mengembangkan dan merilis KlikDiabetes, aplikasi React Native untuk memantau kesehatan yang tersedia di Play Store dan App Store.",
-          "Menghubungkan Google Fit SDK dan GPS untuk memantau aktivitas dan metrik kesehatan secara real-time, seperti langkah kaki dan gula darah.",
-          "Menerjemahkan desain Figma jadi tampilan iOS dan Android yang rapi dan presisi.",
-          "Mengelola state aplikasi yang kompleks dengan Redux dan menghubungkan REST API supaya data selalu sinkron.",
+          "Merilis KlikDiabetes, aplikasi React Native untuk memantau kesehatan di iOS dan Android, dengan 10 ribu+ unduhan di Google Play.",
+          "Menghubungkan Google Fit SDK dan GPS untuk melacak langkah dan aktivitas, plus pengingat untuk obat, pencatatan gula darah, dan tekanan darah.",
+          "Menerjemahkan desain Figma jadi tampilan iOS dan Android, dengan state management Redux dan integrasi REST API.",
         ],
       },
     },

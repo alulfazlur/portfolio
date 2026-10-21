@@ -70,25 +70,25 @@ export const en: Messages = {
     items: {
       icube: {
         highlights: [
-          "Led the 0-to-1 development of Belanjaku, a proprietary e-commerce ecosystem, from initial architectural design to full production launch.",
-          "Engineered a low-code drag-and-drop Page Builder and an integrated Menu Builder so merchants can customize their storefronts dynamically.",
-          "Built a full-scale Affiliate Management System from scratch, with automated tracking and commission performance monitoring.",
-          "Introduced a modular feature-based architecture to keep the platform scalable and maintainable.",
+          "Owned the Belanjaku frontend from architecture to production launch, shipping 3 products (Seller Dashboard, Storefront, Affiliate) now used by 10+ merchants.",
+          "Developed a drag-and-drop Page Builder (GrapesJS) and Menu Builder, so merchants publish their own storefront pages without a developer.",
+          "Engineered the multi-tenant storefront that serves 10+ merchant stores from one codebase, by vendor code or custom domain, with server-side caching.",
+          "Shipped config-driven white-label support for Belanjaku and SWIFT Hub, used by 5 customers to run the products under their own brand.",
         ],
       },
       "icube-sirclo": {
         highlights: [
-          "Developed an omnichannel sales aggregator that syncs inventory and orders across Shopee, Lazada, TikTok, and Tokopedia.",
-          "Architected a centralized management dashboard that automates the e-commerce lifecycle, including order processing and returns.",
-          "Optimized large-scale data fetching with Apollo Client, improving how complex product catalogs and real-time updates are handled.",
+          "Authored 2,200+ commits (53% of the total) as the largest frontend contributor to SwiftOMS, an omnichannel order management system with 140 feature modules.",
+          "Synchronized inventory and orders across 4 marketplaces (Shopee, Lazada, TikTok, Tokopedia), with virtual stock that prevents overselling across online and offline channels.",
+          "Delivered the fulfillment flows: order processing, returns, pick-and-pack with barcode scanning, and routing each order to the closest warehouse.",
+          "Led the SWIFT Hub MVP, turning the SwiftOMS codebase into a mobile-friendly, multi-tenant seller hub for small businesses.",
         ],
       },
       bit: {
         highlights: [
-          "Developed and launched KlikDiabetes, a React Native health-tracking app available on the Play Store and App Store.",
-          "Integrated Google Fit SDK and GPS services to monitor real-time activity and health metrics such as steps and blood glucose.",
-          "Turned Figma designs into high-fidelity iOS and Android interfaces.",
-          "Managed complex application state with Redux and integrated RESTful APIs for reliable data sync.",
+          "Launched KlikDiabetes, a React Native health tracking app on iOS and Android, reaching 10K+ downloads on Google Play.",
+          "Integrated Google Fit SDK and GPS to track steps and activity, and built reminders for medication, blood glucose, and blood pressure logging.",
+          "Implemented Figma designs as iOS and Android screens, with Redux state management and REST API integration.",
         ],
       },
     },
