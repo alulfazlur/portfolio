@@ -1,5 +1,4 @@
 import {
-  mdiBadgeAccountOutline,
   mdiCalendarClockOutline,
   mdiMapMarkerOutline,
   mdiSchoolOutline,
@@ -10,7 +9,6 @@ import type { FactId } from "@/content/types";
 const icons: Record<FactId, string> = {
   location: mdiMapMarkerOutline,
   experience: mdiCalendarClockOutline,
-  current: mdiBadgeAccountOutline,
   education: mdiSchoolOutline,
 };
 

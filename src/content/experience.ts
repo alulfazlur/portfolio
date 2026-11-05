@@ -6,7 +6,7 @@ export const experience: ExperienceData[] = [
     company: "ICUBE",
     role: "Associate Software Engineer",
     start: "2025-07",
-    end: null,
+    end: "2026-11",
     stack: [
       "Next.js",
       "React",
@@ -14,6 +14,9 @@ export const experience: ExperienceData[] = [
       "Apollo Client",
       "GrapesJS",
       "Material-UI",
+      "Laravel",
+      "PHP",
+      "MySQL",
     ],
   },
   {

@@ -5,7 +5,7 @@
 
 ## 1. Goals
 
-Alul's personal portfolio (Frontend Engineer), built to:
+Alul's personal portfolio (Software Engineer), built to:
 
 1. Show who I am and what I'm good at within the first 10 seconds.
 2. Present the projects I've worked on, with context: the problem, my role, and the result.
@@ -39,7 +39,7 @@ Locale-less paths (e.g. `/projects/swiftoms`) are redirected by `src/proxy.ts`. 
 
 ### 4.1 Hero
 At least one viewport tall (minus the mobile top bar), content centered vertically.
-- Name: **Fazlur Rahman**, with **Frontend Engineer** as a tag below it.
+- Name: **Fazlur Rahman**, with **Software Engineer** as a tag below it.
 - One-sentence tagline.
 - CTAs: `View Projects` (scrolls to `#projects`) and `Download CV` (`/public/doc/Fazlur Rahman Resume.pdf`).
 - Social icons (from `socials.ts`).
@@ -49,18 +49,19 @@ At least one viewport tall (minus the mobile top bar), content centered vertical
 ### 4.2 About
 - Profile photo (`/public/images/profile.jpeg`) in a gradient frame.
 - Two short paragraphs.
-- Fact cards, each with an icon: location (Jember, East Java, Indonesia), experience (5+ years), current role, education.
+- Fact cards, each with an icon: location (Jember, East Java, Indonesia), experience (5+ years), education.
 
 ### 4.3 Skills
 Grouped cards with chips — no progress bars or percentages. Only skills Alul is confident in. Each chip has a monochrome icon (brand logo from Simple Icons, or a Material Design Icon for generic skills).
 - **Core:** JavaScript (ES6+), TypeScript, React, Next.js, React Native, Git
 - **Styling & UI:** Tailwind CSS, Material-UI, CSS3 / SASS, HTML5
 - **Data & State:** Apollo GraphQL, Redux, react-hook-form, Yup, i18next, REST APIs, Webhooks
+- **Backend:** PHP, Laravel, MySQL
 - **Also:** Python, Data Analysis
 
 ### 4.4 Experience
 Vertical timeline, newest first. Per item: company, role, period, 2–4 achievement bullets, tech stack. Source: CV.
-- ICUBE — Associate Software Engineer (Jul 2025 – Present)
+- ICUBE — Associate Software Engineer (Jul 2025 – Nov 2026)
 - ICUBE by SIRCLO — Associate Software Engineer (May 2021 – Jul 2025)
 - BIT - Barito Technologies Group — Junior Frontend Engineer (Sep 2020 – Mar 2021)
 
@@ -70,7 +71,7 @@ Vertical timeline, newest first. Per item: company, role, period, 2–4 achievem
   - **SWIFT:** SwiftOMS, SWIFT Hub
   - **Other work:** WAVES-SSI (freelance), KlikDiabetes
 - Order inside a group follows the array order in `content/projects.ts`; `featured` projects come first and span the full row. Cards sit two per row from `sm` up.
-- Card: framed screenshot, type chip (Work/Freelance), workplace, period (`<year> — Present` for ongoing projects), title, one-sentence summary, up to 4 tech tags, optional `Live site` link.
+- Card: framed screenshot, type chip (Work/Freelance), workplace, period (`<year> — <end year>`, just `<year>` when both match, `<year> — Present` when there is no end year), title, one-sentence summary, up to 4 tech tags, optional `Live site` link.
 - The whole card links to `/[lang]/projects/[slug]`. On touch devices (no hover) a small "View case study →" cue shows it is tappable. On click the card itself grows and turns into the case study modal (intercepting route in the `@modal` slot); the URL changes, Back / Escape / backdrop / close button zoom it back and close it.
 - White-label customers are mentioned generically ("white-labeled by several customers"), never by name.
 
@@ -117,7 +118,7 @@ export type ProjectData = {
   workplace: string | null; // null for freelance
   color: AccentColor; // drives the card frame and chips
   year: number; // start year
-  ongoing: boolean; // true = shown as "<year> — Present"
+  end: number | null; // end year; null = shown as "<year> — Present"
   stack: string[];
   featured: boolean;
   comingSoon: boolean;

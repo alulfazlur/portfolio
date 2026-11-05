@@ -2,9 +2,9 @@ import type { Messages } from "../types";
 
 export const id: Messages = {
   meta: {
-    title: "Fazlur Rahman (Alul) — Frontend Engineer",
+    title: "Fazlur Rahman (Alul) — Software Engineer",
     description:
-      "Fazlur Rahman (Alul), frontend engineer dari Indonesia yang suka membangun produk web scalable dengan Next.js dan GraphQL.",
+      "Fazlur Rahman (Alul), software engineer dari Indonesia yang suka membangun produk web scalable dengan Next.js dan GraphQL.",
     caseStudy: "Studi kasus",
   },
   nav: {
@@ -27,20 +27,16 @@ export const id: Messages = {
     tagline:
       "Aku membangun produk web yang scalable dan cepat dengan Next.js dan GraphQL, dari commit pertama sampai rilis ke production.",
     about: [
-      "Halo, aku Alul, frontend engineer dengan pengalaman lebih dari 5 tahun membangun aplikasi web dan produk SaaS dari nol. Kebanyakan kerjaanku ada di titik temu antara logika bisnis yang rumit dan pengguna sehari-hari: dashboard omnichannel, page builder low-code, dan platform e-commerce.",
+      "Halo, aku Alul, software engineer dengan pengalaman lebih dari 5 tahun membangun aplikasi web dan produk SaaS dari nol. Kebanyakan kerjaanku ada di titik temu antara logika bisnis yang rumit dan pengguna sehari-hari: dashboard omnichannel, page builder low-code, dan platform e-commerce.",
       "Aku kuliah Statistika di ITS, lalu pindah haluan ke software lewat bootcamp full-stack Alterra Academy. Aku peduli sama clean code, arsitektur berbasis fitur, dan pengalaman pengguna yang tetap ngebut walau datanya terus bertambah.",
     ],
     facts: {
       location: { label: "Domisili", value: "Jember, Jawa Timur, Indonesia" },
       experience: { label: "Pengalaman", value: "5+ tahun" },
-      current: {
-        label: "Sekarang",
-        value: "Associate Software Engineer di ICUBE",
-      },
       education: { label: "Pendidikan", value: "S1 Statistika (S.Stat.), ITS" },
     },
     contactBlurb:
-      "Aku terbuka untuk posisi frontend engineer maupun proyek freelance. Cara paling cepat untuk menghubungiku lewat email, ya.",
+      "Aku terbuka untuk posisi software engineer maupun proyek freelance. Cara paling cepat untuk menghubungiku lewat email, ya.",
   },
   hero: {
     label: "Perkenalan",
@@ -62,6 +58,7 @@ export const id: Messages = {
     core: "Inti",
     styling: "Styling & UI",
     data: "Data & State",
+    backend: "Backend",
     also: "Lainnya",
   },
   experience: {

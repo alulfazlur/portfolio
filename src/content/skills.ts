@@ -29,6 +29,10 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
+    id: "backend",
+    items: ["PHP", "Laravel", "MySQL"],
+  },
+  {
     id: "also",
     items: ["Python", "Data Analysis"],
   },

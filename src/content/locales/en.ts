@@ -2,9 +2,9 @@ import type { Messages } from "../types";
 
 export const en: Messages = {
   meta: {
-    title: "Fazlur Rahman (Alul) — Frontend Engineer",
+    title: "Fazlur Rahman (Alul) — Software Engineer",
     description:
-      "Fazlur Rahman (Alul) is a frontend engineer from Indonesia building scalable web products with Next.js and GraphQL.",
+      "Fazlur Rahman (Alul) is a software engineer from Indonesia building scalable web products with Next.js and GraphQL.",
     caseStudy: "Case study",
   },
   nav: {
@@ -27,20 +27,16 @@ export const en: Messages = {
     tagline:
       "I build scalable, high-performance web products with Next.js and GraphQL, from the first commit to production.",
     about: [
-      "I'm a frontend engineer with 5+ years of experience building web applications and SaaS products from the ground up. Most of my work lives where complex business logic meets everyday users: omnichannel dashboards, low-code page builders, and e-commerce platforms.",
+      "I'm a software engineer with 5+ years of experience building web applications and SaaS products from the ground up. Most of my work lives where complex business logic meets everyday users: omnichannel dashboards, low-code page builders, and e-commerce platforms.",
       "I studied Statistics at Institut Teknologi Sepuluh Nopember, then moved into software through Alterra Academy's full-stack bootcamp. I care about clean code, feature-based architecture, and user experiences that stay fast as the data grows.",
     ],
     facts: {
       location: { label: "Based in", value: "Jember, East Java, Indonesia" },
       experience: { label: "Experience", value: "5+ years" },
-      current: {
-        label: "Currently",
-        value: "Associate Software Engineer at ICUBE",
-      },
       education: { label: "Education", value: "S.Stat. (Statistics), ITS" },
     },
     contactBlurb:
-      "I'm open to frontend engineering roles and freelance projects. Email is the fastest way to reach me.",
+      "I'm open to software engineering roles and freelance projects. Email is the fastest way to reach me.",
   },
   hero: {
     label: "Introduction",
@@ -62,6 +58,7 @@ export const en: Messages = {
     core: "Core",
     styling: "Styling & UI",
     data: "Data & State",
+    backend: "Backend",
     also: "Also",
   },
   experience: {

@@ -13,7 +13,8 @@ const groupStyles: Record<SkillGroupId, { tone: AccentColor; span: string }> = {
   core: { tone: "teal", span: "sm:col-span-2" },
   styling: { tone: "rose", span: "" },
   data: { tone: "sky", span: "" },
-  also: { tone: "amber", span: "sm:col-span-2" },
+  backend: { tone: "indigo", span: "" },
+  also: { tone: "amber", span: "" },
 };
 
 export async function Skills() {

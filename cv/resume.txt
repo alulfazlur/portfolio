@@ -1,28 +1,29 @@
 Fazlur Rahman
-Frontend Engineer
+Software Engineer
 Jember, Indonesia (UTC+7) | +62 813-3447-3592 | alulfazlur@gmail.com
 alul.vercel.app | linkedin.com/in/fazlur-alul-rahman | github.com/alulfazlur
 
 SUMMARY
-Frontend Engineer with 5+ years of experience building multi-tenant e-commerce and SaaS products with Next.js, React, TypeScript, and GraphQL. Led the frontend of Belanjaku, an e-commerce platform serving 10+ merchants, and was the largest frontend contributor to SwiftOMS, an omnichannel order management system. Brings a statistics background to data-heavy dashboards.
+Software Engineer with 5+ years of experience building multi-tenant e-commerce and SaaS products with Next.js, React, TypeScript, and GraphQL, plus Laravel and MySQL on the backend. Led the frontend of Belanjaku, an e-commerce platform serving 10+ merchants, and was the largest frontend contributor to SwiftOMS, an omnichannel order management system. Brings a statistics background to data-heavy dashboards.
 
 SKILLS
-Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3 / SASS, Python
-Frameworks: Next.js, React, React Native, Redux, Apollo Client
+Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3 / SASS, PHP, Python
+Frameworks: Next.js, React, React Native, Redux, Apollo Client, Laravel
 UI & Styling: Tailwind CSS, Material-UI, GrapesJS
-Data & Forms: GraphQL, REST APIs, Webhooks, react-hook-form, Formik, Yup, i18next
+Data & Forms: GraphQL, REST APIs, Webhooks, MySQL, react-hook-form, Formik, Yup, i18next
 Tools & Other: Git / GitHub, Data Analysis
 
 WORK EXPERIENCE
 
 Associate Software Engineer · ICUBE
-Jul 2025 – Present
+Jul 2025 – Nov 2026
 seller.belanjaku.id · belanjaku.id · affiliate.belanjaku.id
 - Owned the Belanjaku frontend from architecture to production launch, shipping 3 products (Seller Dashboard, Storefront, Affiliate) now used by 10+ merchants.
 - Developed a drag-and-drop Page Builder (GrapesJS) and Menu Builder, so merchants publish their own storefront pages without a developer.
 - Engineered the multi-tenant storefront that serves 10+ merchant stores from one codebase, by vendor code or custom domain, with server-side caching.
 - Shipped config-driven white-label support for Belanjaku and SWIFT Hub, used by 5 customers to run the products under their own brand.
 - Created the Affiliate platform, with automated referral tracking and commission reports.
+- Extended the Laravel (PHP, MySQL) GraphQL backend behind the Page Builder, adding custom checkout redirect URLs and consistent price formatting.
 
 Freelance Frontend Engineer · WAVES-SSI Learning Platform
 Feb 2026 – Oct 2026

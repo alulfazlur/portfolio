@@ -18,10 +18,9 @@ export function formatPeriod(
 }
 
 export function formatProjectPeriod(
-  project: { year: number; ongoing: boolean },
+  project: { year: number; end: number | null },
   presentLabel: string,
 ): string {
-  return project.ongoing
-    ? `${project.year} — ${presentLabel}`
-    : String(project.year);
+  if (project.end === project.year) return String(project.year);
+  return `${project.year} — ${project.end ?? presentLabel}`;
 }

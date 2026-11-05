@@ -10,7 +10,6 @@ import { getT } from "@/lib/i18n";
 const factTones: Record<FactId, AccentColor> = {
   location: "sky",
   experience: "teal",
-  current: "indigo",
   education: "amber",
 };
 
@@ -18,7 +17,7 @@ export async function About() {
   const t = await getT();
   const paragraphs = t("profile.about", { returnObjects: true });
   const facts = t("profile.facts", { returnObjects: true });
-  const factIds: FactId[] = ["location", "experience", "current", "education"];
+  const factIds: FactId[] = ["location", "experience", "education"];
 
   return (
     <Section

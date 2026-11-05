@@ -17,9 +17,9 @@ export type Profile = {
   photo: StaticImageData;
 };
 
-export type FactId = "location" | "experience" | "current" | "education";
+export type FactId = "location" | "experience" | "education";
 
-export type SkillGroupId = "core" | "styling" | "data" | "also";
+export type SkillGroupId = "core" | "styling" | "data" | "backend" | "also";
 
 export type Skill =
   | "JavaScript (ES6+)"
@@ -39,6 +39,9 @@ export type Skill =
   | "i18next"
   | "REST APIs"
   | "Webhooks"
+  | "PHP"
+  | "Laravel"
+  | "MySQL"
   | "Python"
   | "Data Analysis";
 
@@ -95,7 +98,7 @@ export type ProjectData = {
   workplace: string | null;
   color: AccentColor;
   year: number; // tahun mulai
-  ongoing: boolean; // true = tampil "<year> — Present"
+  end: number | null; // tahun selesai; null = tampil "<year> — Present"
   stack: string[];
   featured: boolean;
   comingSoon: boolean;
