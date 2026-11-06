@@ -155,18 +155,18 @@ export const id: Messages = {
       "belanjaku-creator": {
         title: "Belanjaku Creator",
         summary:
-          "Platform kreator tempat developer dan desainer bikin plugin dan template untuk storefront Belanjaku, secara visual maupun lewat kode.",
-        role: "Frontend engineer",
+          "Dashboard kreator tempat developer dan desainer bikin template dan widget untuk storefront Belanjaku, secara visual maupun lewat kode, lalu menjualnya di marketplace.",
+        role: "Frontend engineer, kontributor utama",
         problem:
-          "Merchant butuh lebih banyak widget dan template halaman daripada yang sanggup dibuat satu tim internal. Belanjaku perlu cara supaya kreator dari luar bisa ikut bikin dengan aman, tanpa menyentuh dashboard, storefront, atau plugin service di production.",
+          "Merchant butuh lebih banyak widget dan template halaman daripada yang sanggup dibuat satu tim internal. Belanjaku perlu cara supaya kreator dari luar bisa ikut bikin dengan aman, tanpa menyentuh dashboard, storefront, atau plugin service di production, sekaligus dapat penghasilan dari karyanya.",
         whatIDid: [
-          "Menyiapkan fondasi dashboard kreator: sistem core override, Apollo GraphQL, i18n, dan theming partner.",
-          "Membangun sign-in kreator dengan auth guard dan kode kontributor, plus proxy GraphQL yang cuma melayani kreator yang sudah login.",
-          "Membangun app shell dan library komponen bersama (tombol, field, modal, halaman list, toast, dan loader).",
-          "Menghubungkan template builder ke API GraphQL plugin, lengkap dengan simpan thumbnail dan feedback publish, sekaligus memulai modul listing marketplace.",
+          "Mengembangkan prototipe builder awal jadi dashboard kreator: sistem core override, Apollo GraphQL, i18n, theming partner, dan library komponen bersama.",
+          "Membangun proxy GraphQL yang menyimpan token layanan di server dan mengambil kode kontributor dari sesi kreator, jadi tiap kreator cuma bisa mengakses template, dompet, dan payout miliknya sendiri.",
+          "Menghubungkan builder GrapesJS dan Monaco ke plugin service, lalu mengganti preview tiruan dengan Sandbox yang menampilkan template dan widget di storefront asli.",
+          "Merilis listing marketplace, penarikan saldo dengan pengelolaan rekening bank, pengaturan profil, dan pendaftaran kreator, dengan form berbasis react-hook-form dan Yup.",
         ],
         result:
-          "Segera hadir. Kreator sudah bisa bikin widget secara visual dengan GrapesJS atau lewat kode pakai plugin SDK asli, melihat preview-nya langsung di storefront, lalu mengekspornya untuk diunggah.",
+          "Sudah live untuk kreator: mereka bisa bikin template dan widget, melihat preview-nya di storefront asli, memasangnya di marketplace, dan menarik penghasilannya. Riwayat pesanan menyusul.",
       },
       swiftoms: {
         title: "SwiftOMS — Omnichannel Order Management",

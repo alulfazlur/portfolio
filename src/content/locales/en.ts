@@ -155,18 +155,18 @@ export const en: Messages = {
       "belanjaku-creator": {
         title: "Belanjaku Creator",
         summary:
-          "A creator platform where developers and designers build plugins and templates for Belanjaku storefronts, visually or in code.",
-        role: "Frontend engineer",
+          "A creator dashboard where developers and designers build templates and widgets for Belanjaku storefronts, visually or in code, and sell them in the marketplace.",
+        role: "Frontend engineer, main contributor",
         problem:
-          "Merchants want more widgets and page templates than one internal team can build. Belanjaku needed a way for outside creators to build them safely, without touching the production dashboard, storefront, or plugin service.",
+          "Merchants want more widgets and page templates than one internal team can build. Belanjaku needed a way for outside creators to build them safely, without touching the production dashboard, storefront, or plugin service, and to earn from what they sell.",
         whatIDid: [
-          "Set up the creator dashboard foundation: a core override system, Apollo GraphQL, i18n, and partner theming.",
-          "Built creator sign-in with an auth guard and contributor codes, plus a GraphQL proxy that only serves signed-in creators.",
-          "Built the app shell and a shared component library (buttons, fields, modals, list pages, toasts, and loaders).",
-          "Connected the template builder to the plugin GraphQL API, with thumbnail saving and publish feedback, and started a marketplace listing module.",
+          "Turned an early builder prototype into the creator dashboard: a core override system, Apollo GraphQL, i18n, partner theming, and a shared component library.",
+          "Built a GraphQL proxy that keeps service tokens on the server and resolves each creator's contributor code from their session, so creators only reach their own templates, wallet, and payouts.",
+          "Connected the GrapesJS and Monaco builders to the plugin service, and replaced the mock preview with a Sandbox that shows templates and widgets on the real storefront.",
+          "Shipped marketplace listing, payout withdrawal with bank account management, profile settings, and creator sign-up, with forms on react-hook-form and Yup.",
         ],
         result:
-          "Coming soon. Creators can already build widgets visually with GrapesJS or in code against the real plugin SDK, preview them on a storefront, and export them for upload.",
+          "Live for creators: they build templates and widgets, preview them on the real storefront, list them in the marketplace, and withdraw their earnings. Order history is next.",
       },
       swiftoms: {
         title: "SwiftOMS — Omnichannel Order Management",

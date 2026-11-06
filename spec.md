@@ -67,7 +67,7 @@ Vertical timeline, newest first. Per item: company, role, period, 2–4 achievem
 
 ### 4.5 Projects
 - Grouped by product family. Each group has a name, a one-line description, and a project count.
-  - **Belanjaku:** Seller Dashboard (includes the Page & Menu Builder), Belanjaku Storefront, Belanjaku Affiliate, Belanjaku Creator (coming soon)
+  - **Belanjaku:** Seller Dashboard (includes the Page & Menu Builder), Belanjaku Storefront, Belanjaku Affiliate, Belanjaku Creator
   - **SWIFT:** SwiftOMS, SWIFT Hub
   - **Other work:** WAVES-SSI (freelance), KlikDiabetes
 - Order inside a group follows the array order in `content/projects.ts`; `featured` projects come first and span the full row. Cards sit two per row from `sm` up.

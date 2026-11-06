@@ -1,0 +1,27 @@
+Fazlur Rahman
+Software Engineer
+Jember, Indonesia (UTC+7) | +62 813-3447-3592 | alulfazlur@gmail.com
+alul.vercel.app | linkedin.com/in/fazlur-alul-rahman | github.com/alulfazlur
+
+COVER LETTER
+
+Dear Hiring Manager,
+
+I'm a Software Engineer with 5+ years of experience building web products from the ground up with Next.js and GraphQL, and I work on the backend with Laravel and MySQL too. I enjoy the part of the job where complex business logic meets everyday users, and I would love to bring that experience to your team.
+
+At ICUBE, I led the frontend of Belanjaku, the company's own e-commerce ecosystem, from the first architecture sketch to a production launch: 3 products, now used by 10+ merchants. Along the way, I:
+- Built a low-code drag-and-drop Page Builder on GrapesJS, plus the multi-tenant storefront engine that serves 10+ merchant stores from one codebase, on their own custom domains.
+- Shipped configuration-driven white-labeling for Belanjaku and SWIFT Hub, which 5 customers now use to run the products under their own brand.
+- Built an Affiliate Management System from scratch, with automated tracking and commission monitoring.
+- Built the Creator dashboard, where outside creators build templates and widgets for Belanjaku storefronts, preview them on the real storefront, and sell them in the marketplace.
+- Extended the Laravel GraphQL backend behind the Page Builder, adding custom checkout redirect URLs and consistent price formatting.
+
+Before that, I spent four years at ICUBE by SIRCLO as the largest frontend contributor to SwiftOMS, authoring 2,200+ commits (53% of the total). SwiftOMS is an omnichannel order management system that keeps stock and orders in sync across 4 marketplaces: Shopee, Lazada, TikTok, and Tokopedia. I later led the MVP of SWIFT Hub, a multi-tenant seller hub built on the same codebase for small businesses.
+
+I care about code that stays easy to change. I organize projects with a feature-based architecture and keep data fetching efficient with Apollo Client, so products stay fast as catalogs and teams grow. My background in Statistics at ITS also helps me reason about data-heavy screens and the people who use them. Outside my day job, I built WAVES-SSI end to end as a freelance project: a bilingual learning platform for a university research consortium.
+
+You can find case studies of this work at alul.vercel.app, and my CV is attached. I would welcome the chance to talk about how I can help your team ship reliable, fast products.
+
+Best regards,
+Fazlur Rahman (Alul)
+Software Engineer

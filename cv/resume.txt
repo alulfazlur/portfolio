@@ -23,7 +23,8 @@ seller.belanjaku.id · belanjaku.id · affiliate.belanjaku.id
 - Engineered the multi-tenant storefront that serves 10+ merchant stores from one codebase, by vendor code or custom domain, with server-side caching.
 - Shipped config-driven white-label support for Belanjaku and SWIFT Hub, used by 5 customers to run the products under their own brand.
 - Created the Affiliate platform, with automated referral tracking and commission reports.
-- Extended the Laravel (PHP, MySQL) GraphQL backend behind the Page Builder, adding custom checkout redirect URLs and consistent price formatting.
+- Built the Creator dashboard for outside template and widget creators, with GrapesJS and Monaco builders, a real-storefront sandbox, and payouts.
+- Extended the Laravel (PHP, MySQL) GraphQL backend behind the Page Builder (checkout redirects, price formatting).
 
 Freelance Frontend Engineer · WAVES-SSI Learning Platform
 Feb 2026 – Oct 2026
