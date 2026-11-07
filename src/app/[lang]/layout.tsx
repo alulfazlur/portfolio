@@ -51,6 +51,9 @@ export async function generateMetadata(): Promise<Metadata> {
       locale,
       siteName: "Fazlur Rahman (Alul)",
     },
+    verification: {
+      google: "b8SJTNAK6PdvhwqcGp8dVqzj4r23n-w7aGVh85im7ko",
+    },
   };
 }
 
