@@ -6,12 +6,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400&display=swap"
       rel="stylesheet"
     />
     <style>
       /* LinkedIn banner: 1584 x 396. The profile photo covers the bottom-left,
-     so all content sits in the right half. */
+     so all content sits in the right half. Same "Spec Sheet" direction as the site:
+     cool paper + faint dot grid, graphite text, one soft cobalt accent. */
       * {
         box-sizing: border-box;
         margin: 0;
@@ -24,43 +25,15 @@
       body {
         position: relative;
         overflow: hidden;
-        background: #f8fafc;
-        font-family: "Inter", sans-serif;
-        color: #0f172a;
-      }
-      .glow {
-        position: absolute;
-        border-radius: 9999px;
-        filter: blur(80px);
-      }
-      .glow.teal {
-        width: 620px;
-        height: 620px;
-        left: 520px;
-        top: -360px;
-        background: rgba(153, 246, 228, 0.65);
-      }
-      .glow.sky {
-        width: 560px;
-        height: 560px;
-        right: -160px;
-        top: -60px;
-        background: rgba(186, 230, 253, 0.7);
-      }
-      .glow.amber {
-        width: 480px;
-        height: 480px;
-        left: -140px;
-        bottom: -320px;
-        background: rgba(254, 243, 199, 0.8);
-      }
-      .contours {
-        position: absolute;
-        inset: 0;
-        background: rgba(15, 118, 110, 0.16);
-        -webkit-mask: url("../public/images/bg/contours.svg") center / cover
-          no-repeat;
-        mask: url("../public/images/bg/contours.svg") center / cover no-repeat;
+        background-color: oklch(0.975 0.004 250);
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          oklch(0.225 0.013 258 / 0.1) 1px,
+          transparent 0
+        );
+        background-size: 24px 24px;
+        font-family: "IBM Plex Sans", sans-serif;
+        color: oklch(0.225 0.013 258);
       }
 
       .content {
@@ -68,102 +41,136 @@
         right: 88px;
         top: 50%;
         transform: translateY(-50%);
-        width: 860px;
-        display: flex;
-        gap: 32px;
-        align-items: center;
+        width: 1000px;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 48px;
+        align-items: end;
       }
-      .logo {
-        width: 132px;
-        height: 132px;
-        flex-shrink: 0;
-        border-radius: 30px;
-        box-shadow: 0 18px 40px -12px rgba(19, 78, 74, 0.45);
-      }
-      .logo svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 6px 14px;
-        border-radius: 9999px;
-        border: 1px solid #e2e8f0;
-        background: rgba(255, 255, 255, 0.75);
-        font-family: "JetBrains Mono", monospace;
+      .label {
+        font-family: "IBM Plex Mono", monospace;
         font-size: 15px;
-        color: #334155;
+        color: oklch(0.56 0.014 256);
       }
-      .chip .dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 9999px;
-        background: linear-gradient(90deg, #0f766e, #fbbf24);
+      .label b {
+        font-weight: 400;
+        color: oklch(0.48 0.14 262);
       }
       h1 {
         margin-top: 14px;
-        font-size: 54px;
-        line-height: 1.02;
-        letter-spacing: -0.035em;
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
+        font-size: 72px;
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+        font-weight: 300;
       }
-      h1 span {
-        background: linear-gradient(90deg, #0f766e, #0369a1);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+      h1 small {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 17px;
+        letter-spacing: 0;
+        vertical-align: top;
+        margin-left: 8px;
+        color: oklch(0.48 0.14 262);
       }
       .tagline {
-        margin-top: 12px;
+        margin-top: 16px;
         font-size: 20px;
+        font-weight: 300;
         line-height: 1.4;
-        color: #475569;
-        white-space: nowrap;
+        color: oklch(0.38 0.016 258);
+      }
+
+      .spec {
+        position: relative;
+        border: 1px solid oklch(0.225 0.013 258 / 0.1);
+        background: oklch(0.975 0.004 250 / 0.8);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 14px;
+      }
+      .spec div {
+        display: grid;
+        grid-template-columns: 104px 1fr;
+        gap: 12px;
+        padding: 10px 14px;
+      }
+      .spec div + div {
+        border-top: 1px solid oklch(0.225 0.013 258 / 0.08);
+      }
+      .spec dt {
+        color: oklch(0.56 0.014 256);
+      }
+      .spec dd {
+        margin: 0;
+        color: oklch(0.29 0.015 258);
+      }
+      /* Tanda registrasi "+" di sudut, seperti di situs. */
+      .cross {
+        position: absolute;
+        width: 11px;
+        height: 11px;
+      }
+      .cross::before,
+      .cross::after {
+        content: "";
+        position: absolute;
+        background: oklch(0.7 0.012 255);
+      }
+      .cross::before {
+        top: 5px;
+        left: 0;
+        width: 11px;
+        height: 1px;
+      }
+      .cross::after {
+        left: 5px;
+        top: 0;
+        width: 1px;
+        height: 11px;
+      }
+      .tl {
+        top: -6px;
+        left: -6px;
+      }
+      .tr {
+        top: -6px;
+        right: -6px;
+      }
+      .bl {
+        bottom: -6px;
+        left: -6px;
+      }
+      .br {
+        bottom: -6px;
+        right: -6px;
       }
     </style>
   </head>
   <body>
-    <div class="glow amber"></div>
-    <div class="glow teal"></div>
-    <div class="glow sky"></div>
-    <div class="contours"></div>
-
     <div class="content">
-      <div class="logo">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#0f766e" />
-              <stop offset="1" stop-color="#0369a1" />
-            </linearGradient>
-          </defs>
-          <rect width="64" height="64" rx="15" fill="url(#bg)" />
-          <g
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="4.5"
-          >
-            <path d="M15 23 7 32l8 9" stroke="#ccfbf1" stroke-opacity="0.75" />
-            <circle cx="28" cy="33.5" r="6.5" stroke="#ffffff" />
-            <path d="M34.5 26.5v14" stroke="#ffffff" />
-            <path d="M40 42 45 24" stroke="#99f6e4" />
-            <path d="m49 23 8 9-8 9" stroke="#ccfbf1" stroke-opacity="0.75" />
-          </g>
-        </svg>
-      </div>
       <div>
-        <div class="chip">
-          <span class="dot"></span>Software Engineer · Jember, Indonesia
-        </div>
-        <h1>Fazlur Rahman <span>(Alul)</span></h1>
+        <p class="label"><b>01</b> / software engineer</p>
+        <h1>Fazlur Rahman<small>(alul)</small></h1>
         <p class="tagline">I build scalable, high-performance web products.</p>
       </div>
+      <dl class="spec">
+        <span class="cross tl"></span><span class="cross tr"></span>
+        <span class="cross bl"></span><span class="cross br"></span>
+        <div>
+          <dt>based in</dt>
+          <dd>Jember, Indonesia · UTC+7</dd>
+        </div>
+        <div>
+          <dt>experience</dt>
+          <dd>5+ years</dd>
+        </div>
+        <div>
+          <dt>stack</dt>
+          <dd>Next.js · React · GraphQL</dd>
+        </div>
+        <div>
+          <dt>site</dt>
+          <dd>alul.vercel.app</dd>
+        </div>
+      </dl>
     </div>
   </body>
 </html>

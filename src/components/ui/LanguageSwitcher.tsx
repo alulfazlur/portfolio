@@ -21,7 +21,7 @@ export function LanguageSwitcher({
   return (
     <ul
       aria-label={label}
-      className="flex items-center rounded-full border border-slate-200 bg-white/70 p-1 dark:border-slate-700/60 dark:bg-slate-800/70"
+      className="flex items-center rounded-lg border border-slate-900/10 p-1 dark:border-slate-100/10"
     >
       {Object.entries(languages).map(([locale, name]) => {
         const active = locale === current;
@@ -34,9 +34,9 @@ export function LanguageSwitcher({
               // Teks yang terlihat ("ID") harus ikut jadi bagian nama aksesibel (WCAG 2.5.3).
               aria-label={`${locale.toUpperCase()}, ${name}`}
               aria-current={active ? "true" : undefined}
-              className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full px-2.5 font-mono text-xs uppercase transition-colors ${
+              className={`inline-flex h-9 min-w-9 items-center justify-center rounded-md px-2.5 font-mono text-xs uppercase transition-colors ${
                 active
-                  ? "bg-linear-to-r from-primary-700 to-secondary-700 text-white"
+                  ? "bg-slate-900 text-slate-50 dark:bg-slate-100 dark:text-slate-900"
                   : "text-slate-600 hover:text-primary-700 dark:text-slate-400 dark:hover:text-primary-300"
               }`}
             >

@@ -27,7 +27,7 @@ export async function CaseStudyModal({ slug, closeHref }: CaseStudyModalProps) {
       media={
         // Proporsi dan sudutnya mengikuti kartu yang diperbesar (~2× mulai sm), agar morph menyambung.
         <div
-          className={`flex items-end overflow-hidden rounded-t-3xl px-6 pt-6 sm:rounded-t-[3rem] sm:px-16 sm:pt-16 ${tone.frame}`}
+          className={`flex items-end overflow-hidden rounded-t-[8px] px-6 pt-6 sm:rounded-t-[16px] sm:px-16 sm:pt-16 ${tone.frame}`}
         >
           <Image
             src={project.cover}
@@ -36,7 +36,7 @@ export async function CaseStudyModal({ slug, closeHref }: CaseStudyModalProps) {
             quality={90}
             loading="eager"
             sizes="(min-width: 1024px) 896px, 100vw"
-            className="aspect-[16/10] w-full rounded-t-xl object-cover object-left-top shadow-2xl ring-1 shadow-slate-900/15 ring-slate-900/5 sm:rounded-t-3xl dark:shadow-slate-950/50 dark:ring-white/10"
+            className="aspect-[16/10] w-full rounded-t-[4px] object-cover object-left-top shadow-xl ring-1 shadow-slate-900/10 ring-slate-900/5 sm:rounded-t-[8px] dark:ring-white/10"
           />
         </div>
       }

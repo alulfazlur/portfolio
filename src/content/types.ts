@@ -146,7 +146,6 @@ export type Messages = {
   };
   hero: {
     label: string;
-    stats: { value: string; label: string }[];
     viewProjects: string;
     downloadCv: string;
   };

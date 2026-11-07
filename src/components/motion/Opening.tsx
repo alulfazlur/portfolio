@@ -33,7 +33,7 @@ export function Opening({ name }: { name: string }) {
         {Array.from({ length: STRIPS }, (_, index) => (
           <div
             key={index}
-            className="-mb-px flex-1 animate-wipe bg-slate-900"
+            className="-mb-px flex-1 animate-wipe bg-slate-50"
             style={{ animationDelay: `${800 + (STRIPS - 1 - index) * 40}ms` }}
           />
         ))}
@@ -42,7 +42,7 @@ export function Opening({ name }: { name: string }) {
         <div className="relative size-16 sm:size-20">
           <Logo
             gradientId="opening-logo-base"
-            className="absolute inset-0 size-full opacity-15 grayscale"
+            className="absolute inset-0 size-full opacity-25"
           />
           <div className="absolute inset-0 animate-fill-up overflow-hidden">
             <div className="size-full animate-fill-down">
@@ -50,7 +50,7 @@ export function Opening({ name }: { name: string }) {
             </div>
           </div>
         </div>
-        <p className="flex overflow-hidden font-mono text-7xl leading-[1.1] font-semibold tracking-tighter text-slate-50 uppercase sm:text-9xl">
+        <p className="flex overflow-hidden font-display text-8xl leading-[1] font-light tracking-[-0.06em] text-slate-800 sm:text-[11rem]">
           {[...name].map((letter, index) => (
             <span
               key={index}
@@ -60,6 +60,12 @@ export function Opening({ name }: { name: string }) {
               {letter}
             </span>
           ))}
+          <span
+            className="inline-block animate-rise font-mono text-[0.5em] text-primary-600"
+            style={{ animationDelay: `${200 + name.length * 50}ms` }}
+          >
+            _
+          </span>
         </p>
       </div>
     </div>

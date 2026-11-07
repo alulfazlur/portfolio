@@ -1,8 +1,7 @@
 import { afterOpening } from "@/components/motion/afterOpening";
-import { Tilt } from "@/components/motion/Tilt";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { CodeCard } from "@/components/ui/CodeCard";
 import { Container } from "@/components/ui/Container";
+import { Crosshairs } from "@/components/ui/Crosshairs";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { profile } from "@/content/profile";
 import { getT } from "@/lib/i18n";
@@ -11,110 +10,107 @@ const nameWords = profile.name.split(" ");
 
 export async function Hero() {
   const t = await getT();
-  const stats = t("hero.stats", { returnObjects: true });
+  const facts = t("profile.facts", { returnObjects: true });
+  // Lembar spesifikasi singkat: semua label & nilai dari copy/data yang sudah ada.
+  const spec = [
+    { label: t("caseStudy.role"), value: profile.role },
+    { label: facts.location.label, value: t("contact.location") },
+    { label: facts.experience.label, value: facts.experience.value },
+    { label: t("experience.stack"), value: profile.stack.join(" · ") },
+  ];
 
   return (
     <section
       id="top"
       aria-label={t("hero.label")}
-      className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col justify-center overflow-x-clip md:min-h-svh"
+      className="relative flex min-h-[calc(100svh-4rem)] flex-col overflow-x-clip md:min-h-svh"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
-        <div className="absolute -top-48 left-1/4 size-[38rem] rounded-full bg-primary-200/50 blur-3xl dark:bg-primary-500/10" />
-        <div className="absolute top-10 -right-40 size-[32rem] rounded-full bg-secondary-200/50 blur-3xl dark:bg-secondary-500/10" />
-        <div className="absolute -bottom-40 -left-24 size-[28rem] rounded-full bg-accent-100/60 blur-3xl dark:bg-accent-500/5" />
-      </div>
-
-      <Container className="grid gap-8 pt-8 pb-20 sm:gap-10 sm:pt-20 sm:pb-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
-        <div className="min-w-0">
-          <h1 className="text-5xl leading-[0.95] font-semibold tracking-tighter text-balance text-slate-900 sm:text-7xl dark:text-slate-50">
-            <span className="sr-only">
-              {profile.name} ({profile.nickname})
-            </span>
-            <span aria-hidden="true">
-              {nameWords.map((word, wordIndex) => (
-                <span key={word}>
-                  <span className="inline-block overflow-hidden pb-[0.1em] align-bottom">
-                    {[...word].map((letter, letterIndex) => (
-                      <span
-                        key={letterIndex}
-                        className="inline-block animate-rise motion-reduce:animate-none"
-                        style={afterOpening(
-                          (nameWords.slice(0, wordIndex).join("").length +
-                            letterIndex) *
-                            35,
-                        )}
-                      >
-                        {letter}
-                      </span>
-                    ))}
-                  </span>{" "}
+      <Container className="flex flex-1 flex-col justify-center gap-12 pt-10 pb-24 sm:gap-16 sm:pt-16 sm:pb-32">
+        <h1 className="font-display text-[clamp(3.5rem,17vw,13.5rem)] leading-[0.88] font-light tracking-[-0.055em] text-slate-900 sm:text-[clamp(4rem,13vw,13.5rem)] dark:text-slate-50">
+          <span className="sr-only">
+            {profile.name} ({profile.nickname})
+          </span>
+          <span aria-hidden="true" className="flex flex-col">
+            {nameWords.map((word, wordIndex) => (
+              <span
+                key={word}
+                className={`block whitespace-nowrap ${
+                  wordIndex % 2 === 0 ? "drift-left" : "drift-right pl-[12vw]"
+                }`}
+              >
+                <span className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+                  {[...word].map((letter, letterIndex) => (
+                    <span
+                      key={letterIndex}
+                      className="inline-block animate-rise motion-reduce:animate-none"
+                      style={afterOpening(
+                        (nameWords.slice(0, wordIndex).join("").length +
+                          letterIndex) *
+                          35,
+                      )}
+                    >
+                      {letter}
+                    </span>
+                  ))}
                 </span>
-              ))}
-            </span>
-          </h1>
-          <p
-            style={afterOpening(400)}
-            className="mt-3 inline-flex max-w-full animate-fade-up items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3.5 py-1.5 font-mono text-sm text-slate-700 backdrop-blur motion-reduce:animate-none dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-300"
-          >
-            <span
-              aria-hidden="true"
-              className="size-2 shrink-0 rounded-full bg-linear-to-r from-primary-700 to-accent-400"
-            />
-            {profile.role}
-          </p>
-          {/* Di mobile tanpa fade: tagline sudah ter-render sejak paint pertama (di balik opening),
-              jadi elemen LCP yang cepat. Mulai sm tetap fade-up. */}
-          <p
-            style={afterOpening(450)}
-            className="mt-4 max-w-xl text-lg leading-relaxed text-pretty text-slate-600 motion-reduce:animate-none sm:mt-6 sm:animate-fade-up sm:text-xl dark:text-slate-300"
-          >
-            {t("profile.tagline")}
-          </p>
-          <div
-            className="mt-6 flex animate-fade-up flex-wrap items-center gap-3 motion-reduce:animate-none sm:mt-10"
-            style={afterOpening(550)}
-          >
-            <ButtonLink href="#projects">{t("hero.viewProjects")}</ButtonLink>
-            <ButtonLink href={profile.cvHref} variant="secondary" download>
-              {t("hero.downloadCv")}
-            </ButtonLink>
-            <div className="-ml-2.5 sm:ml-0">
+                {wordIndex === 0 && (
+                  <span
+                    style={afterOpening(500)}
+                    className="ml-[0.2em] inline-block animate-fade-up align-top font-mono text-[max(0.75rem,0.11em)] tracking-normal text-primary-700 motion-reduce:animate-none dark:text-primary-300"
+                  >
+                    ({profile.nickname.toLowerCase()})
+                  </span>
+                )}
+              </span>
+            ))}
+          </span>
+        </h1>
+
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
+          <div className="lg:col-span-6">
+            {/* Di mobile tanpa fade: tagline sudah ter-render sejak paint pertama (di balik opening),
+                jadi elemen LCP yang cepat. Mulai sm tetap fade-up. */}
+            <p
+              style={afterOpening(450)}
+              className="max-w-xl text-xl leading-snug font-light tracking-[-0.01em] text-pretty text-slate-700 motion-reduce:animate-none sm:animate-fade-up sm:text-2xl dark:text-slate-300"
+            >
+              {t("profile.tagline")}
+            </p>
+            <div
+              className="mt-8 flex animate-fade-up flex-wrap items-center gap-3 motion-reduce:animate-none"
+              style={afterOpening(550)}
+            >
+              <ButtonLink href="#projects" arrow="right">
+                {t("hero.viewProjects")}
+              </ButtonLink>
+              <ButtonLink href={profile.cvHref} variant="secondary" download>
+                {t("hero.downloadCv")}
+              </ButtonLink>
               <SocialLinks />
             </div>
           </div>
-        </div>
 
-        <div
-          className="relative min-w-0 animate-fade-up motion-reduce:animate-none lg:pl-6"
-          style={afterOpening(250)}
-        >
-          <div className="transition-transform duration-500 ease-out hover:-translate-y-1 lg:rotate-1 lg:hover:rotate-0">
-            <Tilt>
-              <CodeCard
-                fileName="intro.ts"
-                nickname={profile.nickname}
-                location={t("profile.location")}
-                stack={profile.stack}
-              />
-            </Tilt>
+          <div
+            style={afterOpening(600)}
+            className="relative animate-fade-up border border-slate-900/10 bg-slate-50/70 backdrop-blur-sm motion-reduce:animate-none lg:col-span-5 lg:col-start-8 dark:border-slate-100/10 dark:bg-slate-900/60"
+          >
+            <Crosshairs />
+            <dl className="divide-y divide-slate-900/8 font-mono text-[0.8125rem] dark:divide-slate-100/8">
+              {spec.map((row) => (
+                <div
+                  key={row.label}
+                  className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 px-4 py-3"
+                >
+                  <dt className="text-slate-500 lowercase dark:text-slate-400">
+                    {row.label}
+                  </dt>
+                  <dd className="text-slate-800 dark:text-slate-200">
+                    {row.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          {stats.map((stat) => (
-            <p
-              key={stat.label}
-              className="absolute -top-10 right-3 inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 shadow-slate-900/10 ring-slate-200 sm:top-auto sm:-bottom-8 sm:px-5 sm:py-4 lg:right-4 dark:bg-slate-800 dark:shadow-slate-950/40 dark:ring-slate-700/60"
-            >
-              <span className="bg-linear-to-r from-primary-700 to-secondary-700 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl dark:from-primary-300 dark:to-secondary-300">
-                {stat.value}
-              </span>
-              <span className="max-w-28 text-sm leading-snug text-slate-600 dark:text-slate-300">
-                {stat.label}
-              </span>
-            </p>
-          ))}
         </div>
       </Container>
     </section>

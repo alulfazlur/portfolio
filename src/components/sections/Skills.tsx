@@ -1,66 +1,55 @@
 import { Stagger } from "@/components/motion/Stagger";
 import { StaggerItem } from "@/components/motion/StaggerItem";
-import { Pressable } from "@/components/motion/Pressable";
 import { Section } from "@/components/ui/Section";
-import { SkillIcon } from "@/components/ui/SkillIcon";
 import { TechIcon } from "@/components/ui/TechIcon";
-import { tones } from "@/components/ui/tones";
 import { skills } from "@/content/skills";
-import type { AccentColor, SkillGroupId } from "@/content/types";
 import { getT } from "@/lib/i18n";
 
-const groupStyles: Record<SkillGroupId, { tone: AccentColor; span: string }> = {
-  core: { tone: "teal", span: "sm:col-span-2" },
-  styling: { tone: "rose", span: "" },
-  data: { tone: "sky", span: "" },
-  backend: { tone: "indigo", span: "" },
-  also: { tone: "amber", span: "" },
-};
+const pad = (n: number) => String(n).padStart(2, "0");
 
 export async function Skills() {
   const t = await getT();
   return (
-    <Section
-      id="skills"
-      index="02"
-      title={t("sections.skills")}
-      tone="sky"
-      layout="side"
-      glow="left"
-    >
-      <Stagger as="ul" className="grid gap-4 sm:grid-cols-2">
-        {skills.map((group) => {
-          const { tone, span } = groupStyles[group.id];
-          return (
-            <StaggerItem as="li" key={group.id} className={span}>
-              <Pressable preset="surface" className="h-full">
-                <div className="relative h-full rounded-3xl border border-slate-200 bg-white p-6 dark:border-slate-700/60 dark:bg-slate-800">
-                  <div className="flex items-center gap-3">
+    <Section id="skills" index="02" title={t("sections.skills")}>
+      <Stagger as="ul" className="space-y-10 sm:space-y-12">
+        {skills.map((group) => (
+          <StaggerItem
+            as="li"
+            key={group.id}
+            className="grid gap-4 lg:grid-cols-12 lg:gap-8"
+          >
+            <h3 className="flex items-baseline justify-between gap-4 font-mono text-[0.8125rem] text-slate-500 lowercase lg:col-span-3 lg:flex-col lg:justify-start lg:gap-1 lg:pt-3 dark:text-slate-400">
+              <span className="text-slate-900 dark:text-slate-100">
+                {t(`skills.${group.id}`)}
+              </span>
+              <span>[{pad(group.items.length)}]</span>
+            </h3>
+            {/* Matriks sel: garis kiri/atas di wadah, kanan/bawah di tiap sel. */}
+            <ul className="grid grid-cols-2 border-t border-l border-slate-900/10 sm:grid-cols-3 lg:col-span-9 xl:grid-cols-4 dark:border-slate-100/10">
+              {group.items.map((skill, index) => (
+                <li
+                  key={skill}
+                  className="group flex min-h-16 flex-col justify-between gap-2 border-r border-b border-slate-900/10 px-4 py-3 transition-colors duration-300 hover:bg-primary-50 dark:border-slate-100/10 dark:hover:bg-primary-400/10"
+                >
+                  <span className="flex items-center justify-between gap-2">
                     <span
-                      className={`inline-flex size-10 items-center justify-center rounded-xl ${tones[tone].iconBox}`}
+                      aria-hidden="true"
+                      className="font-mono text-[0.6875rem] text-slate-400 dark:text-slate-500"
                     >
-                      <SkillIcon id={group.id} />
+                      {pad(index + 1)}
                     </span>
-                    <h3 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-50">
-                      {t(`skills.${group.id}`)}
-                    </h3>
-                  </div>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {group.items.map((skill) => (
-                      <li
-                        key={skill}
-                        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-transform duration-200 ease-out hover:-translate-y-0.5 ${tones[tone].chip}`}
-                      >
-                        <TechIcon skill={skill} />
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Pressable>
-            </StaggerItem>
-          );
-        })}
+                    <span className="text-slate-500 transition-colors duration-300 group-hover:text-primary-600 dark:text-slate-400 dark:group-hover:text-primary-300">
+                      <TechIcon skill={skill} />
+                    </span>
+                  </span>
+                  <span className="text-[1.0625rem] leading-tight text-slate-800 dark:text-slate-100">
+                    {skill}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </StaggerItem>
+        ))}
       </Stagger>
     </Section>
   );

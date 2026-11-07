@@ -40,7 +40,6 @@ export const en: Messages = {
   },
   hero: {
     label: "Introduction",
-    stats: [{ value: "5+", label: "years of experience" }],
     viewProjects: "View Projects",
     downloadCv: "Download CV",
   },

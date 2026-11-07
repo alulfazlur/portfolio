@@ -13,34 +13,50 @@
 }
 
 @theme {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-poppins);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 
-  /* Tiga peran warna: primary (teal, identitas utama), secondary (sky, pendamping di gradien),
-     accent (amber, sorotan kecil yang kontras). Komponen memakai skala ini, bukan nama palet langsung. */
-  --color-primary-50: var(--color-teal-50);
-  --color-primary-100: var(--color-teal-100);
-  --color-primary-200: var(--color-teal-200);
-  --color-primary-300: var(--color-teal-300);
-  --color-primary-400: var(--color-teal-400);
-  --color-primary-500: var(--color-teal-500);
-  --color-primary-600: var(--color-teal-600);
-  --color-primary-700: var(--color-teal-700);
-  --color-primary-800: var(--color-teal-800);
-  --color-primary-900: var(--color-teal-900);
-  --color-primary-950: var(--color-teal-950);
-  --color-secondary-50: var(--color-sky-50);
-  --color-secondary-100: var(--color-sky-100);
-  --color-secondary-200: var(--color-sky-200);
-  --color-secondary-300: var(--color-sky-300);
-  --color-secondary-400: var(--color-sky-400);
-  --color-secondary-500: var(--color-sky-500);
-  --color-secondary-600: var(--color-sky-600);
-  --color-secondary-700: var(--color-sky-700);
-  --color-secondary-800: var(--color-sky-800);
-  --color-secondary-900: var(--color-sky-900);
-  --color-secondary-950: var(--color-sky-950);
+  /* Arah visual "Spec Sheet": kertas dingin + grafit, satu aksen cobalt lembut.
+     `slate` dipetakan ulang ke netral grafit kebiruan agar seluruh komponen (termasuk modal) ikut,
+     tanpa putih/hitam murni. */
+  --color-white: oklch(0.99 0.003 250);
+  --color-slate-50: oklch(0.975 0.004 250);
+  --color-slate-100: oklch(0.955 0.005 250);
+  --color-slate-200: oklch(0.915 0.007 250);
+  --color-slate-300: oklch(0.85 0.009 252);
+  --color-slate-400: oklch(0.7 0.012 255);
+  --color-slate-500: oklch(0.56 0.014 256);
+  --color-slate-600: oklch(0.46 0.015 257);
+  --color-slate-700: oklch(0.38 0.016 258);
+  --color-slate-800: oklch(0.29 0.015 258);
+  --color-slate-900: oklch(0.225 0.013 258);
+  --color-slate-950: oklch(0.18 0.012 258);
+
+  /* primary = cobalt lembut (satu-satunya aksen). secondary = biru-sian, hanya pasangan gradien tonal.
+     accent = amber, sorotan kecil (badge Coming soon). */
+  --color-primary-50: oklch(0.97 0.015 262);
+  --color-primary-100: oklch(0.94 0.03 262);
+  --color-primary-200: oklch(0.89 0.06 262);
+  --color-primary-300: oklch(0.81 0.09 262);
+  --color-primary-400: oklch(0.72 0.12 262);
+  --color-primary-500: oklch(0.63 0.14 262);
+  --color-primary-600: oklch(0.55 0.15 262);
+  --color-primary-700: oklch(0.48 0.14 262);
+  --color-primary-800: oklch(0.41 0.12 262);
+  --color-primary-900: oklch(0.34 0.1 262);
+  --color-primary-950: oklch(0.25 0.07 262);
+  --color-secondary-50: oklch(0.97 0.015 230);
+  --color-secondary-100: oklch(0.94 0.03 230);
+  --color-secondary-200: oklch(0.89 0.05 230);
+  --color-secondary-300: oklch(0.81 0.08 230);
+  --color-secondary-400: oklch(0.72 0.1 230);
+  --color-secondary-500: oklch(0.63 0.11 230);
+  --color-secondary-600: oklch(0.55 0.11 230);
+  --color-secondary-700: oklch(0.48 0.1 230);
+  --color-secondary-800: oklch(0.41 0.09 230);
+  --color-secondary-900: oklch(0.34 0.07 230);
+  --color-secondary-950: oklch(0.25 0.05 230);
   --color-accent-50: var(--color-amber-50);
   --color-accent-100: var(--color-amber-100);
   --color-accent-200: var(--color-amber-200);
@@ -57,7 +73,10 @@
   --color-waves: #083a4f;
   --color-waves-secondary: #2f6875;
 
-  --container-content: 68.75rem;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --container-content: 84rem;
 
   /* Opening + nama hero. CSS (bukan Motion) agar jalan sejak paint pertama, sebelum hydration. */
   --animate-rise: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -146,4 +165,68 @@ html:has(dialog[open]) {
 
 .dark :focus-visible {
   outline-color: var(--color-primary-300);
+}
+
+/* Garis bawah yang "tergambar" dari kiri saat hover/fokus (link teks, bukan tombol pil). */
+@utility link-sweep {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.4s var(--ease-out-expo);
+  &:hover,
+  &:focus-visible {
+    background-position: 0% 100%;
+    background-size: 100% 1px;
+  }
+}
+
+/* Nama hero bergeser berlawanan arah saat halaman di-scroll (scroll-driven, hanya transform).
+   Progressive enhancement: browser tanpa dukungan dan reduced motion melihat nama diam. */
+@keyframes drift-left {
+  to {
+    transform: translateX(-8vw);
+  }
+}
+@keyframes drift-right {
+  to {
+    transform: translateX(6vw);
+  }
+}
+
+@utility drift-left {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation: drift-left linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+@utility drift-right {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation: drift-right linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+/* Grid titik ala kertas blueprint, sangat samar. */
+@utility bg-dotgrid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in oklch, var(--color-slate-900) 9%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+  &:where(.dark, .dark *) {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      color-mix(in oklch, var(--color-slate-100) 7%, transparent) 1px,
+      transparent 0
+    );
+  }
 }

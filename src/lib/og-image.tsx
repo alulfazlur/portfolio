@@ -18,13 +18,12 @@ export function renderOgImage({ eyebrow, title, subtitle }: OgContent) {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "72px 80px",
-        background: "#0f172a",
-        backgroundImage:
-          "radial-gradient(circle at 90% 0%, #0f766e 0%, #0f172a 60%)",
-        color: "#f8fafc",
+        background: "#1c2028",
+        borderBottom: "16px solid #6f8ff0",
+        color: "#f3f5f9",
       }}
     >
-      <div style={{ display: "flex", fontSize: 28, color: "#5eead4" }}>
+      <div style={{ display: "flex", fontSize: 28, color: "#8aa6ff" }}>
         {eyebrow}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -41,7 +40,7 @@ export function renderOgImage({ eyebrow, title, subtitle }: OgContent) {
         <div
           style={{
             fontSize: 32,
-            color: "#94a3b8",
+            color: "#9aa3b2",
             lineHeight: 1.35,
             maxWidth: 960,
           }}
