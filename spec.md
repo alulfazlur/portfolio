@@ -179,9 +179,8 @@ The goal is smooth, not busy.
 
 - Per-page `metadata` (title, description), title template `%s — Alul`, `hreflang` alternates for `en` and `id`.
 - Generated Open Graph images: `app/[lang]/opengraph-image.tsx` and one per project.
-- `app/robots.ts`.
+- `app/robots.ts` and `app/sitemap.ts` (with `hreflang` alternates), `metadataBase` from `profile.siteUrl` (`https://alul.vercel.app`).
 - `app/icon.svg` as the favicon.
-- TODO: once the final domain is set up on Vercel, add `metadataBase`, `app/sitemap.ts`, and the sitemap line in `robots.ts`.
 
 ## 10. Non-Functional
 
@@ -207,6 +206,6 @@ Blog, CMS, contact form, testimonials, auth.
 6. ✅ Case study modal
 7. ✅ Contact + Footer
 8. ✅ Motion across all sections
-9. ✅ SEO: metadata, OG images, robots (sitemap pending the domain)
+9. ✅ SEO: metadata, OG images, robots, sitemap
 10. ✅ Theme toggle, command bar navigation, logo
-11. TODO: final domain + sitemap, Lighthouse audit, deploy to Vercel
+11. TODO: Lighthouse audit (deployed at `alul.vercel.app`)

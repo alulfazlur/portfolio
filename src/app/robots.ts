@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { profile } from "@/content/profile";
 
-// TODO: tambahkan `sitemap` (dan app/sitemap.ts) setelah domain Vercel final siap.
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
+    sitemap: `${profile.siteUrl}/sitemap.xml`,
   };
 }

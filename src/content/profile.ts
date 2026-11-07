@@ -9,4 +9,5 @@ export const profile: Profile = {
   email: "alulfazlur@gmail.com",
   cvHref: "/doc/Fazlur Rahman Resume.pdf",
   photo: profilePhoto,
+  siteUrl: "https://alul.vercel.app",
 };

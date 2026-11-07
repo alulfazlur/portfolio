@@ -37,6 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getT();
   const locale = await getLocale();
   return {
+    metadataBase: new URL(profile.siteUrl),
     title: {
       default: t("meta.title"),
       template: "%s — Alul",
