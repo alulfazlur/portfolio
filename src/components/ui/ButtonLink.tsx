@@ -15,11 +15,13 @@ type ButtonLinkProps = {
   external?: boolean;
 };
 
+// Isian vermilion naik dari bawah saat hover (pseudo-element, hanya transform).
+const fill =
+  "relative isolate overflow-hidden before:absolute before:inset-0 before:-z-10 before:origin-bottom before:scale-y-0 before:bg-primary-600 before:transition-transform before:duration-500 before:ease-out-expo hover:before:scale-y-100 dark:before:bg-primary-400";
+
 const variants = {
-  primary:
-    "bg-linear-to-r from-primary-700 to-secondary-700 text-white shadow-md shadow-primary-900/15 hover:shadow-lg hover:shadow-primary-900/25 dark:shadow-slate-950/40",
-  secondary:
-    "border border-slate-300 bg-white/70 text-slate-900 backdrop-blur hover:border-primary-400 hover:text-primary-700 dark:border-slate-600 dark:bg-slate-800/70 dark:text-slate-50 dark:hover:border-primary-400 dark:hover:text-primary-300",
+  primary: `${fill} bg-slate-900 text-slate-50 hover:text-white dark:bg-slate-50 dark:text-slate-900 dark:hover:text-slate-950`,
+  secondary: `${fill} border border-slate-900/80 text-slate-900 hover:border-primary-600 hover:text-white dark:border-slate-100/70 dark:text-slate-50 dark:hover:border-primary-400 dark:hover:text-slate-950`,
 };
 
 const arrows = { right: "→", "up-right": "↗" };
@@ -40,7 +42,7 @@ export function ButtonLink({
         download={download || undefined}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className={`inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-[box-shadow,border-color,color] duration-300 ease-out sm:px-6 ${tone ? tones[tone].button : variants[variant]}`}
+        className={`inline-flex h-12 w-full items-center justify-center gap-2 rounded-[2px] px-5 text-sm font-medium tracking-[-0.005em] whitespace-nowrap transition-[border-color,color] duration-300 ease-out sm:px-6 ${tone ? tones[tone].button : variants[variant]}`}
       >
         {children}
         {arrow && <Nudge direction={arrow}>{arrows[arrow]}</Nudge>}

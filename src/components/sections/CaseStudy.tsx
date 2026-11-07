@@ -25,21 +25,21 @@ export async function CaseStudy({ project }: CaseStudyProps) {
     <>
       <div>
         <p className="flex items-center gap-2 font-mono text-xs">
-          <span className={`rounded-full px-2.5 py-1 ${tone.chip}`}>
+          <span className={`rounded-[2px] px-2.5 py-1 ${tone.chip}`}>
             {t(`projects.types.${project.type}`)}
           </span>
           <span className="text-slate-600 dark:text-slate-400">
             {formatProjectPeriod(project, t("experience.present"))}
           </span>
           {project.comingSoon && (
-            <span className="rounded-full bg-amber-50 px-2.5 py-1 text-amber-800 ring-1 ring-amber-200/70 ring-inset dark:bg-amber-400/10 dark:text-amber-200 dark:ring-amber-400/20">
+            <span className="rounded-[2px] bg-amber-50 px-2.5 py-1 text-amber-800 ring-1 ring-amber-200/70 ring-inset dark:bg-amber-400/10 dark:text-amber-200 dark:ring-amber-400/20">
               {t("projects.comingSoon")}
             </span>
           )}
         </p>
         <h2
           id={`${project.slug}-title`}
-          className="mt-4 max-w-3xl text-4xl font-semibold tracking-tighter text-balance text-slate-900 sm:text-6xl dark:text-slate-50"
+          className="mt-4 max-w-3xl text-4xl leading-[0.95] font-semibold tracking-[-0.045em] text-balance text-slate-900 font-stretch-expanded sm:text-6xl dark:text-slate-50"
         >
           {project.title}
         </h2>
@@ -73,7 +73,7 @@ export async function CaseStudy({ project }: CaseStudyProps) {
           )}
         </div>
 
-        <dl className="mt-10 grid gap-6 rounded-3xl border border-slate-200 bg-white/80 p-6 backdrop-blur sm:grid-cols-[repeat(2,minmax(0,auto))_minmax(0,1fr)] sm:gap-10 dark:border-slate-700/60 dark:bg-slate-800/80">
+        <dl className="mt-10 grid gap-6 rounded-[4px] border border-slate-200 bg-white/80 p-6 backdrop-blur sm:grid-cols-[repeat(2,minmax(0,auto))_minmax(0,1fr)] sm:gap-10 dark:border-slate-700/60 dark:bg-slate-800/80">
           {meta.map((item) => (
             <div key={item.label}>
               <dt className="font-mono text-xs tracking-wide text-slate-500 uppercase dark:text-slate-400">
@@ -122,7 +122,7 @@ export async function CaseStudy({ project }: CaseStudyProps) {
               >
                 <span
                   aria-hidden="true"
-                  className={`mt-2.5 size-2 shrink-0 rounded-full ${tone.dot}`}
+                  className={`mt-2.5 size-2 shrink-0 rounded-[2px] ${tone.dot}`}
                 />
                 <span>{item}</span>
               </li>
@@ -130,7 +130,7 @@ export async function CaseStudy({ project }: CaseStudyProps) {
           </ul>
         </div>
         <div>
-          <div className={`rounded-3xl p-6 sm:p-8 ${tone.soft}`}>
+          <div className={`rounded-[4px] p-6 sm:p-8 ${tone.soft}`}>
             <h3 className={`font-mono text-sm ${tone.text}`}>
               {t("caseStudy.result")}
             </h3>
@@ -162,7 +162,7 @@ export async function CaseStudy({ project }: CaseStudyProps) {
                   height={750}
                   quality={90}
                   sizes="(min-width: 640px) 50vw, 100vw"
-                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700/60"
+                  className="w-full rounded-[2px] border border-slate-200 dark:border-slate-700/60"
                 />
               </li>
             ))}

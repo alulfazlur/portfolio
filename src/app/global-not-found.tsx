@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Poppins } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { getFixedT } from "@/lib/i18n";
@@ -7,14 +7,10 @@ import { defaultLocale } from "@/lib/locales";
 import { ThemeScript } from "@/components/ui/ThemeScript";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-});
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: "600",
+  axes: ["wdth"],
 });
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -33,7 +29,7 @@ export default function GlobalNotFound() {
     <html
       suppressHydrationWarning
       lang={defaultLocale}
-      className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} antialiased`}
+      className={`${archivo.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <head>
         <ThemeScript />
@@ -44,7 +40,7 @@ export default function GlobalNotFound() {
             <p className="font-mono text-sm text-primary-700 dark:text-primary-300">
               404
             </p>
-            <h1 className="mt-6 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+            <h1 className="mt-6 text-4xl leading-[0.95] font-semibold tracking-[-0.04em] text-slate-900 font-stretch-expanded sm:text-6xl dark:text-slate-50">
               {t("notFound.title")}
             </h1>
             <Link

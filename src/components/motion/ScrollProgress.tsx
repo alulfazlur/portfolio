@@ -14,7 +14,7 @@ export function ScrollProgress() {
     <m.div
       aria-hidden="true"
       style={{ scaleX }}
-      className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-linear-to-r from-primary-700 to-secondary-700 dark:from-primary-300 dark:to-secondary-300"
+      className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-primary-500"
     />
   );
 }

@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Poppins } from "next/font/google";
+import { Archivo, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { Opening } from "@/components/motion/Opening";
 import { Footer } from "@/components/sections/Footer";
@@ -11,15 +11,19 @@ import { locales } from "@/lib/locales";
 import { ThemeScript } from "@/components/ui/ThemeScript";
 import "../globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Variable font dengan sumbu lebar (wdth 62–125): nama hero memakai versi expanded.
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+// Hanya untuk aksen italic (kata yang ditekankan), bukan teks panjang.
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
-  weight: "600",
+  weight: "400",
+  style: "italic",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -66,16 +70,12 @@ export default async function RootLayout({
     <html
       suppressHydrationWarning
       lang={locale}
-      className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} antialiased`}
+      className={`${archivo.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <head>
         <ThemeScript />
       </head>
       <body className="flex min-h-svh flex-col bg-slate-50 font-sans text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed inset-0 -z-20 bg-primary-700/[0.13] [mask-image:url(/images/bg/contours.svg)] [mask-size:cover] [mask-position:center] dark:bg-primary-300/[0.08]"
-        />
         <Opening name={profile.nickname} />
         <MotionProvider>
           <Navbar />

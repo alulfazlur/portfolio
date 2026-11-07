@@ -46,7 +46,7 @@ src/
   lib/                  # pure helpers (i18n, content merging, formatting, OG image)
   proxy.ts              # redirects `/` and locale-less paths to `/en` or `/id`
 public/
-  images/               # profile photo, project screenshots, background pattern
+  images/               # profile photo, project screenshots
   doc/                  # CV (PDF)
 brand/                  # exported logo (SVG + PNG), not served by the site
 ```
@@ -87,13 +87,15 @@ brand/                  # exported logo (SVG + PNG), not served by the site
 ### Styling
 - Tailwind utility classes only. No CSS modules, no inline styles except dynamic values.
 - Colors come from `@theme` tokens (e.g. `bg-primary-700`, `bg-waves`) or the Tailwind palette, never hex in `className`.
-- Per-color class sets (chip, frame, glow, ...) live in `components/ui/tones.ts`. Write class names in full; Tailwind cannot detect concatenated names.
-- Palette: `primary-*` (teal), `secondary-*` (sky), `accent-*` (amber, small highlights only) on slate neutrals. Components use these role scales, not `teal-*` / `sky-*` directly (`tones.ts` excepted). Project frames: Belanjaku orange, SWIFT purple, WAVES-SSI `waves`, KlikDiabetes emerald.
-- Dark mode uses the `dark:` variant, driven by the `.dark` class on `<html>` (`ThemeScript` + `ThemeToggle`). Light is the default; dark only applies when the visitor picks it. Dark backgrounds are slate, never near-black.
+- Per-color class sets (chip, frame, button, ...) live in `components/ui/tones.ts`. Write class names in full; Tailwind cannot detect concatenated names.
+- Art direction "The Ledger" (see spec §7): warm paper + ink, hairline rules (`border-slate-900/15` / `dark:border-slate-100/15`), mono uppercase labels, near-square corners (`rounded-[2px]`–`rounded-[8px]`). No shadows-on-cards, gradient blobs, or pill chips.
+- Palette: `slate-*` is remapped in `@theme` to warm oklch neutrals. `primary-*` (vermilion) is the only accent; `secondary-*` (rust) only as a gradient partner; `accent-*` (amber) for tiny highlights. Components use these role scales, not `orange-*` / `red-*` directly (`tones.ts` excepted). Project frames: Belanjaku orange, SWIFT purple, WAVES-SSI `waves`, KlikDiabetes emerald.
+- Fonts: `font-sans`/`font-display` = Archivo (use `font-stretch-expanded` for display type), `font-serif` = Instrument Serif italic (accent words only), `font-mono` = JetBrains Mono.
+- Dark mode uses the `dark:` variant, driven by the `.dark` class on `<html>` (`ThemeScript` + `ThemeToggle`). Light is the default; dark only applies when the visitor picks it. Dark backgrounds are warm ink (`slate-900`), never pure black. The Projects section is ink in both themes.
 - Mobile-first. Check layouts at 375px and 1280px, in light and dark mode, in both languages.
 
 ### Animation
-- Subtle and run-once: small fade/slide-up, short stagger. Durations 0.3–0.6s. No looping animations, parallax, or scroll-jacking.
+- Subtle and run-once: small fade/slide-up, short stagger. Durations 0.3–0.6s. Default easing `ease-out-expo`. No looping animations, heavy parallax, scroll-jacking, or 3D tilt. The only scroll-linked motion is the hero name drift (CSS `animation-timeline`, transform only).
 - `MotionConfig reducedMotion="user"` at the root — never bypass it.
 - Animate only `opacity` and `transform`.
 - Hover/tap on buttons and cards goes through `Pressable` (spring presets). Large moving elements must be GPU-promoted (`will-change`), otherwise they re-rasterize every frame and stutter.

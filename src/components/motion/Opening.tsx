@@ -42,7 +42,7 @@ export function Opening({ name }: { name: string }) {
         <div className="relative size-16 sm:size-20">
           <Logo
             gradientId="opening-logo-base"
-            className="absolute inset-0 size-full opacity-15 grayscale"
+            className="absolute inset-0 size-full opacity-25"
           />
           <div className="absolute inset-0 animate-fill-up overflow-hidden">
             <div className="size-full animate-fill-down">
@@ -50,7 +50,7 @@ export function Opening({ name }: { name: string }) {
             </div>
           </div>
         </div>
-        <p className="flex overflow-hidden font-mono text-7xl leading-[1.1] font-semibold tracking-tighter text-slate-50 uppercase sm:text-9xl">
+        <p className="flex overflow-hidden font-display text-8xl leading-[1] font-semibold tracking-[-0.06em] text-slate-50 font-stretch-expanded sm:text-[11rem]">
           {[...name].map((letter, index) => (
             <span
               key={index}
@@ -60,6 +60,12 @@ export function Opening({ name }: { name: string }) {
               {letter}
             </span>
           ))}
+          <span
+            className="inline-block animate-rise text-primary-500"
+            style={{ animationDelay: `${200 + name.length * 50}ms` }}
+          >
+            .
+          </span>
         </p>
       </div>
     </div>

@@ -355,7 +355,7 @@ export function ProjectModal({
       <div
         ref={surfaceRef}
         aria-hidden="true"
-        className="invisible fixed origin-top-left rounded-3xl bg-white ring-1 ring-slate-900/5 will-change-transform sm:rounded-[3rem] dark:bg-slate-800 dark:ring-slate-700/60"
+        className="invisible fixed origin-top-left rounded-[4px] bg-white ring-1 ring-slate-900/5 will-change-transform sm:rounded-[8px] dark:bg-slate-800 dark:ring-slate-700/60"
       />
       {/* Di bawah panel, agar panel bisa muncul di atas salinan kartu. */}
       <div
@@ -369,7 +369,7 @@ export function ProjectModal({
       >
         <div
           ref={panelRef}
-          className="relative w-full max-w-5xl rounded-3xl bg-white opacity-0 shadow-2xl ring-1 shadow-slate-900/20 ring-slate-900/5 sm:rounded-[3rem] dark:bg-slate-800 dark:shadow-slate-950/60 dark:ring-slate-700/60"
+          className="relative w-full max-w-5xl rounded-[4px] bg-white opacity-0 shadow-2xl ring-1 shadow-slate-900/20 ring-slate-900/5 sm:rounded-[8px] dark:bg-slate-800 dark:shadow-slate-950/60 dark:ring-slate-700/60"
         >
           <div className="sticky top-0 z-10 -mb-14 flex justify-end px-3 pt-3">
             <Pressable preset="icon">
@@ -379,7 +379,7 @@ export function ProjectModal({
                 onClick={dismiss}
                 aria-label={closeLabel}
                 title={closeLabel}
-                className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-600 shadow-sm backdrop-blur transition-colors hover:border-primary-300 hover:text-primary-700 dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-300 dark:hover:border-primary-400/40 dark:hover:text-primary-300"
+                className="inline-flex size-11 cursor-pointer items-center justify-center rounded-[2px] border border-slate-200 bg-white/90 text-slate-600 shadow-sm backdrop-blur transition-colors hover:border-primary-300 hover:text-primary-700 dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-300 dark:hover:border-primary-400/40 dark:hover:text-primary-300"
               >
                 <Icon path={mdiClose} />
               </button>

@@ -3,84 +3,84 @@ import { Stagger } from "@/components/motion/Stagger";
 import { StaggerItem } from "@/components/motion/StaggerItem";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { Section } from "@/components/ui/Section";
-import { tones } from "@/components/ui/tones";
-import type { AccentColor, ProjectGroup } from "@/content/types";
 import { getProjectGroups } from "@/lib/content";
 import { formatProjectPeriod } from "@/lib/format";
 import { getLocale, getT } from "@/lib/i18n";
 
-const groupTones: Record<ProjectGroup, AccentColor> = {
-  belanjaku: "orange",
-  swift: "purple",
-  other: "emerald",
-};
+const pad = (n: number) => String(n).padStart(2, "0");
 
 export async function Projects() {
   const t = await getT();
   const locale = await getLocale();
   const types = t("projects.types", { returnObjects: true });
+  const groups = getProjectGroups(t);
+  const total = groups.reduce((sum, group) => sum + group.projects.length, 0);
+  // Nomor urut project berlanjut lintas grup.
+  const offsets = groups.map((_, index) =>
+    groups
+      .slice(0, index)
+      .reduce((sum, group) => sum + group.projects.length, 0),
+  );
 
   return (
     <Section
       id="projects"
       index="04"
       title={t("sections.projects")}
-      tone="amber"
-      glow="left"
+      kicker={pad(total)}
+      variant="ink"
     >
-      <div className="space-y-20">
-        {getProjectGroups(t).map((group) => {
-          const tone = tones[groupTones[group.id]];
+      <div className="space-y-24 sm:space-y-32">
+        {groups.map((group, groupIndex) => {
           const headingId = `group-${group.id}`;
           return (
             <section key={group.id} aria-labelledby={headingId}>
-              <Reveal className="mb-8 flex flex-col gap-3 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between dark:border-slate-700/60">
-                <div>
-                  <h3
-                    id={headingId}
-                    className="flex items-center gap-3 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl dark:text-slate-50"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className={`size-2.5 rounded-full ${tone.dot}`}
-                    />
-                    {group.name}
-                  </h3>
-                  <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-                    {group.description}
-                  </p>
-                </div>
-                <span
-                  className={`w-fit shrink-0 rounded-full px-3 py-1 font-mono text-xs ${tone.chip}`}
+              <Reveal className="mb-10 grid gap-4 border-t border-slate-100/15 pt-6 sm:mb-14 lg:grid-cols-12 lg:gap-6">
+                <p className="font-mono text-xs tracking-[0.08em] text-slate-400 uppercase lg:col-span-3">
+                  {String.fromCharCode(65 + groupIndex)} —{" "}
+                  {pad(group.projects.length)}
+                </p>
+                <h3
+                  id={headingId}
+                  className="text-[clamp(2.25rem,5vw,4.5rem)] leading-[0.95] font-semibold tracking-[-0.04em] text-slate-50 font-stretch-expanded lg:col-span-5"
                 >
-                  {String(group.projects.length).padStart(2, "0")}
-                </span>
+                  {group.name}
+                </h3>
+                <p className="max-w-md self-end leading-relaxed text-slate-400 lg:col-span-4">
+                  {group.description}
+                </p>
               </Reveal>
-              <Stagger as="ul" className="grid gap-5 sm:grid-cols-2">
-                {group.projects.map((project) => (
-                  <StaggerItem
-                    as="li"
-                    key={project.slug}
-                    className={project.featured ? "sm:col-span-2" : ""}
-                  >
-                    <ProjectCard
-                      project={project}
-                      href={`/${locale}/projects/${project.slug}`}
-                      coverAlt={t("projects.coverAlt", {
-                        title: project.title,
-                      })}
-                      typeLabel={types[project.type]}
-                      period={formatProjectPeriod(
-                        project,
-                        t("experience.present"),
-                      )}
-                      stackLabel={t("projects.stack")}
-                      comingSoonLabel={t("projects.comingSoon")}
-                      liveLabel={t("caseStudy.live")}
-                      caseStudyLabel={t("projects.viewCaseStudy")}
-                    />
-                  </StaggerItem>
-                ))}
+              <Stagger
+                as="ul"
+                className="grid gap-x-8 gap-y-16 sm:grid-cols-2 sm:gap-y-20"
+              >
+                {group.projects.map((project, projectIndex) => {
+                  return (
+                    <StaggerItem
+                      as="li"
+                      key={project.slug}
+                      className={project.featured ? "sm:col-span-2" : ""}
+                    >
+                      <ProjectCard
+                        project={project}
+                        index={pad(offsets[groupIndex] + projectIndex + 1)}
+                        href={`/${locale}/projects/${project.slug}`}
+                        coverAlt={t("projects.coverAlt", {
+                          title: project.title,
+                        })}
+                        typeLabel={types[project.type]}
+                        period={formatProjectPeriod(
+                          project,
+                          t("experience.present"),
+                        )}
+                        stackLabel={t("projects.stack")}
+                        comingSoonLabel={t("projects.comingSoon")}
+                        liveLabel={t("caseStudy.live")}
+                        caseStudyLabel={t("projects.viewCaseStudy")}
+                      />
+                    </StaggerItem>
+                  );
+                })}
               </Stagger>
             </section>
           );

@@ -15,7 +15,7 @@ export function SocialLinks() {
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
                 aria-label={social.label}
-                className={`inline-flex size-11 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-primary-50 hover:text-primary-700 dark:text-slate-400 dark:hover:bg-primary-500/10 dark:hover:text-primary-300`}
+                className={`inline-flex size-11 items-center justify-center rounded-[2px] text-slate-600 transition-colors hover:text-primary-700 dark:text-slate-400 dark:hover:text-primary-300`}
               >
                 <SocialIcon label={social.label} />
               </a>

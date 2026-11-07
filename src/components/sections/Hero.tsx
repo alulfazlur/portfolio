@@ -1,7 +1,5 @@
 import { afterOpening } from "@/components/motion/afterOpening";
-import { Tilt } from "@/components/motion/Tilt";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { CodeCard } from "@/components/ui/CodeCard";
 import { Container } from "@/components/ui/Container";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { profile } from "@/content/profile";
@@ -17,104 +15,92 @@ export async function Hero() {
     <section
       id="top"
       aria-label={t("hero.label")}
-      className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col justify-center overflow-x-clip md:min-h-svh"
+      className="relative flex min-h-[calc(100svh-4rem)] flex-col overflow-x-clip md:min-h-svh"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
-        <div className="absolute -top-48 left-1/4 size-[38rem] rounded-full bg-primary-200/50 blur-3xl dark:bg-primary-500/10" />
-        <div className="absolute top-10 -right-40 size-[32rem] rounded-full bg-secondary-200/50 blur-3xl dark:bg-secondary-500/10" />
-        <div className="absolute -bottom-40 -left-24 size-[28rem] rounded-full bg-accent-100/60 blur-3xl dark:bg-accent-500/5" />
-      </div>
-
-      <Container className="grid gap-8 pt-8 pb-20 sm:gap-10 sm:pt-20 sm:pb-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
-        <div className="min-w-0">
-          <h1 className="text-5xl leading-[0.95] font-semibold tracking-tighter text-balance text-slate-900 sm:text-7xl dark:text-slate-50">
-            <span className="sr-only">
-              {profile.name} ({profile.nickname})
-            </span>
-            <span aria-hidden="true">
-              {nameWords.map((word, wordIndex) => (
-                <span key={word}>
-                  <span className="inline-block overflow-hidden pb-[0.1em] align-bottom">
-                    {[...word].map((letter, letterIndex) => (
-                      <span
-                        key={letterIndex}
-                        className="inline-block animate-rise motion-reduce:animate-none"
-                        style={afterOpening(
-                          (nameWords.slice(0, wordIndex).join("").length +
-                            letterIndex) *
-                            35,
-                        )}
-                      >
-                        {letter}
-                      </span>
-                    ))}
-                  </span>{" "}
-                </span>
-              ))}
-            </span>
-          </h1>
-          <p
-            style={afterOpening(400)}
-            className="mt-3 inline-flex max-w-full animate-fade-up items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3.5 py-1.5 font-mono text-sm text-slate-700 backdrop-blur motion-reduce:animate-none dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-300"
-          >
+      <Container className="flex flex-1 flex-col justify-between gap-10 pt-6 pb-24 sm:pt-10 sm:pb-32">
+        {/* Baris meta seperti kepala lembar ledger. */}
+        <ul
+          style={afterOpening(500)}
+          className="grid animate-fade-up grid-cols-2 gap-x-6 gap-y-2 border-b border-slate-900/15 pb-4 font-mono text-xs tracking-[0.08em] text-slate-600 uppercase motion-reduce:animate-none sm:grid-cols-3 dark:border-slate-100/15 dark:text-slate-400"
+        >
+          <li className="flex items-center gap-2 text-slate-900 dark:text-slate-100">
             <span
               aria-hidden="true"
-              className="size-2 shrink-0 rounded-full bg-linear-to-r from-primary-700 to-accent-400"
+              className="size-2 shrink-0 bg-primary-600 dark:bg-primary-400"
             />
             {profile.role}
-          </p>
+          </li>
+          <li className="text-right sm:text-center">{t("contact.location")}</li>
+          {stats.map((stat) => (
+            <li key={stat.label} className="hidden text-right sm:block">
+              {stat.value} {stat.label}
+            </li>
+          ))}
+        </ul>
+
+        <h1 className="font-display text-[clamp(3.25rem,17vw,21rem)] leading-[0.82] font-semibold tracking-[-0.055em] text-slate-900 font-stretch-expanded sm:text-[clamp(4rem,19vw,21rem)] dark:text-slate-50">
+          <span className="sr-only">
+            {profile.name} ({profile.nickname})
+          </span>
+          <span aria-hidden="true" className="flex flex-col">
+            {nameWords.map((word, wordIndex) => (
+              <span
+                key={word}
+                className={`block whitespace-nowrap ${
+                  wordIndex % 2 === 0
+                    ? "drift-left"
+                    : "drift-right self-end text-right"
+                }`}
+              >
+                <span className="inline-block overflow-hidden pb-[0.06em] align-bottom">
+                  {[...word].map((letter, letterIndex) => (
+                    <span
+                      key={letterIndex}
+                      className="inline-block animate-rise motion-reduce:animate-none"
+                      style={afterOpening(
+                        (nameWords.slice(0, wordIndex).join("").length +
+                          letterIndex) *
+                          35,
+                      )}
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </span>
+                {wordIndex === nameWords.length - 1 && (
+                  <span className="text-primary-600 dark:text-primary-400">
+                    .
+                  </span>
+                )}
+              </span>
+            ))}
+          </span>
+        </h1>
+
+        <div className="grid gap-8 border-t border-slate-900/15 pt-6 lg:grid-cols-12 lg:items-end lg:gap-6 dark:border-slate-100/15">
           {/* Di mobile tanpa fade: tagline sudah ter-render sejak paint pertama (di balik opening),
               jadi elemen LCP yang cepat. Mulai sm tetap fade-up. */}
           <p
             style={afterOpening(450)}
-            className="mt-4 max-w-xl text-lg leading-relaxed text-pretty text-slate-600 motion-reduce:animate-none sm:mt-6 sm:animate-fade-up sm:text-xl dark:text-slate-300"
+            className="max-w-xl text-xl leading-snug tracking-[-0.01em] text-pretty text-slate-700 motion-reduce:animate-none sm:animate-fade-up sm:text-2xl lg:col-span-6 dark:text-slate-300"
           >
-            {t("profile.tagline")}
+            <span className="font-serif text-[1.15em] text-slate-900 italic dark:text-slate-50">
+              {profile.nickname}
+            </span>{" "}
+            — {t("profile.tagline")}
           </p>
           <div
-            className="mt-6 flex animate-fade-up flex-wrap items-center gap-3 motion-reduce:animate-none sm:mt-10"
+            className="flex animate-fade-up flex-wrap items-center gap-3 motion-reduce:animate-none lg:col-span-6 lg:justify-end"
             style={afterOpening(550)}
           >
-            <ButtonLink href="#projects">{t("hero.viewProjects")}</ButtonLink>
+            <ButtonLink href="#projects" arrow="right">
+              {t("hero.viewProjects")}
+            </ButtonLink>
             <ButtonLink href={profile.cvHref} variant="secondary" download>
               {t("hero.downloadCv")}
             </ButtonLink>
-            <div className="-ml-2.5 sm:ml-0">
-              <SocialLinks />
-            </div>
+            <SocialLinks />
           </div>
-        </div>
-
-        <div
-          className="relative min-w-0 animate-fade-up motion-reduce:animate-none lg:pl-6"
-          style={afterOpening(250)}
-        >
-          <div className="transition-transform duration-500 ease-out hover:-translate-y-1 lg:rotate-1 lg:hover:rotate-0">
-            <Tilt>
-              <CodeCard
-                fileName="intro.ts"
-                nickname={profile.nickname}
-                location={t("profile.location")}
-                stack={profile.stack}
-              />
-            </Tilt>
-          </div>
-          {stats.map((stat) => (
-            <p
-              key={stat.label}
-              className="absolute -top-10 right-3 inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 shadow-slate-900/10 ring-slate-200 sm:top-auto sm:-bottom-8 sm:px-5 sm:py-4 lg:right-4 dark:bg-slate-800 dark:shadow-slate-950/40 dark:ring-slate-700/60"
-            >
-              <span className="bg-linear-to-r from-primary-700 to-secondary-700 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl dark:from-primary-300 dark:to-secondary-300">
-                {stat.value}
-              </span>
-              <span className="max-w-28 text-sm leading-snug text-slate-600 dark:text-slate-300">
-                {stat.label}
-              </span>
-            </p>
-          ))}
         </div>
       </Container>
     </section>

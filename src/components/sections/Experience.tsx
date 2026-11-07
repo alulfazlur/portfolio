@@ -1,19 +1,10 @@
 import { Stagger } from "@/components/motion/Stagger";
 import { StaggerItem } from "@/components/motion/StaggerItem";
-import { Pressable } from "@/components/motion/Pressable";
 import { Section } from "@/components/ui/Section";
 import { Tag } from "@/components/ui/Tag";
-import { tones } from "@/components/ui/tones";
-import type { AccentColor, ExperienceId } from "@/content/types";
 import { getExperience } from "@/lib/content";
 import { formatPeriod } from "@/lib/format";
 import { getLocale, getT } from "@/lib/i18n";
-
-const jobTones: Record<ExperienceId, AccentColor> = {
-  icube: "teal",
-  "icube-sirclo": "sky",
-  bit: "rose",
-};
 
 export async function Experience() {
   const t = await getT();
@@ -24,69 +15,78 @@ export async function Experience() {
       id="experience"
       index="03"
       title={t("sections.experience")}
-      tone="emerald"
       layout="side"
-      glow="right"
     >
-      <div className="relative pl-7 sm:pl-12">
-        <div
-          aria-hidden="true"
-          className="absolute top-2 bottom-2 left-[5px] w-0.5 rounded-full bg-linear-to-b from-primary-500 via-secondary-400 to-rose-400 sm:left-[6px]"
-        />
-        <Stagger as="ol" className="space-y-6">
-          {getExperience(t).map((job) => {
-            const tone = tones[jobTones[job.id]];
-            const current = job.end === null;
-            return (
-              <StaggerItem as="li" key={job.id} className="relative">
-                <span
-                  aria-hidden="true"
-                  className={`absolute top-7 -left-7 size-3 rounded-full ring-4 ring-slate-50 sm:-left-12 sm:size-3.5 dark:ring-slate-900 ${tone.dot}`}
-                />
-                <Pressable preset="surface">
-                  <article
-                    className={`relative rounded-3xl border p-6 sm:p-8 ${
-                      current
-                        ? "border-primary-200 bg-linear-to-br from-primary-50 to-secondary-50 dark:border-primary-500/30 dark:from-primary-500/10 dark:to-secondary-500/5"
-                        : "border-slate-200 bg-white dark:border-slate-700/60 dark:bg-slate-800"
-                    }`}
+      <Stagger
+        as="ol"
+        className="border-t border-slate-900/15 dark:border-slate-100/15"
+      >
+        {getExperience(t).map((job) => {
+          const current = job.end === null;
+          return (
+            <StaggerItem
+              as="li"
+              key={job.id}
+              className="border-b border-slate-900/15 py-8 sm:py-10 dark:border-slate-100/15"
+            >
+              <article>
+                <p className="flex items-center gap-2 font-mono text-xs tracking-[0.08em] text-slate-500 uppercase dark:text-slate-400">
+                  {current && (
+                    <span
+                      aria-hidden="true"
+                      className="size-2 bg-primary-600 dark:bg-primary-400"
+                    />
+                  )}
+                  <span
+                    className={
+                      current ? "text-slate-900 dark:text-slate-100" : ""
+                    }
                   >
-                    <p
-                      className={`inline-flex rounded-full px-3 py-1 font-mono text-xs ${tone.chip}`}
+                    {formatPeriod(
+                      locale,
+                      job.start,
+                      job.end,
+                      t("experience.present"),
+                    )}
+                  </span>
+                </p>
+                <h3 className="mt-3 text-[clamp(1.75rem,3.2vw,2.75rem)] leading-none font-semibold tracking-[-0.035em] text-slate-900 dark:text-slate-50">
+                  {job.company}
+                </h3>
+                <p className="mt-2 font-serif text-xl text-slate-600 italic sm:text-2xl dark:text-slate-300">
+                  {job.role}
+                </p>
+                <ol className="mt-6 space-y-3 text-base leading-relaxed text-slate-700 sm:text-[1.0625rem] dark:text-slate-300">
+                  {job.highlights.map((highlight, index) => (
+                    <li
+                      key={highlight.slice(0, 24)}
+                      className="grid grid-cols-[2.25rem_minmax(0,1fr)] gap-2"
                     >
-                      {formatPeriod(
-                        locale,
-                        job.start,
-                        job.end,
-                        t("experience.present"),
-                      )}
-                    </p>
-                    <h3 className="mt-4 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-50">
-                      {job.role}
-                      <span className={tone.text}> · {job.company}</span>
-                    </h3>
-                    <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-slate-700 marker:text-slate-400 dark:text-slate-300 dark:marker:text-slate-600">
-                      {job.highlights.map((highlight) => (
-                        <li key={highlight.slice(0, 24)}>{highlight}</li>
-                      ))}
-                    </ul>
-                    <ul
-                      className="mt-6 flex flex-wrap gap-1.5"
-                      aria-label={t("experience.stack")}
-                    >
-                      {job.stack.map((tech) => (
-                        <li key={tech}>
-                          <Tag>{tech}</Tag>
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-                </Pressable>
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
-      </div>
+                      <span
+                        aria-hidden="true"
+                        className="pt-1 font-mono text-xs text-primary-700 dark:text-primary-300"
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="max-w-3xl">{highlight}</span>
+                    </li>
+                  ))}
+                </ol>
+                <ul
+                  className="mt-6 flex flex-wrap gap-1.5 sm:pl-[2.75rem]"
+                  aria-label={t("experience.stack")}
+                >
+                  {job.stack.map((tech) => (
+                    <li key={tech}>
+                      <Tag>{tech}</Tag>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </StaggerItem>
+          );
+        })}
+      </Stagger>
     </Section>
   );
 }
