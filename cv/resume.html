@@ -63,7 +63,8 @@
         margin: 0;
         font-size: 22pt;
         line-height: 1.1;
-        letter-spacing: -0.02em;
+        /* Tanpa tracking negatif: parser ATS menebak spasi dari jarak antar-glyph,
+           dan jarak yang lebih rapat dari lebar glyph bisa memecah nama ("Fazlu r"). */
         color: var(--ink);
         font-weight: 600;
       }
